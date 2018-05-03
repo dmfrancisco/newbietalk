@@ -251,15 +251,14 @@ module.exports = {
   */
 
   textSizes: {
-    'xs': '.75rem',     // 12px
-    'sm': '.875rem',    // 14px
-    'base': '1rem',     // 16px
-    'lg': '1.125rem',   // 18px
-    'xl': '1.25rem',    // 20px
-    '2xl': '1.5rem',    // 24px
-    '3xl': '1.875rem',  // 30px
-    '4xl': '2.25rem',   // 36px
-    '5xl': '3rem',      // 48px
+    // 'xs': '.75rem',   // 12px
+    // 'sm': '.875rem',  // 14px
+    'base': '1.0625rem', // 17px
+    'lg': '1.3125rem',   // 21px
+    'xl': '1.5rem',      // 24px
+    '2xl': '1.875rem',   // 30px
+    '3xl': '2.25rem',    // 36px
+    '4xl': '3rem',       // 48px
   },
 
 
@@ -397,9 +396,10 @@ module.exports = {
   borderWidths: {
     default: '1px',
     '0': '0',
-    '2': '2px',
-    '4': '4px',
-    '8': '8px',
+    // '2': '2px',
+    '3': '3px',
+    // '4': '4px',
+    // '8': '8px',
   },
 
 
@@ -420,7 +420,7 @@ module.exports = {
   |
   */
 
-  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+  borderColors: global.Object.assign({ default: 'currentColor' }, colors),
 
 
   /*
@@ -441,9 +441,9 @@ module.exports = {
 
   borderRadius: {
     'none': '0',
-    'sm': '.125rem',
+    // 'sm': '.125rem',
     default: '.25rem',
-    'lg': '.5rem',
+    'lg': '.625rem',
     'full': '9999px',
   },
 
@@ -729,10 +729,10 @@ module.exports = {
   */
 
   shadows: {
-    default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-    'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
-    'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
-    'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
+    default: '5px 6px rgba(0,0,0,0.15)',
+    // 'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
+    // 'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
+    // 'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     'none': 'none',
   },
 

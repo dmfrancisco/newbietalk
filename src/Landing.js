@@ -8,6 +8,8 @@ class App extends Component {
         <header className="text-center">
           <Logo className="fill-current" />
           <h2>Welcome to React</h2>
+      
+          <a className="Button" href="#">Sign In</a>
         </header>
       </div>
     );

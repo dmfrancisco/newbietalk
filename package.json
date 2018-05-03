@@ -21,12 +21,11 @@
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run prod:start || npm run dev:start",
-    "dev:start": "npm-run-all -p dev:start:css dev:start:js",
-    "dev:start:css": "postcss src/css/index.css -o src/index.css -w",
+    "dev:start": "npm-run-all -p build:css dev:start:js",
     "dev:start:js": "react-scripts start",
     "prod:start": "static build --gzip",
     "build": "npm-run-all build:css build:js",
-    "build:css": "postcss src/css/index.css -o src/index.css",
+    "build:css": "postcss src/index.tw.css -o src/index.css",
     "build:js": "react-scripts build && gzip -rk build && refresh"
   },
   "license": "MIT"
