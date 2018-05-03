@@ -597,7 +597,7 @@ module.exports = {
     'sm': '30rem',
     'md': '40rem',
     'lg': '50rem',
-    'xl': '60rem',
+    'xl': '63.75rem', // 1020px
     '2xl': '70rem',
     '3xl': '80rem',
     '4xl': '90rem',
@@ -650,6 +650,10 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    // '10': '2.5rem',
+    // '12': '3rem',
+    // '14': '3.5rem',
+    '15': '3.75rem'
   },
 
 

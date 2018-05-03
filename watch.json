@@ -14,7 +14,7 @@
     "include": [
       "^\\.env",
       "\\.json$",
-      "^\\.js$"
+      "\\.config\\.js$"
     ]
   },
   "throttle": 100
