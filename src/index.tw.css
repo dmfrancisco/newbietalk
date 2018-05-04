@@ -36,6 +36,34 @@
  * @import "components/forms";
  */
 
+.Button {
+  @apply
+    .appearance-none
+    .inline-block
+    .no-underline
+    .font-bold
+    .px-4
+    .py-3
+    .border-3
+    .rounded-lg
+    .text-black;
+
+  box-shadow: 5px 6px rgba(0,0,0,0.15);
+  transition: transform, box-shadow;
+  transition-duration: 200ms;
+}
+
+.Button:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 8px rgba(0,0,0,0.15);
+}
+
+.Button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 rgba(0,0,0,0.15);
+  transition: none;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -60,29 +88,3 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
-
-.Button {
-  @apply
-    .inline-block
-    .no-underline
-    .font-bold
-    .p-4
-    .border-3
-    .rounded-lg
-    .text-black;
-
-  box-shadow: 5px 6px rgba(0,0,0,0.15);
-  transition: transform, box-shadow;
-  transition-duration: 200ms;
-}
-
-.Button:hover {
-  transform: translateY(-2px);
-  box-shadow: 6px 8px rgba(0,0,0,0.15);
-}
-
-.Button:active {
-  transform: translateY(4px);
-  box-shadow: 0 0 rgba(0,0,0,0.15);
-  transition: none;
-}

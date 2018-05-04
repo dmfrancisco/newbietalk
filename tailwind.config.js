@@ -256,9 +256,9 @@ module.exports = {
     'base': '1.0625rem', // 17px
     'lg': '1.3125rem',   // 21px
     'xl': '1.5rem',      // 24px
-    '2xl': '1.875rem',   // 30px
-    '3xl': '2.25rem',    // 36px
-    '4xl': '3rem',       // 48px
+    // '2xl': '1.875rem',   // 30px
+    // '3xl': '2.25rem',    // 36px
+    '4xl': '2.9375rem',  // 47px
   },
 
 
@@ -322,9 +322,10 @@ module.exports = {
   */
 
   tracking: {
-    'tight': '-0.05em',
-    'normal': '0',
-    'wide': '0.05em',
+    // 'none': '0',
+    // 'tight': '-0.05em',
+    'normal': '-0.01em',
+    // 'wide': '0.05em',
   },
 
 
@@ -593,15 +594,15 @@ module.exports = {
   */
 
   maxWidth: {
-    'xs': '20rem',
-    'sm': '30rem',
-    'md': '40rem',
-    'lg': '50rem',
+    // 'xs': '20rem',
+    // 'sm': '30rem',
+    'md': '38.75rem', // 620px
+    // 'lg': '50rem',
     'xl': '63.75rem', // 1020px
-    '2xl': '70rem',
-    '3xl': '80rem',
-    '4xl': '90rem',
-    '5xl': '100rem',
+    // '2xl': '70rem',
+    // '3xl': '80rem',
+    // '4xl': '90rem',
+    // '5xl': '100rem',
     'full': '100%',
   },
 
