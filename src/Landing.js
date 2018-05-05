@@ -69,12 +69,43 @@ class App extends Component {
           </p>
         </header>
       
-        <div className="flex">
-          <SliderBox 
-            className="w-1/2 bg-purple-lightest"
-            title="Fact: We all make miskates"
-            items={tweets}
-          />
+        <div className="flex flex-wrap items-end justify-end -mx-8">
+          <div className="w-1/2" style={{ marginBottom: -160 }}>
+            <div className="bg-teal-lightest border-3 rounded-lg shadow m-4 mr-8">
+              <h3 className="text-xl italic m-8">Fact:  We’re all beginners at something</h3>
+
+              <p className="text-brown leading-normal m-8">
+                Everyone started as a beginner in their careers.
+                Not only that’s a fact of life and completely fine, it can be fun.
+                But learning new things can also be very frustrating at times.
+              </p>
+
+              <p className="text-brown leading-normal m-8">
+                Smalltalk is a safe place where you can remain anonymous and
+                share your questions privately with someone you choose to connect with.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-1/2" style={{ marginTop: 20 }}>
+            <div className="bg-blue-lightest border-3 rounded-lg shadow m-6 mr-8">
+              <h3 className="text-xl italic m-8">Fact:  We’re all good at something</h3>
+
+              <p className="text-brown leading-normal m-8">
+                Have you been working in tech for some time?
+                Pretty sure what you have to share is huge. Join us in helping others.
+                We won’t bug you, you decide who and when you want to help.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-1/2" style={{ marginTop: 20 }}>
+            <SliderBox 
+              className="bg-purple-lightest border-3 rounded-lg shadow m-4 mr-6"
+              title="Fact: We all make miskates"
+              items={tweets}
+            />
+          </div>
         </div>
       </div>
     );
