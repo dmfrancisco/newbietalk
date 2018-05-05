@@ -5,10 +5,8 @@ import Landing from './Landing';
 class App extends Component {
   render() {
     return (
-      <Router basename="/alpha">
-        <Route path="/alpha">
-          <Route exact path="/" component={Landing} />
-        </Route>
+      <Router>
+        <Route path="/alpha" component={Landing} />
       </Router>
     );
   }

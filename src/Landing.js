@@ -19,7 +19,7 @@ const tweets = [
     job: "Software Engineer at Google",
     src: "https://twitter.com/jaffathecake",
   }, {
-    text: "One time I prevented all British people from signing up for @treehouse for about 12 hours because I forgot how non-US postal codes work.",
+    text: "I prevented all British people from signing up for Treehouse for about 12 hours because I forgot how non-US postal codes work.",
     author: "Aimee",
     job: "Senior Developer at TreeHouse",
     src: "https://twitter.com/aimee_ebooks"
@@ -35,8 +35,8 @@ const tweets = [
     src: "https://twitter.com/dhh",
   }, {
     text: "I'm fairly convinced the main difference between a senior dev and a junior dev is the senior knows how to hide the evidence.",
-    author: "Donia (Lasagna)",
-    job: "Creator of @happyspacebot",
+    author: "Donia",
+    job: "Creator of happyspacebot",
     src: "https://twitter.com/doniamae",
   }
 ];

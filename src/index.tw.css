@@ -88,3 +88,11 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+.text-inherit {
+  color: inherit;
+}
+
+.hyphens {
+  hyphens: auto;
+}

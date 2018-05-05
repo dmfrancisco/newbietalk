@@ -45,14 +45,20 @@ class SliderBox extends Component {
   }
 
   renderItem(item, className) {
-    const allClassNames = `flex-1 px-8 mb-8 text-brown leading-normal ${className}`;
+    const itemClassName = `mx-8 px-6 text-brown leading-normal ${className}`;
 
     return (
-      <blockquote key={item.author} className={allClassNames}>
+      <blockquote key={item.author} className={itemClassName}>
         {item.text}
 
         <footer className="mt-4">
-          — <a href={item.src} target="_blank" rel="noopener noreferrer">{item.author}</a>, {item.job}
+          — <a 
+            href={item.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-inherit">
+          {item.author}
+          </a>, {item.job}
         </footer>
       </blockquote>
     );
@@ -71,14 +77,17 @@ class SliderBox extends Component {
 
     return (
       <section className={boxClassName}>
-        <h3 className="text-xl italic m-8">{ title }</h3>
+        <h3 className="text-xl italic m-6">{ title }</h3>
 
-        <button className="Button bg-grey-light" onClick={this.showPrevious}>◀</button>
-        <button className="Button bg-grey-light" onClick={this.showNext}>▶</button>
+        <div className="flex items-center mb-8" style={{ height: 120 }}>
+          <button className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10" onClick={this.showPrevious}>◀</button>
 
-        <div className="relative overflow-hidden">
-          {this.renderItem(items[latestItemIndex], latestItemClassName)}
-          {this.renderItem(items[currentItemIndex], currentItemClassName)}
+          <div className="relative flex-1 h-full flex items-center overflow-hidden">
+            {this.renderItem(items[latestItemIndex], latestItemClassName)}
+            {this.renderItem(items[currentItemIndex], currentItemClassName)}
+          </div>
+
+          <button className="flex-none Button bg-grey-light -mr-8 -ml-6 -mt-8 z-10" onClick={this.showNext}>▶</button>
         </div>
       </section>  
     );
