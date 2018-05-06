@@ -63,9 +63,9 @@
   animation-name: slideOutRight;
 }
 
-@keyframes slideInDown {
+@keyframes slideInUp {
   from {
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, 100%, 0);
     visibility: visible;
   }
 
@@ -74,8 +74,8 @@
   }
 }
 
-.slideInDown {
-  animation-name: slideInDown;
+.slideInUp {
+  animation-name: slideInUp;
 }
 
 @keyframes bounceInUp {

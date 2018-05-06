@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import { Cross } from "./Icons";
 import Logo from "./images/Logo";
 import Flag from "./images/Flag";
+import SpaceUnicorn from "./images/SpaceUnicorn";
 import { Brick1, Brick2 } from "./images/Bricks";
 
 const tweets = [
@@ -104,7 +105,7 @@ class App extends Component {
           <div className="italic text-brown mb-8">It’s anonymous and free.</div>
         </header>
       
-        <div className="flex flex-wrap items-end justify-end -mx-8">
+        <div className="flex flex-wrap items-end justify-end -mx-8 mb-8">
           <div className="w-1/2" style={{ marginBottom: -160 }}>
             <div className="Box bg-teal-lightest mr-8 ml-2">
               <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all beginners at something</h3>
@@ -142,6 +143,40 @@ class App extends Component {
             />
           </div>
         </div>
+      
+        <footer className="flex -mx-4 leading-normal select-none">
+          <SpaceUnicorn className="block flex-none mr-4" />
+      
+          <p className="mr-4">Space Unicorn wishes <br/> you a happy day!</p>
+      
+          <div className="flex-1" />
+
+          <nav className="mb-8 flex-none">
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Get Started
+            </Link>
+
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Languages
+            </Link>
+
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Code of Conduct
+            </Link>
+
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Thanks
+            </Link>
+
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Privacy
+            </Link>
+
+            <Link to="/" className="text-inherit no-underline font-bold p-3">
+              Terms
+            </Link>
+          </nav>
+        </footer>
       
         { showFlagModal && (
           <Modal onDismiss={this.closeFlagModal} className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6">
