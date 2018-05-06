@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Left, Right } from "./Icons";
 import "./animate.css";
 
 class SliderBox extends Component {
@@ -33,7 +34,7 @@ class SliderBox extends Component {
 
   scheduleNext() {
     clearTimeout(this.timer);
-    this.timer = setTimeout(this.showNext, 5000);
+    this.timer = setTimeout(this.showNext, 10000);
   }
 
   componentDidUpdate() {
@@ -76,17 +77,21 @@ class SliderBox extends Component {
 
     return (
       <div className={className}>
-        <h3 className="text-xl italic m-8 mb-6">{ title }</h3>
+        <h3 className="text-lg italic m-8 mb-6">{ title }</h3>
 
         <div className="flex items-center mb-8" style={{ height: 120 }}>
-          <button className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10" onClick={this.showPrevious}>◀</button>
+          <button className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10" onClick={this.showPrevious}>
+            <Left className="block" />
+          </button>
 
           <div className="relative flex-1 h-full flex items-center overflow-hidden">
             {this.renderItem(items[latestItemIndex], latestItemClassName)}
             {this.renderItem(items[currentItemIndex], currentItemClassName)}
           </div>
 
-          <button className="flex-none Button bg-grey-light -mr-8 -ml-6 -mt-8 z-10" onClick={this.showNext}>▶</button>
+          <button className="flex-none Button bg-grey-light -mr-8 -ml-6 -mt-8 z-10" onClick={this.showNext}>
+            <Right className="block" />
+          </button>
         </div>
       </div>  
     );

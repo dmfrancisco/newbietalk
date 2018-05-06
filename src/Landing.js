@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Logo from "./Logo";
+import { Link } from "react-router-dom";
 import SliderBox from "./SliderBox";
+import Modal from "./Modal";
+import { Cross } from "./Icons";
+import Logo from "./images/Logo";
+import Flag from "./images/Flag";
 
 const tweets = [
   {
@@ -42,7 +46,23 @@ const tweets = [
 ];
 
 class App extends Component {
+  state = {
+    showFlagModal: true,
+  }
+
+  openFlagModal = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ showFlagModal: true });
+  }
+  
+  closeFlagModal = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ showFlagModal: false });
+  }
+
   render() {
+    const { showFlagModal } = this.state;
+    
     return (
       <div className="max-w-xl mx-auto px-15 py-8">
         <nav className="text-right mb-8">
@@ -64,15 +84,26 @@ class App extends Component {
           </p>
 
           <p className="text-xl text-brown font-bold mb-8 leading-normal">
-            Smalltalk is a safe place where you can privately chat
-            with another person to get help.
+            Smalltalk is a{" "}
+            <a
+              href="#about-red-flag"
+              onClick={this.openFlagModal}
+              className="text-inherit"
+            >
+              safe place
+            </a>*
+            where you can privately chat with another person to get help.
           </p>
+      
+          <Link to="#" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">Get started</Link>
+      
+          <div className="italic text-brown mb-8">It’s anonymous and free.</div>
         </header>
       
         <div className="flex flex-wrap items-end justify-end -mx-8">
           <div className="w-1/2" style={{ marginBottom: -160 }}>
-            <div className="bg-teal-lightest border-3 rounded-lg shadow m-4 mr-8">
-              <h3 className="text-xl italic m-8">Fact:  We’re all beginners at something</h3>
+            <div className="Box bg-teal-lightest mr-8 ml-2">
+              <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all beginners at something</h3>
 
               <p className="text-brown leading-normal m-8">
                 Everyone started as a beginner in their careers.
@@ -88,8 +119,8 @@ class App extends Component {
           </div>
 
           <div className="w-1/2" style={{ marginTop: 20 }}>
-            <div className="bg-blue-lightest border-3 rounded-lg shadow m-6 mr-8">
-              <h3 className="text-xl italic m-8">Fact:  We’re all good at something</h3>
+            <div className="Box bg-blue-lightest m-6 mr-8">
+              <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all good at something</h3>
 
               <p className="text-brown leading-normal m-8">
                 Have you been working in tech for some time?
@@ -101,12 +132,37 @@ class App extends Component {
 
           <div className="w-1/2" style={{ marginTop: 20 }}>
             <SliderBox 
-              className="bg-purple-lightest border-3 rounded-lg shadow m-4 mr-6"
-              title="Fact: We all make miskates"
+              className="Box bg-purple-lightest m-4 mr-6"
+              title="Fact: &nbsp;We all make miskates"
               items={tweets}
             />
           </div>
         </div>
+      
+        { showFlagModal && (
+          <Modal onDismiss={this.closeFlagModal} className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6">
+            <div className="animated bounceInUp float-right w-1/2">
+              <div className="Box bg-yellow-lightest hyphens mb-6">
+                <button className="Button rounded-full bg-grey-light p-3 -mt-6 -ml-6 float-left">
+                  <Cross className="block" />
+                </button>        
+
+                <h3 className="text-lg italic m-8">Keeping SmallTalk friendly and safe</h3>
+
+                <p className="text-brown leading-normal m-8 mb-4">
+                  We try to design features that incentivize good behavior, but sometimes it isn’t enough. 
+                </p>
+
+                <p className="text-brown leading-normal m-8 mt-4">
+                  Everytime you encounter something in any way innapropriate,
+                  please let us know by clicking on the flag available on the bottom right corner. 
+                </p>
+              </div>
+
+              <Flag className="block float-right" style={{ marginRight: -6 }} />
+            </div>
+          </Modal>
+        ) }
       </div>
     );
   }

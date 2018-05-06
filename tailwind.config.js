@@ -78,7 +78,7 @@ let colors = {
   // 'yellow': '#ffed4a',
   // 'yellow-light': '#fff382',
   // 'yellow-lighter': '#fff9c2',
-  // 'yellow-lightest': '#fcfbeb',
+  'yellow-lightest': '#ffefad',
 
   // 'green-darkest': '#0f2f21',
   // 'green-darker': '#1a4731',
@@ -776,11 +776,12 @@ module.exports = {
   */
 
   opacity: {
-    '0': '0',
-    '25': '.25',
-    '50': '.5',
-    '75': '.75',
-    '100': '1',
+    // '0': '0',
+    // '25': '.25',
+    // '50': '.5',
+    // '75': '.75',
+    '90': '.90',
+    // '100': '1',
   },
 
 
