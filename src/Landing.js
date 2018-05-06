@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import { Cross } from "./Icons";
 import Logo from "./images/Logo";
 import Flag from "./images/Flag";
+import { Brick1, Brick2 } from "./images/Bricks";
 
 const tweets = [
   {
@@ -47,7 +48,7 @@ const tweets = [
 
 class App extends Component {
   state = {
-    showFlagModal: true,
+    showFlagModal: false,
   }
 
   openFlagModal = (e) => {
@@ -64,7 +65,10 @@ class App extends Component {
     const { showFlagModal } = this.state;
     
     return (
-      <div className="max-w-xl mx-auto px-15 py-8">
+      <div className="relative max-w-xl mx-auto px-15 py-8">
+        <Brick1 className="absolute" style={{ top: 100, left: 100 }} />
+        <Brick2 className="absolute" style={{ top: 600, left: 850 }} />
+      
         <nav className="text-right mb-8">
           <a className="Button" href="#">Sign In</a>
         </nav>
