@@ -6,12 +6,14 @@ devDependencies:
   npm-run-all: 4.1.2
   postcss-cli: 5.0.0
   postcss-import: 11.1.0
+  prop-types: 15.6.1
   react: 16.3.2
   react-dom: 16.3.2
   react-router-dom: 4.2.2
   react-scripts: 1.1.4
   tailwindcss: 0.5.2
   typeface-karmilla: github.com/dmfrancisco/typeface-karmilla/b75879c4bc942e0a9a3ec1c09a582944979642a2
+  unstated: 2.0.3
   url-join: 4.0.0
 packages:
   /abab/1.0.4:
@@ -1911,6 +1913,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-MJG9liiZ+ogc4TzUwuvbER1JRdgvUFSB5+VR/g5h82fGaIRWMWddtKBHi7/sVhfjQZ6SehlyhvQYrcYkaUIpLg==
+  /create-react-context/0.1.6:
+    dev: true
+    peerDependencies:
+      prop-types: ^15.0.0
+      react: ^14.0.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-eCnYYEUEc5i32LHwpE/W7NlddOB9oHwsPaWtWzYtflNkkwa3IfindIcoXdVWs12zCbwaMCavKNu84EXogVIWHw==
   /cross-spawn/5.1.0:
     dependencies:
       lru-cache: 4.1.2
@@ -7811,6 +7820,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-qGLgGOP7HqLsP85dVWBc9X8kc3E=
+  /tickedoff/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha512-iml/591Hkkcs1Llex6WcjQZo0H76gF7El4Brp1hWRHrUEjWXivrWTCeRj/FugI09ovG3pm3MZnRih7ucW6znSw==
   /time-stamp/2.0.0:
     dev: true
     engines:
@@ -8041,6 +8054,16 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=
+  /unstated/2.0.3:
+    dependencies:
+      create-react-context: 0.1.6
+      tickedoff: 1.0.2
+    dev: true
+    peerDependencies:
+      prop-types: ^15.5.0
+      react: ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-vktQusfpVYBdafQMx7B1h7ZYRaB3HZtVivzuVJTcl9qyXZGkIGf3A507+5J5Ju7NT5GOb8Kdlj3a+HDVB5ypFg==
   /unzip-response/2.0.1:
     dev: true
     engines:
@@ -8621,10 +8644,12 @@ specifiers:
   npm-run-all: ^4.1.2
   postcss-cli: ^5.0.0
   postcss-import: ^11.1.0
+  prop-types: ^15.6.1
   react: ^16.3.2
   react-dom: ^16.3.2
   react-router-dom: ^4.2.2
   react-scripts: ^1.1.4
   tailwindcss: ^0.5.2
   typeface-karmilla: 'github:dmfrancisco/typeface-karmilla'
+  unstated: ^2.0.3
   url-join: ^4.0.0
