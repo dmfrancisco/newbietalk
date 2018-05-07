@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://smalltalk.glitch.me",
-  "engines": { 
+  "engines": {
     "node": "10.x"
   },
-  "dependencies": {
+  "devDependencies": {
     "node-static": "^0.7.10",
     "if-env": "^1.0.4"
   },
-  "devDependencies": {
+  "dependencies": {
     "npm-run-all": "^4.1.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -22,8 +22,8 @@
     "url-join": "^4.0.0",
     "avataaars": "^1.1.0",
     "unstated": "^2.0.3",
-    "prop-types": "^15.6.1",
-    "typeface-karmilla": "github:dmfrancisco/typeface-karmilla"
+    "typeface-karmilla": "github:dmfrancisco/typeface-karmilla",
+    "prop-types": "^15.6.1"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run prod:start || npm run dev:start",

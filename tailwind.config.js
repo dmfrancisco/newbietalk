@@ -256,7 +256,7 @@ module.exports = {
     'base': '1.0625rem', // 17px
     'lg': '1.3125rem',   // 21px
     'xl': '1.5rem',      // 24px
-    // '2xl': '1.875rem',   // 30px
+    '2xl': '1.875rem',   // 30px
     // '3xl': '2.25rem',    // 36px
     '4xl': '2.9375rem',  // 47px
   },

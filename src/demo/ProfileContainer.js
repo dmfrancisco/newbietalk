@@ -139,30 +139,69 @@ const SkinOption = {
   }
 }
 
-export default class AvatarContainer extends Container {
+export default class ProfileContainer extends Container {
   state = {
-    topType: "NoHair",
-    accessoriesType: "Blank",
-    hairColor: "BlondeGolden",
-    facialHairType: "Blank",
-    facialHairColor: "BlondeGolden",
-    skinColor: "Yellow",
+    avatarStyles: {
+      topType: "NoHair",
+      accessoriesType: "Blank",
+      hairColor: "BlondeGolden",
+      facialHairType: "Blank",
+      facialHairColor: "BlondeGolden",
+      skinColor: "Yellow",
+    },
+    pronoun: "They / Them",
+    languages: [
+      { name: "", icon: "🏳️" },
+      { name: "", icon: "🏳️" },
+      { name: "", icon: "🏳️" },
+    ],
   };
 
-  getOptions() {
+  getAvatarStyleOptions() {
     return [
       TopOption,
-      this.state.topType.includes("Hair") && !this.state.topType.includes("NoHair") ? HairColorOption : null,
+      this.state.avatarStyles.topType.includes("Hair") && !this.state.avatarStyles.topType.includes("NoHair") ? HairColorOption : null,
       FacialHairOption,
-      this.state.facialHairType !== "Blank" ? FacialHairColorOption : null,
+      this.state.avatarStyles.facialHairType !== "Blank" ? FacialHairColorOption : null,
       AccessoriesOption,
       SkinOption,
     ].filter((el) => el);
   }
 
-  setStyle(name, value) {
-    const state = { ...this.state };
-    state[name] = value;
-    this.setState(state);
+  setAvatarStyle(name, value) {
+    const avatarStyles = { ...this.state.avatarStyles };
+    avatarStyles[name] = value;
+    this.setState({ avatarStyles });
+  }
+
+  getPronounOptions() {
+    return [
+      "They / Them",
+      "She / Her",
+      "He / Him",
+    ];
+  }
+
+  setPronoun(pronoun) {
+    this.setState({ pronoun });
+  }
+
+  getLanguageIconOptions() {
+    return [
+      "🏳️",
+      "🇺🇸",
+    ];
+  }
+
+  setLanguageName(index, name) {
+    const languages = [ ...this.state.languages ];
+    languages[index].name = name;
+    this.setState({ languages });
+  }
+
+  setLanguageIcon(index, icon) {
+    const languages = [ ...this.state.languages ];
+    languages[index].icon = icon;
+    this.setState({ languages });
   }
 }
