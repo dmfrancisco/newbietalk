@@ -3,36 +3,31 @@ import Avatar from "../Avatar";
 
 const TopOption = {
   key: 'topType',
-  label: '🎩 Top',
+  label: '🎩',
   values: {
-    NoHair: "NoHair",
-    Eyepatch: "Eyepatch",
+    Top: "NoHair",
     // "Hat",
     // "Hijab",
-    Turban: "Turban",
-    WinterHat1: "WinterHat1",
-    WinterHat2: "WinterHat2",
-    WinterHat3: "WinterHat3",
     // "WinterHat4",
-    Hair1: "LongHairBigHair",
-    Hair2: "LongHairBob",
+    "Hair 1": "LongHairBigHair",
+    "Hair 2": "LongHairBob",
     // "LongHairBun",
-    Hair3: "LongHairCurly",
-    Hair4: "LongHairCurvy",
+    "Hair 3": "LongHairCurly",
+    "Hair 4": "LongHairCurvy",
     // "LongHairDreads",
     // "LongHairFrida",
-    Hair5: "LongHairFro",
+    "Hair 5": "LongHairFro",
     // "LongHairFroBand",
-    Hair6: "LongHairNotTooLong",
+    "Hair 6": "LongHairNotTooLong",
     // "LongHairShavedSides",
-    Hair7: "LongHairMiaWallace",
-    Hair8: "LongHairStraight",
-    Hair9: "LongHairStraight2",
-    Hair10: "LongHairStraightStrand",
+    "Hair 7": "LongHairMiaWallace",
+    "Hair 8": "LongHairStraight",
+    "Hair 9": "LongHairStraight2",
+    "Hair 10": "LongHairStraightStrand",
     // "ShortHairDreads01",
     // "ShortHairDreads02",
     // "ShortHairFrizzle",
-    Hair11: "ShortHairShaggyMullet",
+    "Hair 11": "ShortHairShaggyMullet",
     // "ShortHairShortCurly",
     // "ShortHairShortFlat",
     // "ShortHairShortRound",
@@ -40,17 +35,22 @@ const TopOption = {
     // "ShortHairSides",
     // "ShortHairTheCaesar",
     // "ShortHairTheCaesarSidePart",
+    Turban: "Turban",
+    "WinterHat 1": "WinterHat1",
+    "WinterHat 2": "WinterHat2",
+    "WinterHat 3": "WinterHat3",
+    Eyepatch: "Eyepatch",
   }
 }
 
 const AccessoriesOption = {
   key: 'accessoriesType',
-  label: '👓 Glasses',
+  label: '👓',
   values: {
-    Blank: "Blank",
+    Glasses: "Blank",
     Kurt: "Kurt",
-    Prescription01: "Prescription01",
-    Prescription02: "Prescription02",
+    "Prescription 1": "Prescription01",
+    "Prescription 2": "Prescription02",
     Round: "Round",
     Sunglasses: "Sunglasses",
     Wayfarers: "Wayfarers"
@@ -65,44 +65,44 @@ const AccessoriesOption = {
 
 const HairColorOption = {
   key: 'hairColor',
-  label: '💈 Hair Color',
+  label: '💈',
   values: {
+    "Hair Color": "BlondeGolden",
     Auburn: "Auburn",
     Black: "Black",
     Blonde: "Blonde",
-    BlondeGolden: "BlondeGolden",
     Brown: "Brown",
-    BrownDark: "BrownDark",
-    PastelPink: "PastelPink",
+    "Brown Dark": "BrownDark",
+    "Pastel Pink": "PastelPink",
     Platinum: "Platinum",
     Red: "Red",
-    SilverGray: "SilverGray",
+    "Silver Gray": "SilverGray",
   },
 }
 
 const FacialHairOption = {
   key: 'facialHairType',
-  label: '🧔 Facial Hair',
+  label: '✂️',
   values: {
-    Blank: "Blank",
-    BeardMedium: "BeardMedium",
-    BeardLight: "BeardLight",
-    BeardMagestic: "BeardMagestic",
-    MoustacheFancy: "MoustacheFancy",
-    MoustacheMagnum: "MoustacheMagnum",
+    "No Facial Hair": "Blank",
+    "Beard Medium": "BeardMedium",
+    "Beard Light": "BeardLight",
+    "Beard Magestic": "BeardMagestic",
+    "Moustache Fancy": "MoustacheFancy",
+    "Moustache Magnum": "MoustacheMagnum",
   },
 }
 
 const FacialHairColorOption = {
   key: 'facialHairColor',
-  label: '✂️ Facial Hair Color',
+  label: '💈',
   values: {
+    "Facial Hair Color": "BlondeGolden",
     Auburn: "Auburn",
     Black: "Black",
     Blonde: "Blonde",
-    BlondeGolden: "BlondeGolden",
     Brown: "Brown",
-    BrownDark: "BrownDark",
+    "Brown Dark": "BrownDark",
     Platinum: "Platinum",
     Red: "Red",
   },
@@ -128,40 +128,33 @@ const MouthOption = {
 
 const SkinOption = {
   key: 'skinColor',
-  label: '🎨 Skin',
+  label: '🎨',
   values: {
-    Tanned: "Tanned",
-    Yellow: "Yellow",
+    Yellow: "Skin",
     Pale: "Pale",
     Light: "Light",
     Brown: "Brown",
-    DarkBrown: "DarkBrown",
+    "Dark Brown": "DarkBrown",
     Black: "Black",
+    Tanned: "Tanned",
   }
 }
-    
-const options = [
-  SkinOption,
-  TopOption,
-  HairColorOption,
-  AccessoriesOption,
-  FacialHairOption,
-  FacialHairColorOption,
-];
 
-class Screen1 extends Component {
+const defaultAvatarStyles = {
+  topType: "NoHair",
+  accessoriesType: "Blank",
+  hairColor: "BlondeGolden",
+  facialHairType: "Blank",
+  facialHairColor: "BlondeGolden",
+  eyeType: null,
+  eyebrowType: null,
+  mouthType: null,
+  skinColor: "Yellow",
+}
+
+class Screen1 extends Component {  
   state = {
-    avatarStyles: {
-      topType: "NoHair",
-      accessoriesType: "Blank",
-      hairColor: "Auburn",
-      facialHairType: "Blank",
-      facialHairColor: "Auburn",
-      eyeType: null,
-      eyebrowType: null,
-      mouthType: null,
-      skinColor: "Yellow",
-    },
+    avatarStyles: defaultAvatarStyles,
   }
 
   handleChange = (e) => {
@@ -172,29 +165,49 @@ class Screen1 extends Component {
 
   render() {
     const { avatarStyles } = this.state;
+    
+    const options = [
+      TopOption,
+      avatarStyles.topType.includes("Hair") && !avatarStyles.topType.includes("NoHair") ? HairColorOption : null,
+      FacialHairOption,
+      avatarStyles.facialHairType !== "Blank" ? FacialHairColorOption : null,
+      AccessoriesOption,
+      SkinOption,
+    ].filter((el) => el);
 
     return (
-      <div className="p-6 bg-brown-lightest h-full">
-        <Avatar
-          {...avatarStyles}
-          className="block mb-4"
-        />
-    
-        { options.map((menu) => (
-          <select 
-            key={menu.key}
-            name={menu.key}
-            className="border-2 h-10 bg-transparent m-1"
-            onChange={this.handleChange}
-            value={avatarStyles[menu.key]}
-          >
-            {Object.entries(menu.values).map(([ label, key ]) => (
-              <option value={key} key={key}>
-                {menu.label} · {label}
-              </option>
+      <div className="p-6 bg-white">
+        <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+          <h4 className="text-lg italic text-center mb-4 tracking-none">Let’s build your avatar…</h4>
+
+          <Avatar
+            {...avatarStyles}
+            className="block mb-4 mx-auto"
+          />
+
+          <div className="flex flex-wrap">
+            { options.map((menu) => (
+              <div key={menu.key} className="w-1/2 p-1">
+                <select
+                  name={menu.key}
+                  className="w-full border-2 h-10 bg-transparent"
+                  onChange={this.handleChange}
+                  value={avatarStyles[menu.key]}
+                >
+                  {Object.entries(menu.values).map(([ label, key ]) => (
+                    <option value={key} key={key}>
+                      {menu.label} {label}
+                    </option>
+                  )) }
+                </select>
+              </div>
             )) }
-          </select>
-        )) }
+          </div>
+        </div>
+
+        <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+          <h4 className="text-lg italic text-center mb-4 tracking-none">What is your pronoun?</h4>
+        </div>
       </div>
     );
   }

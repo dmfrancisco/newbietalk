@@ -29,7 +29,7 @@ class Demo extends Component {
           <Left className="block" />
         </button>
 
-        <div className="flex-1 Box bg-brown-light overflow-hidden">
+        <div className="flex-1 Box overflow-hidden">
           <h4 className="text-lg italic px-6 py-4 bg-grey-light rounded-lg rounded-b-none border-b-3">
             Step { screenIndex + 1 }: &nbsp;{ currentStep.title }
           </h4>

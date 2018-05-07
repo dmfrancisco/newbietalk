@@ -322,10 +322,10 @@ module.exports = {
   */
 
   tracking: {
-    // 'none': '0',
+    'none': '0',
     // 'tight': '-0.05em',
     'normal': '-0.01em',
-    // 'wide': '0.05em',
+    //'wide': '0.05em',
   },
 
 
