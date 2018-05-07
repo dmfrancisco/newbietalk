@@ -13,6 +13,7 @@ class Avatar extends Component {
       accessoriesType,
       hairColor,
       facialHairType,
+      facialHairColor,
       eyeType,
       eyebrowType,
       mouthType,
@@ -40,6 +41,7 @@ class Avatar extends Component {
           accessoriesType={accessoriesType}
           hairColor={hairColor}
           facialHairType={facialHairType}
+          facialHairColor={facialHairColor}
           eyeType={eyeType}
           eyebrowType={eyebrowType}
           mouthType={mouthType}

@@ -50,7 +50,7 @@ body {
 
 .Button {
   @apply
-    .appearance-none
+    .select-none
     .inline-block
     .no-underline
     .font-bold
