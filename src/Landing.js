@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SliderBox from "./SliderBox";
 import Modal from "./Modal";
 import Avatar from "./Avatar";
+import Demo from "./Demo";
 import { Cross } from "./Icons";
 import Logo from "./images/Logo";
 import Flag from "./images/Flag";
@@ -69,7 +70,7 @@ class Landing extends Component {
     return (
       <div className="relative max-w-xl mx-auto px-15 py-8">
         <Brick1 className="absolute" style={{ top: 100, left: 100 }} />
-        <Brick2 className="absolute" style={{ top: 600, left: 850 }} />
+        <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
       
         <nav className="text-right mb-8">
           <a className="Button" href="#">Sign In</a>
@@ -167,6 +168,12 @@ class Landing extends Component {
               items={tweets}
             />
           </div>
+        </div>
+      
+        <div className="w-3/4 mx-auto mb-8 py-8">
+          <h3 className="text-xl text-center mb-8">How it works...</h3>
+      
+          <Demo />
         </div>
       
         <footer className="flex -mx-4 leading-normal select-none">
