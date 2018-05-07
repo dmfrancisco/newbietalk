@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import SliderBox from "./SliderBox";
 import Modal from "./Modal";
+import Avatar from "./Avatar";
 import { Cross } from "./Icons";
 import Logo from "./images/Logo";
 import Flag from "./images/Flag";
@@ -47,7 +48,7 @@ const tweets = [
   }
 ];
 
-class App extends Component {
+class Landing extends Component {
   state = {
     showFlagModal: false,
   }
@@ -82,6 +83,30 @@ class App extends Component {
           <h2 className="text-4xl mb-8 leading-tight">
             Where aspiring tech people meet friendly professionals
           </h2>
+      
+          <div className="text-center mb-8">
+            <Avatar 
+              className="inline-block m-8"
+              topType="LongHairStraight2"
+              skinColor="Brown"
+              eyeType="Close"
+              mouthType="Smile"
+            />
+            <Avatar
+              className="inline-block m-8"
+              topType="LongHairCurvy"
+              skinColor="Black"
+              hairColor="PastelPink"
+              eyeType="Hearts"
+              accessoriesType="Round"
+            />
+            <Avatar
+              className="inline-block m-8"
+              topType="LongHairShavedSides"
+              eyeType="WinkWacky"
+              mouthType="Twinkle"
+            />
+          </div>
       
           <p className="text-xl text-brown font-bold mb-8 leading-normal">
             So you hit a roadblock. You don’t know what to search for 
@@ -207,4 +232,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Landing;

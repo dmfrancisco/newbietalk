@@ -17,6 +17,7 @@
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",
     "url-join": "^4.0.0",
+    "avataaars": "^1.1.0",
     "typeface-karmilla": "github:dmfrancisco/typeface-karmilla"
   },
   "scripts": {
