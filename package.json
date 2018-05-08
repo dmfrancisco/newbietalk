@@ -6,24 +6,23 @@
   "engines": {
     "node": "10.x"
   },
-  "devDependencies": {
-    "node-static": "^0.7.10",
-    "if-env": "^1.0.4"
-  },
   "dependencies": {
-    "npm-run-all": "^4.1.2",
+    "node-static": "^0.7.10",
+    "if-env": "^1.0.4",
+    "npm-run-all": "^4.1.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.4",
-    "tailwindcss": "^0.5.2",
+    "tailwindcss": "^0.5.3",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",
     "url-join": "^4.0.0",
     "avataaars": "^1.1.0",
     "unstated": "^2.0.3",
     "typeface-karmilla": "github:dmfrancisco/typeface-karmilla",
-    "prop-types": "^15.6.1"
+    "prop-types": "^15.6.1",
+    "react-loadable": "^5.4.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run prod:start || npm run dev:start",
