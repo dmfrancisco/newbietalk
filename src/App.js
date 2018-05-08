@@ -22,11 +22,21 @@ const LanguagesHelpModal = Loadable({
   delay: 0,
 });
 
+const NotFound = Loadable({
+  loader: () => import('./NotFound'),
+  loading: Loading,
+  delay: 0,
+});
+
 class App extends Component {
   render() {
     return (
       <Router>
         <Fragment>
+          <Route exact path="/sign-up" component={NotFound} />
+          <Route exact path="/sign-in" component={NotFound} />
+          <Route path="/app" component={NotFound} />
+
           <Route path="/" component={Landing} />
           <Route path="/help/avatar" component={AvatarHelpModal} />
           <Route path="/help/pronoun" component={PronounHelpModal} />

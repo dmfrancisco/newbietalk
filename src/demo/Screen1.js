@@ -96,6 +96,12 @@ class Screen1 extends Component {
                 )}
               )}
             </div>
+
+            <div className="text-center my-8">
+              <button onClick={this.props.showNext} className="Button bg-purple-lightest text-lg px-4 py-2">
+                Save profile
+              </button>
+            </div>
           </div>
         )}
       </Subscribe>

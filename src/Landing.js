@@ -73,7 +73,7 @@ class Landing extends Component {
         <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
       
         <nav className="text-right mb-8">
-          <a className="Button" href="#">Sign In</a>
+          <Link className="Button" to="/sign-in">Sign In</Link>
         </nav>
 
         <header className="max-w-md mx-auto text-center">
@@ -126,7 +126,7 @@ class Landing extends Component {
             where you can privately chat with another person to get help.
           </p>
       
-          <Link to="#" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">Get started</Link>
+          <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">Get started</Link>
       
           <div className="italic text-brown mb-8">It’s anonymous and free.</div>
         </header>
@@ -184,27 +184,27 @@ class Landing extends Component {
           <div className="flex-1" />
 
           <nav className="mb-8 flex-none">
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/sign-up" className="text-inherit no-underline font-bold p-3">
               Get Started
             </Link>
 
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/app/languages" className="text-inherit no-underline font-bold p-3">
               Languages
             </Link>
 
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/app/code-of-conduct" className="text-inherit no-underline font-bold p-3">
               Code of Conduct
             </Link>
 
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/app/thanks" className="text-inherit no-underline font-bold p-3">
               Thanks
             </Link>
 
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/app/privacy" className="text-inherit no-underline font-bold p-3">
               Privacy
             </Link>
 
-            <Link to="/" className="text-inherit no-underline font-bold p-3">
+            <Link to="/app/terms" className="text-inherit no-underline font-bold p-3">
               Terms
             </Link>
           </nav>

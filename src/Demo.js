@@ -35,7 +35,7 @@ class Demo extends Component {
           </h4>
 
           <div className="Demo">
-            {<currentStep.screen />}
+            {<currentStep.screen showNext={this.showNext} />}
           </div>
         </div>
 
