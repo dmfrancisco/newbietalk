@@ -12,7 +12,7 @@ class Screen1 extends Component {
         {profile => (
           <div className="p-6 bg-white">
             <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
-              <Link to="/help/avatar" className="absolute block pin-t pin-r m-6"><Help /></Link>
+              <Link to="/help/avatar" className="absolute block pin-t pin-r m-2 p-2"><Help /></Link>
 
               <h4 className="text-lg italic text-center mb-4 tracking-none">Let’s build your avatar…</h4>
 
@@ -41,7 +41,9 @@ class Screen1 extends Component {
               </div>
             </div>
 
-            <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+            <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+              <Link to="/help/pronoun" className="absolute block pin-t pin-r m-2 p-2"><Help /></Link>
+
               <h4 className="text-lg italic text-center mb-4 tracking-none">What is your pronoun?</h4>
 
               <select
@@ -57,7 +59,9 @@ class Screen1 extends Component {
               </select>
             </div>
 
-            <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6 overflow-hidden">
+            <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6 overflow-hidden">
+              <Link to="/help/languages" className="absolute block pin-t pin-r m-2 p-2"><Help /></Link>
+
               <h4 className="text-lg italic text-center mb-4 tracking-none">What languages do you speak?</h4>
 
               {[0, 1, 2].map((index) => {

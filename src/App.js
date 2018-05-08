@@ -10,6 +10,18 @@ const AvatarHelpModal = Loadable({
   delay: 0,
 });
 
+const PronounHelpModal = Loadable({
+  loader: () => import('./modals/PronounHelpModal'),
+  loading: Loading,
+  delay: 0,
+});
+
+const LanguagesHelpModal = Loadable({
+  loader: () => import('./modals/LanguagesHelpModal'),
+  loading: Loading,
+  delay: 0,
+});
+
 class App extends Component {
   render() {
     return (
@@ -17,6 +29,8 @@ class App extends Component {
         <Fragment>
           <Route path="/" component={Landing} />
           <Route path="/help/avatar" component={AvatarHelpModal} />
+          <Route path="/help/pronoun" component={PronounHelpModal} />
+          <Route path="/help/languages" component={LanguagesHelpModal} />
         </Fragment>
       </Router>
     );

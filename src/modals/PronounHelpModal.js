@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import Help from "../images/Help";
 import { Cross } from "../Icons";
 
-const AvatarHelpModal = props => (
+const PronounHelpModal = props => (
   <Modal onDismiss={props.history.goBack} className="pin-b pin-x absolute max-w-xl mx-auto px-15">
     <div className="animated bounceInUp w-1/2">
       <div className="Box bg-purple-lightest mb-6">
@@ -12,11 +12,12 @@ const AvatarHelpModal = props => (
           <Cross className="block" />
         </button>        
 
-        <h3 className="text-lg italic m-8 mb-6">Let’s build your avatar…</h3>
+        <h3 className="text-lg italic m-8 mb-6">What is your pronoun?</h3>
 
         <p className="text-brown leading-normal mx-8 mb-6">
-          To keep SmallTalk as anonymous as people want it to be,
-          instead of uploading a photo you can create your own Avataaar.
+          This answer helps us write more personalized messages. Apart from that,
+          your pronoun will be visible to others, and you can see their pronouns too.
+          This and their Avataaar may help you decide who you want to chat with.
         </p>
 
         <p className="text-brown leading-normal mx-8 mb-8">
@@ -30,4 +31,4 @@ const AvatarHelpModal = props => (
   </Modal>
 );
 
-export default withRouter(AvatarHelpModal);
+export default withRouter(PronounHelpModal);

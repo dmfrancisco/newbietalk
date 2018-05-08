@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import Help from "../images/Help";
 import { Cross } from "../Icons";
 
-const AvatarHelpModal = props => (
+const LanguagesHelpModal = props => (
   <Modal onDismiss={props.history.goBack} className="pin-b pin-x absolute max-w-xl mx-auto px-15">
     <div className="animated bounceInUp w-1/2">
       <div className="Box bg-purple-lightest mb-6">
@@ -12,11 +12,18 @@ const AvatarHelpModal = props => (
           <Cross className="block" />
         </button>        
 
-        <h3 className="text-lg italic m-8 mb-6">Let’s build your avatar…</h3>
+        <h3 className="text-lg italic m-8 mb-6">What languages do you speak?</h3>
 
         <p className="text-brown leading-normal mx-8 mb-6">
-          To keep SmallTalk as anonymous as people want it to be,
-          instead of uploading a photo you can create your own Avataaar.
+          In the first field, we ask you to enter the language you are most comfortable with.
+          If you speak other languages, you can add up to 2 more.
+        </p>
+
+        <p className="text-brown leading-normal mx-8 mb-6">
+          Next to each text field you may see a flag or a two-letter code.
+          This allows us to display country flags in your profile.
+          For example, if you’re a proud brazilian that knows portuguese,
+          you can type "Portuguese" and pick the flag of Brazil!
         </p>
 
         <p className="text-brown leading-normal mx-8 mb-8">
@@ -30,4 +37,4 @@ const AvatarHelpModal = props => (
   </Modal>
 );
 
-export default withRouter(AvatarHelpModal);
+export default withRouter(LanguagesHelpModal);
