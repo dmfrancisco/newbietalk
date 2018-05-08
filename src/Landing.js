@@ -211,7 +211,7 @@ class Landing extends Component {
         </footer>
       
         { showFlagModal && (
-          <Modal onDismiss={this.closeFlagModal} className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6">
+          <Modal onDismiss={this.closeFlagModal} className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6 pt-15 overflow-hidden">
             <div className="animated bounceInUp float-right w-1/2">
               <div className="Box bg-yellow-lightest hyphens mb-6">
                 <button className="Button rounded-full bg-grey-light p-3 -mt-6 -ml-6 float-left">
