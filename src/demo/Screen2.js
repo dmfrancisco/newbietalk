@@ -1,11 +1,11 @@
 import React from "react";
 import { Subscribe } from "unstated";
-import ProfileContainer from "./ProfileContainer";
+import Container from "./Container";
 import Header from "./Header";
 import AvatarBadges from "./AvatarBadges";
 
 export default props => (
-  <Subscribe to={[ProfileContainer]}>
+  <Subscribe to={[Container]}>
     {profile => {
       let languages = profile.state.languages.filter(lang => lang.name);
       if (languages.length === 0) languages = [{ name: "English", icon: "🇺🇸" }];
@@ -37,9 +37,16 @@ export default props => (
                 onChange={e => profile.setHelpDescription(e.target.value)}
               />
 
-              <button onClick={props.showNext} className="Button text-lg bg-brown-light">
-                Ask for help
-              </button>
+              <div className="flex items-center">
+                <button onClick={props.showNext} className="flex-none Button text-lg bg-brown-light">
+                  Ask for help
+                </button>
+
+                <label className="flex-none select-none ml-4">
+                  <input type="checkbox" className="mr-1" />{" "}
+                  I’ve read the Code of Conduct
+                </label>
+              </div>
             </div>
           </div>
 

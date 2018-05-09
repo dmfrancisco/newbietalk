@@ -139,7 +139,45 @@ const SkinOption = {
   },
 };
 
-export default class ProfileContainer extends Container {
+const helperOptions = [{
+  name: "@zaberjs",
+  color: "teal",
+  thanked: 14,
+  avatarStyles: {
+    topType: "LongHairMiaWallace",
+    hairColor: "Black",
+    skinColor: "Brown",
+    accessoriesType: "Round",
+    eyeType: "Close",
+    eyebrowType: "RaisedExcited",
+  },
+  pronoun: "She / Her",
+  languages: [
+    { name: "Portuguese", icon: "🇵🇹" },
+    { name: "English", icon: "🇬🇧" },
+    { name: "Tetun-prasa", icon: "🇹🇱" },
+  ]
+}, {
+  name: "@davidcodes",
+  color: "blue",
+  thanked: 6,
+  avatarStyles: {
+    topType: "LongHairStraight",
+    hairColor: "BrownDark",
+    facialHairType: "BeardLight",
+    facialHairColor: "BrownDark",
+    skinColor: "Light",
+    eyebrowType: "RaisedExcited",
+    mouthType: "Smile",
+  },
+  pronoun: "He / Him",
+  languages: [
+    { name: "Portuguese", icon: "🇵🇹" },
+    { name: "English", icon: "🇬🇧" },
+  ]
+}];
+
+export default class extends Container {
   state = {
     avatarStyles: {
       topType: "NoHair",
@@ -151,7 +189,8 @@ export default class ProfileContainer extends Container {
     },
     pronoun: "They / Them",
     languages: [{ name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }],
-    helpDescription: "I need help with…",
+    helpDescription: "I know HTML and CSS and have this simple website but I’m not sure how to make this available for free.",
+    helper: helperOptions[0],
   };
 
   getAvatarStyleOptions() {
@@ -458,5 +497,14 @@ export default class ProfileContainer extends Container {
 
   setHelpDescription(helpDescription) {
     this.setState({ helpDescription });
+  }
+
+  getHelperOptions() {
+    return helperOptions;
+  }
+
+  setHelper(helper, callback) {
+    this.setState({ helper });
+    callback(); // FIXME: See https://github.com/jamiebuilds/unstated/pull/35
   }
 }

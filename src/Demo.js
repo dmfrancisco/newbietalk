@@ -5,7 +5,7 @@ import "./Demo.css";
 
 class Demo extends Component {
   state = {
-    screenIndex: 2,
+    screenIndex: 0,
   };
 
   showPrevious = () => {
@@ -17,6 +17,10 @@ class Demo extends Component {
     this.demo.scrollTop = 0;
     this.setState({ screenIndex: this.state.screenIndex + 1 });
   };
+
+  scrollToBottom = () => {
+    this.demo.scrollTop = this.demo.scrollHeight;
+  }
 
   render() {
     const { screenIndex } = this.state;
@@ -41,7 +45,7 @@ class Demo extends Component {
           </h4>
 
           <div className="Demo bg-white" ref={node => (this.demo = node)}>
-            {<currentStep.screen showNext={this.showNext} />}
+            {<currentStep.screen showNext={this.showNext} scrollToBottom={this.scrollToBottom} />}
           </div>
         </div>
 

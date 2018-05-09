@@ -1,48 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
-import ProfileContainer from "./ProfileContainer";
+import Container from "./Container";
 import Header from "./Header";
 import AvatarBadges from "./AvatarBadges";
-
-const memberZaber = {
-  name: "@zaberjs",
-  color: "teal",
-  thanked: 14,
-  avatarStyles: {
-    topType: "LongHairMiaWallace",
-    hairColor: "Black",
-    skinColor: "Brown",
-    accessoriesType: "Round",
-    eyeType: "Close",
-    eyebrowType: "RaisedExcited",
-  },
-  pronoun: "She / Her",
-  languages: [
-    { name: "Portuguese", icon: "🇵🇹" },
-    { name: "English", icon: "🇬🇧" },
-    { name: "Tetun-prasa", icon: "🇹🇱" },
-  ]
-};
-
-const memberDavid = {
-  name: "@davidcodes",
-  color: "blue",
-  thanked: 6,
-  avatarStyles: {
-    topType: "LongHairStraight",
-    hairColor: "BrownDark",
-    facialHairType: "BeardLight",
-    facialHairColor: "Brown",
-    skinColor: "Light",
-    eyebrowType: "RaisedExcited",
-    mouthType: "Smile",
-  },
-  pronoun: "He / Him",
-  languages: [
-    { name: "Portuguese", icon: "🇵🇹" },
-    { name: "English", icon: "🇬🇧" },
-  ]
-};
 
 export default class extends Component {
   static defaultProps = {
@@ -50,7 +10,7 @@ export default class extends Component {
   }
 
   state = {
-    stepIndex: 1,
+    stepIndex: 0,
   };
 
   showNext = () => {
@@ -69,7 +29,7 @@ export default class extends Component {
     clearTimeout(this.timer);
     
     if (stepIndex < totalSteps - 1) {
-      this.timer = setTimeout(this.showNext, 6000);
+      this.timer = setTimeout(this.showNext, 5000);
     }
   }
 
@@ -79,6 +39,10 @@ export default class extends Component {
 
   componentDidMount() {
     this.scheduleNext();
+  }
+
+  handleAccept(profile, helper) {
+    profile.setHelper(helper, this.props.showNext);
   }
 
   renderProfile(profile) {
@@ -128,8 +92,8 @@ export default class extends Component {
     )
   }
 
-  renderMemberCard(member) {
-    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2`;
+  renderMemberCard(profile, member, animated = true) {
+    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2 ${ animated ? "animated flash" : "" }`;
 
     return (
       <div className={className}>
@@ -137,7 +101,7 @@ export default class extends Component {
 
         <AvatarBadges {...member} />
 
-        <button className="Button text-lg bg-brown-light mt-4">
+        <button className="Button text-lg bg-brown-light mt-4" onClick={() => this.handleAccept(profile, member)}>
           Accept help
         </button>
       </div>
@@ -145,17 +109,19 @@ export default class extends Component {
   }
 
   renderStep1(profile) {
+    const member = profile.getHelperOptions()[0];
+    
     return (
       <Fragment>
         <div className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
-          <strong>{memberZaber.name}</strong> is available to help! Accept her help or wait to see if more members are available.
+          <strong>{member.name}</strong> is available to help! Accept her help or wait to see if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
         <div className="flex">
           <div className="w-1/2 mb-8 pr-2">
-            { this.renderMemberCard(memberZaber) }
+            { this.renderMemberCard(profile, member) }
           </div>
         </div>
       </Fragment>
@@ -163,6 +129,9 @@ export default class extends Component {
   }
 
   renderStep2(profile) {
+    const member1 = profile.getHelperOptions()[0];
+    const member2 = profile.getHelperOptions()[1];
+    
     return (
       <Fragment>
         <div className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
@@ -173,10 +142,10 @@ export default class extends Component {
 
         <div className="flex">
           <div className="w-1/2 mb-8 pr-2">
-            { this.renderMemberCard(memberZaber) }
+            { this.renderMemberCard(profile, member1, false) }
           </div>
           <div className="w-1/2 mb-8">
-            { this.renderMemberCard(memberDavid) }
+            { this.renderMemberCard(profile, member2) }
           </div>
         </div>
       </Fragment>
@@ -187,7 +156,7 @@ export default class extends Component {
     const { stepIndex } = this.state;
 
     return (
-      <Subscribe to={[ProfileContainer]}>
+      <Subscribe to={[Container]}>
         {profile => {
           let languages = profile.state.languages.filter(lang => lang.name);
           if (languages.length === 0) languages = [{ name: "English", icon: "🇺🇸" }];

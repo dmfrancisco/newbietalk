@@ -1,6 +1,7 @@
 import React from "react";
 import Avatar from "../Avatar";
 import "primer-tooltips/build/build.css";
+import "../tooltips.css";
 
 export default props => {
   let languages = props.languages.filter(lang => lang.name);

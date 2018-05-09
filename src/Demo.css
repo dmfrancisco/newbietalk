@@ -1,6 +1,6 @@
 .Demo {
   height: 35rem;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .Demo::-webkit-scrollbar {

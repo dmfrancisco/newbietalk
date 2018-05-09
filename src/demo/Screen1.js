@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Subscribe } from "unstated";
-import ProfileContainer from "./ProfileContainer";
+import Container from "./Container";
 import Avatar from "../Avatar";
 import { Help } from "../Icons";
 
 class Screen1 extends Component {
   render() {
     return (
-      <Subscribe to={[ProfileContainer]}>
+      <Subscribe to={[Container]}>
         {profile => (
           <div className="p-6">
             <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
