@@ -37,14 +37,13 @@
  */
 
 body {
-  @apply
-    .bg-brown-lightest
+  @apply .bg-brown-lightest
     .text-black
     .text-base
     .font-sans
     .antialiased
     .tracking-normal;
-  
+
   min-width: 1020px;
 }
 
@@ -53,8 +52,7 @@ svg {
 }
 
 .Button {
-  @apply
-    .select-none
+  @apply .select-none
     .inline-block
     .no-underline
     .font-bold
@@ -64,25 +62,37 @@ svg {
     .rounded-lg
     .text-black;
 
-  box-shadow: 5px 6px rgba(0,0,0,0.15);
+  box-shadow: 5px 6px rgba(0, 0, 0, 0.15);
   transition: transform, box-shadow;
   transition-duration: 200ms;
 }
 
 .Button:hover {
   transform: translateY(-2px);
-  box-shadow: 6px 8px rgba(0,0,0,0.15);
+  box-shadow: 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .Button:active {
   transform: translateY(4px);
-  box-shadow: 0 0 rgba(0,0,0,0.15);
+  box-shadow: 0 0 rgba(0, 0, 0, 0.15);
   transition: none;
 }
 
+.Button--disabled {
+  @apply 
+    .border-2
+    .rounded
+    .shadow-none
+    .cursor-default;
+}
+
+.Button--disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .Box {
-  @apply
-    .border-3
+  @apply .border-3
     .rounded-lg
     .shadow;
 }

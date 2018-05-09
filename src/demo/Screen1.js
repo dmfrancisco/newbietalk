@@ -94,9 +94,11 @@ class Screen1 extends Component {
                       onChange={e => profile.setLanguageIcon(index, e.target.value)}
                       value={profile.state.languages[index].icon}
                     >
-                      {profile
-                        .getLanguageIconOptions()
-                        .map(option => <option key={option}>{option}</option>)}
+                      {profile.getLanguageIconOptions().map(option => (
+                        <option key={option} value={option.split(" ")[0]}>
+                          {option}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import Quotes from "./Quotes";
 import Avatar from "./Avatar";
@@ -14,7 +14,9 @@ const Landing = () => (
     <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
 
     <nav className="text-right mb-8">
-      <Link className="Button" to="/sign-in">Sign In</Link>
+      <Link className="Button" to="/sign-in">
+        Sign In
+      </Link>
     </nav>
 
     <header className="max-w-md mx-auto text-center">
@@ -27,7 +29,7 @@ const Landing = () => (
       </h2>
 
       <div className="text-center mb-8">
-        <Avatar 
+        <Avatar
           className="inline-block m-8"
           topType="LongHairStraight2"
           skinColor="Brown"
@@ -51,22 +53,20 @@ const Landing = () => (
       </div>
 
       <p className="text-xl text-brown font-bold mb-8 leading-normal">
-        So you hit a roadblock. You don’t know what to search for 
-        and the tech-related forums are very intimidating.
+        So you hit a roadblock. You don’t know what to search for and the tech-related forums are
+        very intimidating.
       </p>
 
       <p className="text-xl text-brown font-bold mb-8 leading-normal">
         Smalltalk is a{" "}
-        <Link
-          to="/help/flag"
-          className="text-inherit"
-        >
+        <Link to="/help/flag" className="text-inherit">
           safe place
-        </Link>*
-        where you can privately chat with another person to get help.
+        </Link>* where you can privately chat with another person to get help.
       </p>
 
-      <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">Get started</Link>
+      <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
+        Get started
+      </Link>
 
       <div className="italic text-brown mb-8">It’s anonymous and free.</div>
     </header>
@@ -77,14 +77,14 @@ const Landing = () => (
           <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all beginners at something</h3>
 
           <p className="text-brown leading-normal m-8">
-            Everyone started as a beginner in their careers.
-            Not only that’s a fact of life and completely fine, it can be fun.
-            But learning new things can also be very frustrating at times.
+            Everyone started as a beginner in their careers. Not only that’s a fact of life and
+            completely fine, it can be fun. But learning new things can also be very frustrating at
+            times.
           </p>
 
           <p className="text-brown leading-normal m-8">
-            Smalltalk is a safe place where you can remain anonymous and
-            share your questions privately with someone you choose to connect with.
+            Smalltalk is a safe place where you can remain anonymous and share your questions
+            privately with someone you choose to connect with.
           </p>
         </div>
       </div>
@@ -94,15 +94,14 @@ const Landing = () => (
           <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all good at something</h3>
 
           <p className="text-brown leading-normal m-8">
-            Have you been working in tech for some time?
-            Pretty sure what you have to share is huge. Join us in helping others.
-            We won’t bug you, you decide who and when you want to help.
+            Have you been working in tech for some time? Pretty sure what you have to share is huge.
+            Join us in helping others. We won’t bug you, you decide who and when you want to help.
           </p>
         </div>
       </div>
 
       <div className="w-1/2" style={{ marginTop: 20 }}>
-        <Quotes 
+        <Quotes
           className="Box bg-purple-lightest m-4 mr-6"
           title="Fact: &nbsp;We all make miskates"
           items={quotes}

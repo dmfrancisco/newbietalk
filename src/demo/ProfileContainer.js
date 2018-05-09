@@ -151,6 +151,7 @@ export default class ProfileContainer extends Container {
     },
     pronoun: "They / Them",
     languages: [{ name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }],
+    helpDescription: "I need help with…",
   };
 
   getAvatarStyleOptions() {
@@ -453,5 +454,9 @@ export default class ProfileContainer extends Container {
     const languages = [...this.state.languages];
     languages[index].icon = icon;
     this.setState({ languages });
+  }
+
+  setHelpDescription(helpDescription) {
+    this.setState({ helpDescription });
   }
 }

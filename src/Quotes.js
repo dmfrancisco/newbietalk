@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Left, Right } from "./Icons";
 import "./animate.css";
 
@@ -7,30 +7,30 @@ class Quotes extends Component {
     super(props);
 
     this.state = {
-      latestAction: 'increment',
+      latestAction: "increment",
       currentItemIndex: 0,
-    }
+    };
   }
-  
+
   showPrevious = () => {
     const { currentItemIndex } = this.state;
     const { length } = this.props.items;
 
     this.setState({
-      latestAction: 'decrement',
+      latestAction: "decrement",
       currentItemIndex: (currentItemIndex === 0 ? length : currentItemIndex) - 1,
     });
-  }
+  };
 
   showNext = () => {
     const { currentItemIndex } = this.state;
     const { length } = this.props.items;
 
     this.setState({
-      latestAction: 'increment',
+      latestAction: "increment",
       currentItemIndex: (currentItemIndex + 1) % length,
     });
-  }
+  };
 
   scheduleNext() {
     clearTimeout(this.timer);
@@ -53,12 +53,9 @@ class Quotes extends Component {
         {item.text}
 
         <footer className="mt-4">
-          — <a 
-            href={item.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-inherit">
-          {item.author}
+          —{" "}
+          <a href={item.src} target="_blank" rel="noopener noreferrer" className="text-inherit">
+            {item.author}
           </a>, {item.job}
         </footer>
       </blockquote>
@@ -68,19 +65,27 @@ class Quotes extends Component {
   render() {
     const { title, items, className = "" } = this.props;
     const { latestAction, currentItemIndex } = this.state;
-    const latestItemIndex = latestAction === 'increment' ?  
-      (currentItemIndex === 0 ? items.length : currentItemIndex) - 1 :
-      (currentItemIndex + 1) % items.length;
+    const latestItemIndex =
+      latestAction === "increment"
+        ? (currentItemIndex === 0 ? items.length : currentItemIndex) - 1
+        : (currentItemIndex + 1) % items.length;
 
-    const latestItemClassName = `absolute animated slideOut${ latestAction === 'decrement' ? "Right" : "Left" }`;
-    const currentItemClassName = `animated slideIn${ latestAction === 'increment' ? "Right" : "Left" }`;
+    const latestItemClassName = `absolute animated slideOut${
+      latestAction === "decrement" ? "Right" : "Left"
+    }`;
+    const currentItemClassName = `animated slideIn${
+      latestAction === "increment" ? "Right" : "Left"
+    }`;
 
     return (
       <div className={className}>
-        <h3 className="text-lg italic m-8 mb-6">{ title }</h3>
+        <h3 className="text-lg italic m-8 mb-6">{title}</h3>
 
         <div className="flex items-center mb-8" style={{ height: 120 }}>
-          <button className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10" onClick={this.showPrevious}>
+          <button
+            className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10"
+            onClick={this.showPrevious}
+          >
             <Left className="block" />
           </button>
 
@@ -89,11 +94,14 @@ class Quotes extends Component {
             {this.renderItem(items[currentItemIndex], currentItemClassName)}
           </div>
 
-          <button className="flex-none Button bg-grey-light -mr-8 -ml-6 -mt-8 z-10" onClick={this.showNext}>
+          <button
+            className="flex-none Button bg-grey-light -mr-8 -ml-6 -mt-8 z-10"
+            onClick={this.showNext}
+          >
             <Right className="block" />
           </button>
         </div>
-      </div>  
+      </div>
     );
   }
 }

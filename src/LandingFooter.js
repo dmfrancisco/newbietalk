@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import SpaceUnicorn from "./images/SpaceUnicorn";
 
@@ -6,7 +6,9 @@ const LandingFooter = () => (
   <footer className="flex -mx-4 leading-normal select-none">
     <SpaceUnicorn className="block flex-none mr-4" />
 
-    <p className="mr-4">Space Unicorn wishes <br/> you a happy day!</p>
+    <p className="mr-4">
+      Space Unicorn wishes <br /> you a happy day!
+    </p>
 
     <div className="flex-1" />
 

@@ -4,7 +4,7 @@ import ProfileContainer from "./ProfileContainer";
 import Header from "./Header";
 import AvatarBadges from "./AvatarBadges";
 
-export default props => (
+export default () => (
   <Subscribe to={[ProfileContainer]}>
     {profile => {
       let languages = profile.state.languages.filter(lang => lang.name);
@@ -15,10 +15,13 @@ export default props => (
           <Header avatarStyles={profile.state.avatarStyles} />
 
           <div style={{ maxWidth: "80%" }}>
-            <div className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash">
-              Congratulations! Your profile was created successfully. You can now either ask for
-              help or wait and help others.
+            <div className="Box bg-purple-lightest px-6 py-4 leading-normal mb-8 animated flash">
+              Great! Let’s wait and see if someone’s available to help.
             </div>
+
+            <h4 className="text-lg italic mb-6">Members offering help</h4>
+
+            <p className="mb-8">Waiting for people to show up…</p>
 
             <h4 className="text-lg italic mb-4">Your profile</h4>
 
@@ -30,22 +33,19 @@ export default props => (
               <AvatarBadges {...profile.state} />
 
               <textarea
-                className="block border-2 px-3 py-2 rounded w-full mb-4"
-                placeholder="I need help with…"
+                className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
+                readOnly
+                disabled
                 rows={3}
                 value={profile.state.helpDescription}
                 onChange={e => profile.setHelpDescription(e.target.value)}
               />
 
-              <button onClick={props.showNext} className="Button text-lg bg-brown-light">
-                Ask for help
+              <button className="Button Button--disabled text-lg italic" disabled>
+                Asking for help…
               </button>
             </div>
           </div>
-
-          <h4 className="text-lg italic mb-6">Help others</h4>
-
-          <p className="mb-6">It looks like nobody is asking for help at the moment.</p>
         </div>
       );
     }}

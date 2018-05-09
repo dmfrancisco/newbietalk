@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Avataaar from 'avataaars';
+import React, { Component } from "react";
+import Avataaar from "avataaars";
 import "./Avatar.css";
 
 class Avatar extends Component {
-  render () {
+  render() {
     const {
-      size = '5rem',
+      size = "5rem",
       width = size,
       height = size,
       fontSize = size, // For the inset box shadow
@@ -26,15 +26,14 @@ class Avatar extends Component {
       height: "208%",
       left: "-50%",
       top: "-37%",
-      transform: 'rotate(3deg)',
+      transform: "rotate(3deg)",
     };
-    
-    const className = `Avatar relative overflow-hidden rounded-full shadow ${this.props.className || ''}`;
+
+    const className = `Avatar relative overflow-hidden rounded-full shadow ${this.props.className ||
+      ""}`;
 
     return (
-      <div
-        style={{ width, height, fontSize }}
-        className={className}>
+      <div style={{ width, height, fontSize }} className={className}>
         <Avataaar
           style={avatarStyle}
           topType={topType}

@@ -1,35 +1,35 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Loadable from 'react-loadable';
-import Landing from './Landing';
-import Loading from './Loading';
+import Loadable from "react-loadable";
+import Landing from "./Landing";
+import Loading from "./Loading";
 
 const AvatarHelpModal = Loadable({
-  loader: () => import('./modals/AvatarHelpModal'),
+  loader: () => import("./modals/AvatarHelpModal"),
   loading: Loading,
   delay: 0,
 });
 
 const PronounHelpModal = Loadable({
-  loader: () => import('./modals/PronounHelpModal'),
+  loader: () => import("./modals/PronounHelpModal"),
   loading: Loading,
   delay: 0,
 });
 
 const LanguagesHelpModal = Loadable({
-  loader: () => import('./modals/LanguagesHelpModal'),
+  loader: () => import("./modals/LanguagesHelpModal"),
   loading: Loading,
   delay: 0,
 });
 
 const FlagHelpModal = Loadable({
-  loader: () => import('./modals/FlagHelpModal'),
+  loader: () => import("./modals/FlagHelpModal"),
   loading: Loading,
   delay: 0,
 });
 
 const NotFound = Loadable({
-  loader: () => import('./NotFound'),
+  loader: () => import("./NotFound"),
   loading: Loading,
   delay: 0,
 });
