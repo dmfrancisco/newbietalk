@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Left, Right } from "./Icons";
 import "./animate.css";
 
-class SliderBox extends Component {
+class Quotes extends Component {
   constructor(props) {
     super(props);
 
@@ -98,4 +98,4 @@ class SliderBox extends Component {
   }
 }
 
-export default SliderBox;
+export default Quotes;

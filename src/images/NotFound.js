@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgComponent = props => (
+const NotFound = props => (
   <svg
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width={250}
@@ -110,4 +110,4 @@ const SvgComponent = props => (
   </svg>
 );
 
-export default SvgComponent;
+export default NotFound;

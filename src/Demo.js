@@ -5,7 +5,7 @@ import "./Demo.css";
 
 class Demo extends Component {
   state = {
-    screenIndex: 1
+    screenIndex: 0
   }
 
   showPrevious = () => {
