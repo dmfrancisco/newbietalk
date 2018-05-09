@@ -6,8 +6,8 @@ import AvatarBadges from "./AvatarBadges";
 
 export default class extends Component {
   static defaultProps = {
-    totalSteps: 3
-  }
+    totalSteps: 3,
+  };
 
   state = {
     stepIndex: 0,
@@ -27,7 +27,7 @@ export default class extends Component {
     const { totalSteps } = this.props;
 
     clearTimeout(this.timer);
-    
+
     if (stepIndex < totalSteps - 1) {
       this.timer = setTimeout(this.showNext, 5000);
     }
@@ -61,7 +61,7 @@ export default class extends Component {
             className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
             readOnly
             disabled
-            rows={3}
+            rows={2}
             value={profile.state.helpDescription}
             onChange={e => profile.setHelpDescription(e.target.value)}
           />
@@ -70,18 +70,19 @@ export default class extends Component {
             Asking for help…
           </button>
 
-          <button className="Button text-lg bg-brown-light float-right">
-            Stop asking
-          </button>
+          <button className="Button text-lg bg-brown-light float-right">Stop asking</button>
         </div>
       </Fragment>
-    )
+    );
   }
 
   renderStep0(profile) {
     return (
       <Fragment>
-        <div className="Box bg-purple-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
+        <div
+          className="Box bg-purple-lightest px-6 py-4 leading-normal mb-8 animated flash"
+          style={{ maxWidth: "80%" }}
+        >
           Great! Let’s wait and see if someone’s available to help.
         </div>
 
@@ -89,11 +90,13 @@ export default class extends Component {
 
         <p className="mb-8">Waiting for members to show up…</p>
       </Fragment>
-    )
+    );
   }
 
   renderMemberCard(profile, member, animated = true) {
-    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2 ${ animated ? "animated flash" : "" }`;
+    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2 ${
+      animated ? "animated flash" : ""
+    }`;
 
     return (
       <div className={className}>
@@ -101,7 +104,10 @@ export default class extends Component {
 
         <AvatarBadges {...member} />
 
-        <button className="Button text-lg bg-brown-light mt-4" onClick={() => this.handleAccept(profile, member)}>
+        <button
+          className="Button text-lg bg-brown-light mt-4"
+          onClick={() => this.handleAccept(profile, member)}
+        >
           Accept help
         </button>
       </div>
@@ -110,46 +116,48 @@ export default class extends Component {
 
   renderStep1(profile) {
     const member = profile.getHelperOptions()[0];
-    
+
     return (
       <Fragment>
-        <div className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
-          <strong>{member.name}</strong> is available to help! Accept her help or wait to see if more members are available.
+        <div
+          className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash"
+          style={{ maxWidth: "80%" }}
+        >
+          <strong>{member.name}</strong> is available to help! Accept her help or wait to see if
+          more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
         <div className="flex">
-          <div className="w-1/2 mb-8 pr-2">
-            { this.renderMemberCard(profile, member) }
-          </div>
+          <div className="w-1/2 mb-8 pr-2">{this.renderMemberCard(profile, member)}</div>
         </div>
       </Fragment>
-    )
+    );
   }
 
   renderStep2(profile) {
     const member1 = profile.getHelperOptions()[0];
     const member2 = profile.getHelperOptions()[1];
-    
+
     return (
       <Fragment>
-        <div className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
-          <strong>2 members</strong> are available to help! Accept their help or wait to see if more members are available.
+        <div
+          className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash"
+          style={{ maxWidth: "80%" }}
+        >
+          <strong>2 members</strong> are available to help! Accept their help or wait to see if more
+          members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
         <div className="flex">
-          <div className="w-1/2 mb-8 pr-2">
-            { this.renderMemberCard(profile, member1, false) }
-          </div>
-          <div className="w-1/2 mb-8">
-            { this.renderMemberCard(profile, member2) }
-          </div>
+          <div className="w-1/2 mb-8 pr-2">{this.renderMemberCard(profile, member1, false)}</div>
+          <div className="w-1/2 mb-8">{this.renderMemberCard(profile, member2)}</div>
         </div>
       </Fragment>
-    )
+    );
   }
 
   render() {
@@ -165,13 +173,11 @@ export default class extends Component {
             <div className="p-6 pt-4">
               <Header avatarStyles={profile.state.avatarStyles} />
 
-              { stepIndex === 0 && this.renderStep0(profile) }
-              { stepIndex === 1 && this.renderStep1(profile) }
-              { stepIndex === 2 && this.renderStep2(profile) }
+              {stepIndex === 0 && this.renderStep0(profile)}
+              {stepIndex === 1 && this.renderStep1(profile)}
+              {stepIndex === 2 && this.renderStep2(profile)}
 
-              <div style={{ maxWidth: "80%" }}>
-                { this.renderProfile(profile) }
-              </div>
+              <div style={{ maxWidth: "80%" }}>{this.renderProfile(profile)}</div>
             </div>
           );
         }}

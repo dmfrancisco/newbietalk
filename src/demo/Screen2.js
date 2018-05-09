@@ -32,19 +32,21 @@ export default props => (
               <textarea
                 className="block border-2 px-3 py-2 rounded w-full mb-4"
                 placeholder="I need help with…"
-                rows={3}
+                rows={2}
                 value={profile.state.helpDescription}
                 onChange={e => profile.setHelpDescription(e.target.value)}
               />
 
               <div className="flex items-center">
-                <button onClick={props.showNext} className="flex-none Button text-lg bg-brown-light">
+                <button
+                  onClick={props.showNext}
+                  className="flex-none Button text-lg bg-brown-light animated tada infinite"
+                >
                   Ask for help
                 </button>
 
                 <label className="flex-none select-none ml-4">
-                  <input type="checkbox" className="mr-1" />{" "}
-                  I’ve read the Code of Conduct
+                  <input type="checkbox" className="mr-1" /> I’ve read the Code of Conduct
                 </label>
               </div>
             </div>

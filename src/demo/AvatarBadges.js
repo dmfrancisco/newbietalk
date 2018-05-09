@@ -33,7 +33,7 @@ export default props => {
         {props.pronoun}
       </div>
 
-      { props.thanked && (
+      {props.thanked && (
         <div
           className="absolute pin-b pin-l -mb-2 inline-block px-2 py-1 rounded text-white font-bold"
           style={{ background: "#097f1b", marginLeft: "6rem" }}
