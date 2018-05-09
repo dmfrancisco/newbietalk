@@ -12,6 +12,12 @@ export const Left = props => (
   </svg>
 );
 
+export const Down = props => (
+  <svg width={11} height={7} {...props}>
+    <path fill="#2C1B18" fillRule="evenodd" d="M11 0L5.5 7 0 0z" />
+  </svg>
+);
+
 export const Cross = props => (
   <svg width={18} height={18} viewBox="0 0 18 18" {...props}>
     <path

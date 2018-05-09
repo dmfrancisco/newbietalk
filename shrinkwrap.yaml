@@ -6,6 +6,7 @@ dependencies:
   postcss-cli: 5.0.0
   postcss-import: 11.1.0
   prettier: 1.12.1
+  primer-tooltips: 1.5.3
   prop-types: 15.6.1
   react: 16.3.2
   react-dom: 16.3.2
@@ -6432,6 +6433,16 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
+  /primer-support/4.5.2:
+    dev: false
+    resolution:
+      integrity: sha1-2quaSIgbaVPo5soBhlovQVv3d8U=
+  /primer-tooltips/1.5.3:
+    dependencies:
+      primer-support: 4.5.2
+    dev: false
+    resolution:
+      integrity: sha1-DmZuMRNr7GNKhOnsuddhadCR4kk=
   /private/0.1.8:
     dev: false
     engines:
@@ -8707,6 +8718,7 @@ specifiers:
   postcss-cli: ^5.0.0
   postcss-import: ^11.1.0
   prettier: ^1.12.1
+  primer-tooltips: ^1.5.3
   prop-types: ^15.6.1
   react: ^16.3.2
   react-dom: ^16.3.2

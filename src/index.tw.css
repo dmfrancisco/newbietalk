@@ -48,6 +48,10 @@ body {
   min-width: 1020px;
 }
 
+svg {
+  @apply .fill-current;
+}
+
 .Button {
   @apply
     .select-none

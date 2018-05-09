@@ -10,9 +10,9 @@ class Screen1 extends Component {
     return (
       <Subscribe to={[ProfileContainer]}>
         {profile => (
-          <div className="p-6 bg-white">
+          <div className="p-6">
             <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
-              <Link to="/help/avatar" className="absolute block pin-t pin-r m-2 p-2">
+              <Link to="/help/avatar" className="absolute block pin-t pin-r m-2 p-2 text-inherit">
                 <Help />
               </Link>
 
@@ -43,7 +43,7 @@ class Screen1 extends Component {
             </div>
 
             <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
-              <Link to="/help/pronoun" className="absolute block pin-t pin-r m-2 p-2">
+              <Link to="/help/pronoun" className="absolute block pin-t pin-r m-2 p-2 text-inherit">
                 <Help />
               </Link>
 
@@ -61,7 +61,10 @@ class Screen1 extends Component {
             </div>
 
             <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6 overflow-hidden">
-              <Link to="/help/languages" className="absolute block pin-t pin-r m-2 p-2">
+              <Link
+                to="/help/languages"
+                className="absolute block pin-t pin-r m-2 p-2 text-inherit"
+              >
                 <Help />
               </Link>
 

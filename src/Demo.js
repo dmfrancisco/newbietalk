@@ -5,7 +5,7 @@ import "./Demo.css";
 
 class Demo extends Component {
   state = {
-    screenIndex: 0
+    screenIndex: 1
   }
 
   showPrevious = () => {
@@ -34,7 +34,7 @@ class Demo extends Component {
             Step { screenIndex + 1 }: &nbsp;{ currentStep.title }
           </h4>
 
-          <div className="Demo">
+          <div className="Demo bg-white">
             {<currentStep.screen showNext={this.showNext} />}
           </div>
         </div>

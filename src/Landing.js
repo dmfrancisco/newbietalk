@@ -19,7 +19,7 @@ const Landing = () => (
 
     <header className="max-w-md mx-auto text-center">
       <div style={{ marginBottom: "5rem" }}>
-        <Logo className="fill-current" />
+        <Logo animated width={340} height={45} />
       </div>
 
       <h2 className="text-4xl mb-8 leading-tight">
