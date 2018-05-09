@@ -21,9 +21,11 @@
     "unstated": "^2.0.3",
     "typeface-karmilla": "github:dmfrancisco/typeface-karmilla",
     "prop-types": "^15.6.1",
-    "react-loadable": "^5.4.0"
+    "react-loadable": "^5.4.0",
+    "prettier": "^1.12.1"
   },
   "scripts": {
+    "prestart": "prettier --write src/**/*.{js,jsx,json,css}",
     "start": "if-env NODE_ENV=production && npm run prod:start || npm run dev:start",
     "dev:start": "npm-run-all -p build:css dev:start:js",
     "dev:start:js": "react-scripts start",
@@ -31,6 +33,10 @@
     "build": "npm-run-all build:css build:js",
     "build:css": "postcss src/index.tw.css -o src/index.css",
     "build:js": "react-scripts build && gzip -rk build && refresh"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "es5"
   },
   "license": "MIT"
 }

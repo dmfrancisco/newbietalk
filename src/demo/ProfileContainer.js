@@ -1,8 +1,8 @@
-import { Container } from 'unstated';
+import { Container } from "unstated";
 
 const TopOption = {
-  key: 'topType',
-  label: '🎩',
+  key: "topType",
+  label: "🎩",
   values: {
     Top: "NoHair",
     // "Hat",
@@ -39,12 +39,12 @@ const TopOption = {
     "WinterHat 2": "WinterHat2",
     "WinterHat 3": "WinterHat3",
     Eyepatch: "Eyepatch",
-  }
-}
+  },
+};
 
 const AccessoriesOption = {
-  key: 'accessoriesType',
-  label: '👓',
+  key: "accessoriesType",
+  label: "👓",
   values: {
     Glasses: "Blank",
     Kurt: "Kurt",
@@ -52,9 +52,9 @@ const AccessoriesOption = {
     "Prescription 2": "Prescription02",
     Round: "Round",
     Sunglasses: "Sunglasses",
-    Wayfarers: "Wayfarers"
+    Wayfarers: "Wayfarers",
   },
-}
+};
 
 /* const HatColorOption = {
   key: 'hatColor',
@@ -63,8 +63,8 @@ const AccessoriesOption = {
 } */
 
 const HairColorOption = {
-  key: 'hairColor',
-  label: '💈',
+  key: "hairColor",
+  label: "💈",
   values: {
     "Hair Color": "BlondeGolden",
     Auburn: "Auburn",
@@ -77,11 +77,11 @@ const HairColorOption = {
     Red: "Red",
     "Silver Gray": "SilverGray",
   },
-}
+};
 
 const FacialHairOption = {
-  key: 'facialHairType',
-  label: '✂️',
+  key: "facialHairType",
+  label: "✂️",
   values: {
     "No Facial Hair": "Blank",
     "Beard Medium": "BeardMedium",
@@ -90,11 +90,11 @@ const FacialHairOption = {
     "Moustache Fancy": "MoustacheFancy",
     "Moustache Magnum": "MoustacheMagnum",
   },
-}
+};
 
 const FacialHairColorOption = {
-  key: 'facialHairColor',
-  label: '💈',
+  key: "facialHairColor",
+  label: "💈",
   values: {
     "Facial Hair Color": "BlondeGolden",
     Auburn: "Auburn",
@@ -105,7 +105,7 @@ const FacialHairColorOption = {
     Platinum: "Platinum",
     Red: "Red",
   },
-}
+};
 
 /* const EyesOption = {
   key: 'eyeType',
@@ -126,8 +126,8 @@ const MouthOption = {
 } */
 
 const SkinOption = {
-  key: 'skinColor',
-  label: '🎨',
+  key: "skinColor",
+  label: "🎨",
   values: {
     Skin: "Yellow",
     Pale: "Pale",
@@ -136,8 +136,8 @@ const SkinOption = {
     "Dark Brown": "DarkBrown",
     Black: "Black",
     Tanned: "Tanned",
-  }
-}
+  },
+};
 
 export default class ProfileContainer extends Container {
   state = {
@@ -150,22 +150,21 @@ export default class ProfileContainer extends Container {
       skinColor: "Yellow",
     },
     pronoun: "They / Them",
-    languages: [
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" },
-    ],
+    languages: [{ name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }],
   };
 
   getAvatarStyleOptions() {
     return [
       TopOption,
-      this.state.avatarStyles.topType.includes("Hair") && !this.state.avatarStyles.topType.includes("NoHair") ? HairColorOption : null,
+      this.state.avatarStyles.topType.includes("Hair") &&
+      !this.state.avatarStyles.topType.includes("NoHair")
+        ? HairColorOption
+        : null,
       FacialHairOption,
       this.state.avatarStyles.facialHairType !== "Blank" ? FacialHairColorOption : null,
       AccessoriesOption,
       SkinOption,
-    ].filter((el) => el);
+    ].filter(el => el);
   }
 
   setAvatarStyle(name, value) {
@@ -175,11 +174,7 @@ export default class ProfileContainer extends Container {
   }
 
   getPronounOptions() {
-    return [
-      "They / Them",
-      "She / Her",
-      "He / Him",
-    ];
+    return ["They / Them", "She / Her", "He / Him"];
   }
 
   setPronoun(pronoun) {
@@ -449,14 +444,14 @@ export default class ProfileContainer extends Container {
   }
 
   setLanguageName(index, name) {
-    const languages = [ ...this.state.languages ];
-    languages[index].name = name;
+    const languages = [...this.state.languages];
+    languages[index].name = name;
     this.setState({ languages });
   }
 
   setLanguageIcon(index, icon) {
-    const languages = [ ...this.state.languages ];
-    languages[index].icon = icon;
+    const languages = [...this.state.languages];
+    languages[index].icon = icon;
     this.setState({ languages });
   }
 }

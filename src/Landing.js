@@ -221,7 +221,7 @@ class Landing extends Component {
                 <h3 className="text-lg italic m-8">Keeping SmallTalk friendly and safe</h3>
 
                 <p className="text-brown leading-normal m-8 mb-4">
-                  We try to design features that incentivize good behavior, but sometimes it isn’t enough. 
+                  We try to design features that incentivize good behavior, but we know it’s not enough by itself. 
                 </p>
 
                 <p className="text-brown leading-normal m-8 mt-4">
