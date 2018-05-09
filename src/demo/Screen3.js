@@ -4,13 +4,53 @@ import ProfileContainer from "./ProfileContainer";
 import Header from "./Header";
 import AvatarBadges from "./AvatarBadges";
 
+const memberZaber = {
+  name: "@zaberjs",
+  color: "teal",
+  thanked: 14,
+  avatarStyles: {
+    topType: "LongHairMiaWallace",
+    hairColor: "Black",
+    skinColor: "Brown",
+    accessoriesType: "Round",
+    eyeType: "Close",
+    eyebrowType: "RaisedExcited",
+  },
+  pronoun: "She / Her",
+  languages: [
+    { name: "Portuguese", icon: "🇵🇹" },
+    { name: "English", icon: "🇬🇧" },
+    { name: "Tetun-prasa", icon: "🇹🇱" },
+  ]
+};
+
+const memberDavid = {
+  name: "@davidcodes",
+  color: "blue",
+  thanked: 6,
+  avatarStyles: {
+    topType: "LongHairStraight",
+    hairColor: "BrownDark",
+    facialHairType: "BeardLight",
+    facialHairColor: "Brown",
+    skinColor: "Light",
+    eyebrowType: "RaisedExcited",
+    mouthType: "Smile",
+  },
+  pronoun: "He / Him",
+  languages: [
+    { name: "Portuguese", icon: "🇵🇹" },
+    { name: "English", icon: "🇬🇧" },
+  ]
+};
+
 export default class extends Component {
   static defaultProps = {
     totalSteps: 3
   }
 
   state = {
-    stepIndex: 0,
+    stepIndex: 1,
   };
 
   showNext = () => {
@@ -29,7 +69,7 @@ export default class extends Component {
     clearTimeout(this.timer);
     
     if (stepIndex < totalSteps - 1) {
-      this.timer = setTimeout(this.showNext, 10000);
+      this.timer = setTimeout(this.showNext, 6000);
     }
   }
 
@@ -77,7 +117,7 @@ export default class extends Component {
   renderStep0(profile) {
     return (
       <Fragment>
-        <div className="Box bg-purple-lightest px-6 py-4 leading-normal mb-8 animated flash">
+        <div className="Box bg-purple-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
           Great! Let’s wait and see if someone’s available to help.
         </div>
 
@@ -88,16 +128,36 @@ export default class extends Component {
     )
   }
 
+  renderMemberCard(member) {
+    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2`;
+
+    return (
+      <div className={className}>
+        <strong className="inline-block text-lg italic mb-4">{member.name}</strong>
+
+        <AvatarBadges {...member} />
+
+        <button className="Button text-lg bg-brown-light mt-4">
+          Accept help
+        </button>
+      </div>
+    );
+  }
+
   renderStep1(profile) {
     return (
       <Fragment>
-        <div className="Box bg-green-lightest px-6 py-4 leading-normal mb-8 animated flash">
-          @zaberjs is available to help! Accept her help or wait to see if more members are available.
+        <div className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
+          <strong>{memberZaber.name}</strong> is available to help! Accept her help or wait to see if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
-        <p className="mb-8">Waiting for members to show up…</p>
+        <div className="flex">
+          <div className="w-1/2 mb-8 pr-2">
+            { this.renderMemberCard(memberZaber) }
+          </div>
+        </div>
       </Fragment>
     )
   }
@@ -105,13 +165,20 @@ export default class extends Component {
   renderStep2(profile) {
     return (
       <Fragment>
-        <div className="Box bg-green-lightest px-6 py-4 leading-normal mb-8 animated flash">
-          Some members are available to help! Accept their help or wait to see if more members are available.
+        <div className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash" style={{ maxWidth: "80%" }}>
+          <strong>2 members</strong> are available to help! Accept their help or wait to see if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
-        <p className="mb-8">Waiting for members to show up…</p>
+        <div className="flex">
+          <div className="w-1/2 mb-8 pr-2">
+            { this.renderMemberCard(memberZaber) }
+          </div>
+          <div className="w-1/2 mb-8">
+            { this.renderMemberCard(memberDavid) }
+          </div>
+        </div>
       </Fragment>
     )
   }
@@ -129,10 +196,11 @@ export default class extends Component {
             <div className="p-6 pt-4">
               <Header avatarStyles={profile.state.avatarStyles} />
 
-              <div style={{ maxWidth: "80%" }}>
-                { stepIndex === 0 && this.renderStep0(profile) }
-                { stepIndex === 1 && this.renderStep1(profile) }
+              { stepIndex === 0 && this.renderStep0(profile) }
+              { stepIndex === 1 && this.renderStep1(profile) }
+              { stepIndex === 2 && this.renderStep2(profile) }
 
+              <div style={{ maxWidth: "80%" }}>
                 { this.renderProfile(profile) }
               </div>
             </div>

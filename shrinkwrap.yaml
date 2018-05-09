@@ -2,7 +2,6 @@ dependencies:
   avataaars: 1.1.0
   if-env: 1.0.4
   node-static: 0.7.10
-  npm-run-all: 4.1.3
   postcss-cli: 5.0.0
   postcss-import: 11.1.0
   prettier: 1.12.1
@@ -1942,18 +1941,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
-  /cross-spawn/6.0.5:
-    dependencies:
-      nice-try: 1.0.4
-      path-key: 2.0.1
-      semver: 5.5.0
-      shebang-command: 1.2.0
-      which: 1.3.0
-    dev: false
-    engines:
-      node: '>=4.8'
-    resolution:
-      integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==
   /cryptiles/3.1.2:
     dependencies:
       boom: 5.2.0
@@ -4774,10 +4761,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-QLPs8Dj7lnf3e3QYS1zkCo+4ZwqOiF9d/nZnYozTISxXWCfNs9yuky5rJw4/W34s7POaNlbZmQGaB5NiXCbP4w==
-  /json-parse-better-errors/1.0.2:
-    dev: false
-    resolution:
-      integrity: sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
   /json-schema-traverse/0.3.1:
     dev: false
     resolution:
@@ -4949,17 +4932,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-eUfkIUmvgNaWy/eXvKq8/h/inKg=
-  /load-json-file/4.0.0:
-    dependencies:
-      graceful-fs: 4.1.11
-      parse-json: 4.0.0
-      pify: 3.0.0
-      strip-bom: 3.0.0
-    dev: false
-    engines:
-      node: '>=4'
-    resolution:
-      integrity: sha1-L19Fq5HjMhYjT9U62rZo607AmTs=
   /loader-fs-cache/1.0.1:
     dependencies:
       find-cache-dir: 0.1.1
@@ -5168,12 +5140,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-OpoguEYlI+RHz7x+i7gO1me/xVI=
-  /memorystream/0.3.1:
-    dev: false
-    engines:
-      node: '>= 0.10.0'
-    resolution:
-      integrity: sha1-htcJCzDORV1j+64S3aUaR93K+bI=
   /meow/3.7.0:
     dependencies:
       camelcase-keys: 2.1.0
@@ -5390,10 +5356,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /nice-try/1.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-2NpiFHqC87y/zFke0fC0spBXL3bBsoh/p5H1EFhshxjCR5+0g2d6BiXbUFz9v1sAcxsk2htp2eQnNIci2dIYcA==
   /no-case/2.3.2:
     dependencies:
       lower-case: 1.1.4
@@ -5506,22 +5468,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pGm7n+q+W/OqmRaDO69ndlguiUg=
-  /npm-run-all/4.1.3:
-    dependencies:
-      ansi-styles: 3.2.1
-      chalk: 2.4.1
-      cross-spawn: 6.0.5
-      memorystream: 0.3.1
-      minimatch: 3.0.4
-      ps-tree: 1.1.0
-      read-pkg: 3.0.0
-      shell-quote: 1.6.1
-      string.prototype.padend: 3.0.0
-    dev: false
-    engines:
-      node: '>= 4'
-    resolution:
-      integrity: sha512-aOG0N3Eo/WW+q6sUIdzcV2COS8VnTZCmdji0VQIAZF3b+a3YWb0AD0vFIyjKec18A7beLGbaQ5jFTNI2bPt9Cg==
   /npm-run-path/2.0.2:
     dependencies:
       path-key: 2.0.1
@@ -5799,15 +5745,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-9ID0BDTvgHQfhGkJn43qGPVaTck=
-  /parse-json/4.0.0:
-    dependencies:
-      error-ex: 1.3.1
-      json-parse-better-errors: 1.0.2
-    dev: false
-    engines:
-      node: '>=4'
-    resolution:
-      integrity: sha1-vjX1Qlvh9/bHRxhPmKeIy5lHfuA=
   /parse-passwd/1.0.0:
     dev: false
     engines:
@@ -6813,16 +6750,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-jvHAYjxqbbDcZxPEv6xGMysjaPg=
-  /read-pkg/3.0.0:
-    dependencies:
-      load-json-file: 4.0.0
-      normalize-package-data: 2.4.0
-      path-type: 3.0.0
-    dev: false
-    engines:
-      node: '>=4'
-    resolution:
-      integrity: sha1-nLxoaXj+5l0WwA4rGcI3/Pbjg4k=
   /readable-stream/1.0.34:
     dependencies:
       core-util-is: 1.0.2
@@ -7649,16 +7576,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
-  /string.prototype.padend/3.0.0:
-    dependencies:
-      define-properties: 1.1.2
-      es-abstract: 1.11.0
-      function-bind: 1.1.1
-    dev: false
-    engines:
-      node: '>= 0.4'
-    resolution:
-      integrity: sha1-86rvfBcZ8XDF6rHDK/eA2W4h8vA=
   /string.prototype.repeat/0.2.0:
     dev: false
     resolution:
@@ -8714,7 +8631,6 @@ specifiers:
   avataaars: ^1.1.0
   if-env: ^1.0.4
   node-static: ^0.7.10
-  npm-run-all: ^4.1.3
   postcss-cli: ^5.0.0
   postcss-import: ^11.1.0
   prettier: ^1.12.1
