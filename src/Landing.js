@@ -61,7 +61,7 @@ const Landing = () => (
         Smalltalk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
-        </Link>* where you can privately <br /> chat with another person to get help.
+        </Link>* where you can privately chat with another person to get code or design help.
       </p>
 
       <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
@@ -95,7 +95,7 @@ const Landing = () => (
 
           <p className="text-brown leading-normal m-8">
             Have you been working in tech for some time? Pretty sure what you have to share is huge.
-            Join us in helping others. We won’t bug you, you decide who and when you want to help.
+            Join us in helping others. We won’t bug you, you decide whom and when you want to help.
           </p>
         </div>
       </div>

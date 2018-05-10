@@ -16,7 +16,7 @@ export default props => (
 
           <div style={{ maxWidth: "80%" }}>
             <div className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash">
-              Congratulations! Your profile was created successfully. You can now either ask for
+              Congratulations! Your profile was successfully created. You can now either ask for
               help or wait and help others.
             </div>
 
