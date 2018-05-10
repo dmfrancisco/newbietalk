@@ -200,7 +200,7 @@ svg {
 select {
   appearance: none;
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTEgNyI+CiAgPHBvbHlnb24gZmlsbD0iIzJDMUIxOCIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjExIDAgNS41MjkgNyAwIDAiLz4KPC9zdmc+Cg==) no-repeat 92% 48%;
-  padding: 0 0.6rem;
+  padding: 0 0.7rem;
 }
 
 /* Lazy temporary alternative to a real responsive design */

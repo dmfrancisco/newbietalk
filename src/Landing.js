@@ -58,7 +58,7 @@ const Landing = () => (
       </p>
 
       <p className="text-xl text-brown font-bold mb-8 leading-normal">
-        Smalltalk is a{" "}
+        Small Talk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
         </Link>* where you can privately chat with another person to get code or design help.
@@ -83,7 +83,7 @@ const Landing = () => (
           </p>
 
           <p className="text-brown leading-normal m-8">
-            Smalltalk is a safe place where you can remain anonymous and share your questions
+            Small Talk is a safe place where you can remain anonymous and share your questions
             privately with someone you choose to connect with.
           </p>
         </div>

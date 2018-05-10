@@ -132,39 +132,3 @@
 .flash {
   animation-name: flash;
 }
-
-@keyframes tada {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  2.5%,
-  5% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  }
-
-  7.5%,
-  12.5%,
-  17.5%,
-  22.5% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-
-  10%,
-  15%,
-  20% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-
-  25%,
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-
-.tada {
-  animation-name: tada;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-  animation-delay: 6s;
-}

@@ -15,7 +15,7 @@ const AvatarHelpModal = props => (
         <h3 className="text-lg italic m-8 mb-6">Let’s build your avatar…</h3>
 
         <p className="text-brown leading-normal mx-8 mb-6">
-          To keep SmallTalk as anonymous as people want it to be, instead of uploading a photo you
+          To keep Small Talk as anonymous as people want it to be, instead of uploading a photo you
           can create your own Avataaar.
         </p>
 

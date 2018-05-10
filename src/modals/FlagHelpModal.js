@@ -15,7 +15,7 @@ const FlagHelpModal = props => (
           <Cross className="block" />
         </button>
 
-        <h3 className="text-lg italic m-8">Keeping SmallTalk friendly and safe</h3>
+        <h3 className="text-lg italic m-8">Keeping Small Talk friendly and safe</h3>
 
         <p className="text-brown leading-normal m-8 mb-4">
           We try to design features that incentivize good behavior, but we know it’s not enough by
@@ -23,7 +23,7 @@ const FlagHelpModal = props => (
         </p>
 
         <p className="text-brown leading-normal m-8 mt-4">
-          Everytime you encounter something in any way innapropriate, please let us know by clicking
+          Every time you encounter something in any way innapropriate, please let us know by clicking
           on the flag available on the bottom right corner.
         </p>
       </div>

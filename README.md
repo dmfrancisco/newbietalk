@@ -1,6 +1,6 @@
-![Smalltalk logo](https://cdn.glitch.com/fe7cff61-183f-4cbc-bbca-80e4e664896f%2Fsmalltalk.svg?1525948269989)
+![Small Talk logo](https://cdn.glitch.com/fe7cff61-183f-4cbc-bbca-80e4e664896f%2Fsmalltalk.svg?1525948269989)
 
-Smalltalk lets you to privately chat with another person to get code or design help. This is a work-in-progress.
+Small Talk lets you privately chat with another person to get code or design help. This is a work-in-progress.
 
 ### Remixing in Glitch
 
