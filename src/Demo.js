@@ -19,7 +19,7 @@ class Demo extends Component {
   };
 
   scrollToBottom = () => {
-    this.demo.scrollTop = this.demo.scrollHeight;
+    if (this.demo) this.demo.scrollTop = this.demo.scrollHeight;
   }
 
   render() {

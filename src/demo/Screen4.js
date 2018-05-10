@@ -328,7 +328,7 @@ export default class extends Component {
                     How are you feeling about this conversation? <br />
                     Was {helper.name} friendly and respectful?
                   </p>
-                  <p className="mb-4">This feedback is private to you personally.</p>
+                  <p className="mb-4">This feedback is private and is not shared with {helper.name}.</p>
                   <div className="mb-4 inline-block">
                     <Avatar
                       {...profile.state.avatarStyles}
