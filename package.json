@@ -1,12 +1,15 @@
 {
-  "name": "app",
+  "name": "smalltalk",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://smalltalk.glitch.me",
   "engines": {
     "node": "10.x"
   },
   "dependencies": {
-    "node-static": "^0.7.10",
+    "pushstate-server": "^3.0.1"
+  },
+  "_dependencies": {
     "if-env": "^1.0.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -26,13 +29,12 @@
     "focus-visible": "^4.1.4"
   },
   "scripts": {
-    "_prestart": "prettier --write src/**/*.{js,jsx,json,css}",
-    "start": "if-env NODE_ENV=production && npm run prod:start || npm run dev:start",
-    "dev:start": "npm run build:css && react-scripts start",
-    "prod:start": "static build --gzip",
-    "build": "npm run build:css && npm run build:js",
+    "_start": "npm run build:css && react-scripts start",
+    "start": "pushstate-server build",
+    "build": "npm run build:css && npm run build:js && refresh",
     "build:css": "postcss src/index.tw.css -o src/index.css",
-    "build:js": "react-scripts build && gzip -rk build && refresh"
+    "build:js": "react-scripts build",
+    "prettier": "prettier --write src/**/*.{js,jsx,json,css}"
   },
   "prettier": {
     "printWidth": 100,

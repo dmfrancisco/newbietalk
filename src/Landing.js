@@ -61,7 +61,7 @@ const Landing = () => (
         Smalltalk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
-        </Link>* where you can privately chat with another person to get help.
+        </Link>* where you can privately <br /> chat with another person to get help.
       </p>
 
       <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
@@ -110,7 +110,7 @@ const Landing = () => (
     </div>
 
     <div className="w-3/4 mx-auto mb-8 py-8">
-      <h3 className="text-xl text-center mb-8">How it works...</h3>
+      <h3 className="text-xl text-center mb-8">How it works</h3>
 
       <Demo />
     </div>

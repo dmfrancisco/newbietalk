@@ -105,7 +105,7 @@ export default class extends Component {
         <AvatarBadges {...member} />
 
         <button
-          className="Button text-lg bg-brown-light mt-4"
+          className="Button text-lg bg-brown-light mt-4 animated tada"
           onClick={() => this.handleAccept(profile, member)}
         >
           Accept help

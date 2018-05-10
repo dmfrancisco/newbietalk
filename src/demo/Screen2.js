@@ -40,7 +40,7 @@ export default props => (
               <div className="flex items-center">
                 <button
                   onClick={props.showNext}
-                  className="flex-none Button text-lg bg-brown-light animated tada infinite"
+                  className="flex-none Button text-lg bg-brown-light animated tada"
                 >
                   Ask for help
                 </button>
