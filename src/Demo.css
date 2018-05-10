@@ -8,7 +8,7 @@
 }
 
 .Demo::-webkit-scrollbar-track {
-  background: #ddd;
+  background: rgba(0,0,0,.15);
   border-left: 3px solid;
   margin-top: -3px;
   margin-bottom: -3px;
