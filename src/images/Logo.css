@@ -1,3 +1,16 @@
+.Logo {
+  position: relative;
+  display: inline-block;
+}
+
+.Logo-chars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .Logo-chars--animated {
   animation: 2s ease-in-out infinite;
 }
@@ -12,24 +25,24 @@
 
 @keyframes move-down {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(5px);
+    transform: translate3d(0, 5px, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes move-up {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translate3d(0, -5px, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
