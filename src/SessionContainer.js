@@ -42,6 +42,24 @@ class SessionContainer extends Container {
     this.updateProfile({ avatarStyles });
   }
 
+  setPronoun = (pronoun) => {
+    this.updateProfile({ pronoun });
+  }
+
+  setLanguageName = (index, name) => {
+    const languages = [...this.state.languages];
+    if (!languages[index]) languages[index] = { icon: '🏳️' };
+    languages[index].name = name;
+    this.updateProfile({ languages });
+  }
+
+  setLanguageIcon = (index, icon) => {
+    const languages = [...this.state.languages];
+    if (!languages[index]) languages[index] = { name: '' };
+    languages[index].icon = icon;
+    this.updateProfile({ languages });
+  }
+
   updateProfile(profile) {
     database.ref('users/' + this.state.uid).set({ ...this.state, ...profile });
     this.setState(profile);

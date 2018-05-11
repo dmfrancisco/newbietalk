@@ -45,7 +45,7 @@ class Welcome extends Component {
           console.error(error);
         });
     } else {
-      // The user is not signed in and not coming from an email, so redirect to homepage
+      // The user is not coming from an email, so redirect to homepage
       this.props.history.push('/');
     }
   }

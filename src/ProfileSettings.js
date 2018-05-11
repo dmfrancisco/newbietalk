@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Subscribe } from "unstated";
 import SessionContainer from "./SessionContainer";
 import AvatarBuilder from "./AvatarBuilder";
+import PronounBuilder from "./PronounBuilder";
+import LanguagesBuilder from "./LanguagesBuilder";
 
 class ProfileSettings extends Component {
   render() {
@@ -18,9 +20,22 @@ class ProfileSettings extends Component {
             />
 
             <AvatarBuilder
-              helpUrl="/help/avatar"
+              helpUrl="/app/profile/help/avatar"
               avatarStyles={session.state.avatarStyles}
               onChange={session.setAvatarStyle}
+            />
+
+            <PronounBuilder
+              helpUrl="/app/profile/help/pronoun"
+              value={session.state.pronoun}
+              onChange={session.setPronoun}
+            />
+
+            <LanguagesBuilder
+              helpUrl="/app/profile/help/languages"
+              onNameChange={session.setLanguageName}
+              onIconChange={session.setLanguageIcon}
+              value={session.state.languages}
             />
           </div>
         )}
