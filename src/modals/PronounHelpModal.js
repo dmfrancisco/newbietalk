@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import Modal from "../Modal";
+import Modal from "./Modal";
 import Help from "../images/Help";
 import { Cross } from "../Icons";
 

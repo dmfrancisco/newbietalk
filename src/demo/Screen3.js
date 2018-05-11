@@ -22,11 +22,15 @@ export default class extends Component {
     });
   };
 
+  unschedule() {
+    clearTimeout(this.timer);
+  }
+
   scheduleNext() {
     const { stepIndex } = this.state;
     const { totalSteps } = this.props;
 
-    clearTimeout(this.timer);
+    this.unschedule();
 
     if (stepIndex < totalSteps - 1) {
       this.timer = setTimeout(this.showNext, 5000);
@@ -39,6 +43,10 @@ export default class extends Component {
 
   componentDidMount() {
     this.scheduleNext();
+  }
+
+  componentWillUnmount() {
+    this.unschedule();
   }
 
   handleAccept(profile, helper) {

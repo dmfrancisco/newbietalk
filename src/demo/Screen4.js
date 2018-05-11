@@ -45,6 +45,10 @@ export default class extends Component {
     });
   };
 
+  unschedule() {
+    clearTimeout(this.timer);
+  }
+
   scheduleNext() {
     const { stepIndex } = this.state;
     const { totalSteps } = this.props;
@@ -63,6 +67,10 @@ export default class extends Component {
 
   componentDidMount() {
     this.scheduleNext();
+  }
+
+  componentWillUnmount() {
+    this.unschedule();
   }
 
   render() {

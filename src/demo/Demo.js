@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import screens from "./demo/screens";
-import { Left, Right } from "./Icons";
+import screens from "./screens";
+import { Left, Right } from "../Icons";
 import "./Demo.css";
 
 class Demo extends Component {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Quotes from "./Quotes";
 import Avatar from "./Avatar";
-import Demo from "./Demo";
+import Demo from "./demo/Demo";
 import LandingFooter from "./LandingFooter";
 import Logo from "./images/Logo";
 import { Brick1, Brick2 } from "./images/Bricks";
@@ -14,7 +14,7 @@ const Landing = () => (
     <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
 
     <nav className="text-right mb-8">
-      <Link className="Button" to="/sign-in">
+      <Link className="Button" to="/app/start">
         Sign In
       </Link>
     </nav>
@@ -64,7 +64,7 @@ const Landing = () => (
         </Link>* where you can privately chat with another person to get code or design help.
       </p>
 
-      <Link to="/sign-up" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
+      <Link to="/app/start" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
         Get started
       </Link>
 

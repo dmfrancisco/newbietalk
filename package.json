@@ -6,10 +6,10 @@
   "engines": {
     "node": "10.x"
   },
-  "dependencies": {
+  "devDependencies": {
     "pushstate-server": "^3.0.1"
   },
-  "devDependencies": {
+  "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.2.2",
@@ -25,11 +25,12 @@
     "react-loadable": "^5.4.0",
     "prettier": "^1.12.1",
     "primer-tooltips": "^1.5.3",
-    "focus-visible": "^4.1.4"
+    "focus-visible": "^4.1.4",
+    "firebase": "^5.0.1"
   },
   "scripts": {
-    "_start": "npm run build:css && react-scripts start",
-    "start": "pushstate-server build",
+    "start": "npm run build:css && react-scripts start",
+    "_start": "pushstate-server build",
     "build": "npm run build:css && npm run build:js && refresh",
     "build:css": "postcss src/index.tw.css -o src/index.css",
     "build:js": "react-scripts build",

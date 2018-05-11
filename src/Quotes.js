@@ -32,8 +32,12 @@ class Quotes extends Component {
     });
   };
 
-  scheduleNext() {
+  unschedule() {
     clearTimeout(this.timer);
+  }
+
+  scheduleNext() {
+    this.unschedule();
     this.timer = setTimeout(this.showNext, 10000);
   }
 
@@ -43,6 +47,10 @@ class Quotes extends Component {
 
   componentDidMount() {
     this.scheduleNext();
+  }
+
+  componentWillUnmount() {
+    this.unschedule();
   }
 
   renderItem(item, className) {

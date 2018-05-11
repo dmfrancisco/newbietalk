@@ -13,27 +13,27 @@ const LandingFooter = () => (
     <div className="flex-1" />
 
     <nav className="mb-8 flex-none">
-      <Link to="/sign-up" className="text-inherit no-underline font-bold p-3">
+      <Link to="/start" className="text-inherit no-underline font-bold p-3">
         Get Started
       </Link>
 
-      <Link to="/app/languages" className="text-inherit no-underline font-bold p-3">
+      <Link to="/languages" className="text-inherit no-underline font-bold p-3">
         Languages
       </Link>
 
-      <Link to="/app/code-of-conduct" className="text-inherit no-underline font-bold p-3">
+      <Link to="/code-of-conduct" className="text-inherit no-underline font-bold p-3">
         Code of Conduct
       </Link>
 
-      <Link to="/app/thanks" className="text-inherit no-underline font-bold p-3">
+      <Link to="/thanks" className="text-inherit no-underline font-bold p-3">
         Thanks
       </Link>
 
-      <Link to="/app/privacy" className="text-inherit no-underline font-bold p-3">
+      <Link to="/privacy" className="text-inherit no-underline font-bold p-3">
         Privacy
       </Link>
 
-      <Link to="/app/terms" className="text-inherit no-underline font-bold p-3">
+      <Link to="/terms" className="text-inherit no-underline font-bold p-3">
         Terms
       </Link>
     </nav>
