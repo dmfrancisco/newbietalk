@@ -23,7 +23,7 @@ class AvatarBuilder extends Component {
     const { helpUrl, avatarStyles, onChange } = this.props;
     
     return (
-      <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+      <div className="relative mx-auto rounded-lg bg-blue-lightest p-6 mb-6 w-3/4">
         <Link to={helpUrl} className="absolute block pin-t pin-r m-2 p-2 text-inherit">
           <Help />
         </Link>

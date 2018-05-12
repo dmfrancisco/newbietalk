@@ -11,7 +11,7 @@ const actionCodeSettings = {
 
 class Start extends Component {
   state = {
-    email: "example@dmfranc.com"
+    email: ""
   }
 
   handleChange = (e) => {
@@ -22,16 +22,19 @@ class Start extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    const { history } = this.props;
     const { email } = this.state;
     
     firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
       .then(() => {
-        // The link was successfully sent. Inform the user.
-        console.log("Email sent successfully");
-
+        // The link was successfully sent.
         // Save the email locally so you don't need to ask the user for it again
         // if they open the link on the same device.
         window.localStorage.setItem('emailForSignIn', email);
+
+        history.push('/', {
+          flash: "Great! Please follow the link in the email we just sent you."
+        });
       })
       .catch((error) => {
         // Some error occurred, you can inspect the code: error.code

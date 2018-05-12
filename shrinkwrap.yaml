@@ -5,10 +5,11 @@ dependencies:
   postcss-cli: 5.0.0
   postcss-import: 11.1.0
   prettier: 1.12.1
-  primer-tooltips: 1.5.3
+  primer-tooltips: 1.5.4
   prop-types: 15.6.1
   react: 16.3.2
   react-dom: 16.3.2
+  react-helmet: 5.2.0
   react-loadable: 5.4.0
   react-router-dom: 4.2.2
   react-scripts: 1.1.4
@@ -3086,6 +3087,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-lEvs00zEHuMqY6n68nrVpl/Fl3c=
+  /exenv/1.2.2:
+    dev: false
+    resolution:
+      integrity: sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
   /expand-brackets/0.1.5:
     dependencies:
       is-posix-bracket: 0.1.1
@@ -6580,16 +6585,16 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
-  /primer-support/4.5.2:
+  /primer-support/4.5.3:
     dev: false
     resolution:
-      integrity: sha1-2quaSIgbaVPo5soBhlovQVv3d8U=
-  /primer-tooltips/1.5.3:
+      integrity: sha1-2lHYjRZbRuYJWR06MCXlN1kq/Ns=
+  /primer-tooltips/1.5.4:
     dependencies:
-      primer-support: 4.5.2
+      primer-support: 4.5.3
     dev: false
     resolution:
-      integrity: sha1-DmZuMRNr7GNKhOnsuddhadCR4kk=
+      integrity: sha1-zsOI5lY1513VX76d7Gtb9dBR4ls=
   /private/0.1.8:
     dev: false
     engines:
@@ -6839,6 +6844,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FlsPxavEyMuR6TjVbSSywovXSEyOg6ZDj5+Z8nbsRl9EkOzAhEIcS+GLoQDC5fz/t9suhUXWmUrOBrgeUvrMxw==
+  /react-helmet/5.2.0:
+    dependencies:
+      deep-equal: 1.0.1
+      object-assign: 4.1.1
+      prop-types: 15.6.1
+      react-side-effect: 1.1.5
+    dev: false
+    peerDependencies:
+      react: '>=15.0.0'
+    resolution:
+      integrity: sha1-qBgR3yExOm1VxfBYxK66XW89l6c=
   /react-loadable/5.4.0:
     dependencies:
       prop-types: 15.6.1
@@ -6921,6 +6937,15 @@ packages:
       fsevents: 1.2.3
     resolution:
       integrity: sha512-UVZIujEIT9BGbx+NGvyfS92eOrNIIpqqFi1FP7a0O9l94A/XV7bhPk70SfDKaXZouCX81tFdXo0948DjhCEgGw==
+  /react-side-effect/1.1.5:
+    dependencies:
+      exenv: 1.2.2
+      shallowequal: 1.0.2
+    dev: false
+    peerDependencies:
+      react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-Z2ZJE4p/jIfvUpiUMRydEVpQRf2f8GMHczT6qLcARmX7QRb28JDBTpnM2g/i5y/p7ZDEXYGHWg0RbhikE+hJRw==
   /react/16.3.2:
     dependencies:
       fbjs: 0.8.16
@@ -7539,6 +7564,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-QMEp5B7cftE7APOjk5Y6xgrbWu+WkLVQwk8JNjZ8nKRciZaByEW6MubieAiToS7+dwvrjGhH8jRXz3MVd0AYqQ==
+  /shallowequal/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-zlVXeVUKvo+HEv1e2KQF/csyeMKx2oHvatQ9l6XjCUj3agvC8XGf6R9HvIPDSmp8FNPvx7b5kaEJTRi7CqxtEw==
   /shebang-command/1.2.0:
     dependencies:
       shebang-regex: 1.0.0
@@ -8931,16 +8960,17 @@ shrinkwrapMinorVersion: 5
 shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0
-  firebase: ^5.0.1
+  firebase: ^5.0.2
   focus-visible: ^4.1.4
   postcss-cli: ^5.0.0
   postcss-import: ^11.1.0
   prettier: ^1.12.1
-  primer-tooltips: ^1.5.3
+  primer-tooltips: ^1.5.4
   prop-types: ^15.6.1
   pushstate-server: ^3.0.1
   react: ^16.3.2
   react-dom: ^16.3.2
+  react-helmet: ^5.2.0
   react-loadable: ^5.4.0
   react-router-dom: ^4.2.2
   react-scripts: ^1.1.4

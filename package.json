@@ -24,9 +24,10 @@
     "prop-types": "^15.6.1",
     "react-loadable": "^5.4.0",
     "prettier": "^1.12.1",
-    "primer-tooltips": "^1.5.3",
+    "primer-tooltips": "^1.5.4",
     "focus-visible": "^4.1.4",
-    "firebase": "^5.0.1"
+    "firebase": "^5.0.2",
+    "react-helmet": "^5.2.0"
   },
   "scripts": {
     "start": "npm run build:css && react-scripts start",

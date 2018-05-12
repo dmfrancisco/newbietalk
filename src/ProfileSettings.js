@@ -10,7 +10,7 @@ class ProfileSettings extends Component {
     return (
       <Subscribe to={[SessionContainer]}>
         {session => (
-          <div className="">
+          <div className="p-6 mx-auto max-w-md">
             Profile Settings
       
             <input 

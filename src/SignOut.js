@@ -5,7 +5,9 @@ class SignOut extends Component {
   componentDidMount() {
     firebase.auth().signOut().then(() => {
       // Sign-out successful.
-      this.props.history.push('/');
+      this.props.history.push('/', { 
+        flash: "Bye, talk to you later!"
+      });
 
     }).catch((error) => {
       // An error happened.

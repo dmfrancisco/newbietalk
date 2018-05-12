@@ -1,0 +1,17 @@
+.Landing body {
+  min-width: 1020px;
+}
+
+/* Lazy temporary alternative to a real responsive design */
+
+@media (max-width: 1019px) {
+  .Landing { zoom: 90% }
+}
+
+@media (max-width: 919px) {
+  .Landing { zoom: 80% }
+}
+
+@media (max-width: 819px) {
+  .Landing { zoom: 70% }
+}

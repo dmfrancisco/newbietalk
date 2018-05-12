@@ -69,9 +69,13 @@ class SessionContainer extends Container {
 const session = new SessionContainer();
 
 auth.onAuthStateChanged((user) => {
-  database.ref('users/' + user.uid).once('value').then((profile) => {
-    session.setState({ uid: user.uid, email: user.email, ...profile.val(), ready: true });
-  });
+  if (user) {
+    database.ref('users/' + user.uid).once('value').then((profile) => {
+      session.setState({ uid: user.uid, email: user.email, ...profile.val(), ready: true });
+    });
+  } else {
+    session.setState({ uid: null, ready: true });
+  }
 });
 
 export default session;

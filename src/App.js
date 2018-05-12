@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import Landing from "./Landing";
+import Flash from "./Flash";
 import Loading from "./Loading";
 
 const AvatarHelpModal = Loadable({
@@ -48,27 +49,31 @@ const AppAuthenticated = Loadable({
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route exact path="/welcome" component={Welcome} />
-      <Route path="/app" component={AppAuthenticated} />
+    <Fragment>
+      <Route path="/" component={Flash} />
 
-      <Route path="/">
-        <Fragment>
-          <Route path="/" component={Landing} />
-  
-          <Route exact path="/help/avatar" component={AvatarHelpModal} />
-          <Route exact path="/help/pronoun" component={PronounHelpModal} />
-          <Route exact path="/help/languages" component={LanguagesHelpModal} />
-          <Route exact path="/help/flag" component={FlagHelpModal} />
-  
-          <Route exact path="/languages" component={NotFound} />
-          <Route exact path="/code-of-conduct" component={NotFound} />
-          <Route exact path="/thanks" component={NotFound} />
-          <Route exact path="/privacy" component={NotFound} />
-          <Route exact path="/terms" component={NotFound} />
-        </Fragment>
-      </Route>
-    </Switch>
+      <Switch>
+        <Route exact path="/welcome" component={Welcome} />
+        <Route path="/app" component={AppAuthenticated} />
+
+        <Route path="/">
+          <Fragment>
+            <Route path="/" component={Landing} />
+
+            <Route exact path="/help/avatar" component={AvatarHelpModal} />
+            <Route exact path="/help/pronoun" component={PronounHelpModal} />
+            <Route exact path="/help/languages" component={LanguagesHelpModal} />
+            <Route exact path="/help/flag" component={FlagHelpModal} />
+
+            <Route exact path="/languages" component={NotFound} />
+            <Route exact path="/code-of-conduct" component={NotFound} />
+            <Route exact path="/thanks" component={NotFound} />
+            <Route exact path="/privacy" component={NotFound} />
+            <Route exact path="/terms" component={NotFound} />
+          </Fragment>
+        </Route>
+      </Switch>
+    </Fragment>
   </Router>
 );
 

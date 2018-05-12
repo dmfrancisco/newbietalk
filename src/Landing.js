@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Quotes from "./Quotes";
 import Avatar from "./Avatar";
 import Demo from "./demo/Demo";
@@ -7,9 +8,15 @@ import LandingFooter from "./LandingFooter";
 import Logo from "./images/Logo";
 import { Brick1, Brick2 } from "./images/Bricks";
 import quotes from "./quotes.json";
+import "./Landing.css";
 
 const Landing = () => (
   <div className="relative max-w-xl mx-auto px-15 py-8">
+    <Helmet>
+      <html className="Landing" />
+      <body className="bg-brown-lightest" />
+    </Helmet>
+
     <Brick1 className="absolute" style={{ top: 100, left: 100 }} />
     <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
 

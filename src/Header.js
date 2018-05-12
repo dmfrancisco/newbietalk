@@ -19,7 +19,7 @@ class Header extends Component {
             <div className="flex-1" />
 
             <Avatar {...session.state.avatarStyles} className="block flex-none" size="2.5rem" />
-            <Down className="block flex-none ml-4" />
+            <Down className="block flex-none ml-3" />
 
             <Link to="/app/profile">Edit profile</Link>
             <Link to="/app/sign-out">Sign out</Link>
