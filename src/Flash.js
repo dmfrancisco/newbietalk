@@ -13,9 +13,9 @@ class Flash extends Component {
     
     if (state.flash) {
       return (
-        <div className="fixed pin-t pin-x z-50 flex justify-center">
+        <div className="fixed pin-t pin-x z-50 flex justify-center pointer-events-none">
           <div
-            className="Box m-6 bg-yellow-lightest px-4 py-3 text-center text-lg font-bold leading-tight cursor-pointer"
+            className="Box m-6 bg-yellow-lightest px-4 py-3 text-center font-bold leading-tight cursor-pointer pointer-events-auto"
             onClick={this.handleDismiss}
           >
             {state.flash}

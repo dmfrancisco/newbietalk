@@ -69,7 +69,7 @@ let colors = {
   // 'brown-dark': '#de751f',
   'brown': '#7b5e59',
   'brown-light': '#ffd1c6',
-  // 'brown-lighter': '#fcd9b6',
+  'brown-lighter': '#fde1d4',
   'brown-lightest': '#fbf2ed',
 
   // 'yellow-darkest': '#453411',

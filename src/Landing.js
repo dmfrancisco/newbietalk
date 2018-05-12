@@ -13,8 +13,7 @@ import "./Landing.css";
 const Landing = () => (
   <div className="relative max-w-xl mx-auto px-15 py-8">
     <Helmet>
-      <html className="Landing" />
-      <body className="bg-brown-lightest" />
+      <html className="Landing bg-brown-lightest" />
     </Helmet>
 
     <Brick1 className="absolute" style={{ top: 100, left: 100 }} />

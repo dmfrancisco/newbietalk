@@ -43,6 +43,11 @@ class Welcome extends Component {
           // Some error occurred, you can inspect the code: error.code
           // Common errors could be invalid email and invalid or expired OTPs.
           console.error(error);
+        
+          const { history } = this.props;
+          const flash = `Oops… ${ error.message }`;
+          const state = { ...history.location.state, flash };
+          history.push({ ...history.location, state });
         });
     } else {
       // The user is not coming from an email, so redirect to homepage
