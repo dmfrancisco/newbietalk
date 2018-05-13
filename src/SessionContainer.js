@@ -32,37 +32,12 @@ class SessionContainer extends Container {
     return uid && username && languages.length > 0;
   }
 
-  setUsername = (username) => {
-    this.updateProfile({ username });
-  }
-
-  setAvatarStyle = (name, value) => {
-    const avatarStyles = { ...this.state.avatarStyles };
-    avatarStyles[name] = value;
-    this.updateProfile({ avatarStyles });
-  }
-
-  setPronoun = (pronoun) => {
-    this.updateProfile({ pronoun });
-  }
-
-  setLanguageName = (index, name) => {
-    const languages = [...this.state.languages];
-    if (!languages[index]) languages[index] = { icon: '🏳️' };
-    languages[index].name = name;
-    this.updateProfile({ languages });
-  }
-
-  setLanguageIcon = (index, icon) => {
-    const languages = [...this.state.languages];
-    if (!languages[index]) languages[index] = { name: '' };
-    languages[index].icon = icon;
-    this.updateProfile({ languages });
-  }
-
   updateProfile(profile) {
-    database.ref('users/' + this.state.uid).set({ ...this.state, ...profile });
-    this.setState(profile);
+    return database.ref('users/' + this.state.uid)
+      .set({ ...this.state, ...profile })
+      .then(() => {
+        this.setState(profile);
+      });
   }
 }
 

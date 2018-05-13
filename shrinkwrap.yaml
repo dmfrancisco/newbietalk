@@ -1,5 +1,6 @@
 dependencies:
   avataaars: 1.1.0
+  deepmerge: 2.1.0
   firebase: 5.0.2
   focus-visible: 4.1.4
   postcss-cli: 5.0.0
@@ -2352,6 +2353,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+  /deepmerge/2.1.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-Q89Z26KAfA3lpPGhbF6XMfYAm3jIV3avViy6KOJ2JLzFbeWHOvPQUu5aSJIWXap3gDZC2y1eF5HXEPI2wGqgvw==
   /default-require-extensions/1.0.0:
     dependencies:
       strip-bom: 2.0.0
@@ -8960,6 +8967,7 @@ shrinkwrapMinorVersion: 5
 shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0
+  deepmerge: ^2.1.0
   firebase: ^5.0.2
   focus-visible: ^4.1.4
   postcss-cli: ^5.0.0
