@@ -1,33 +1,74 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import Select from "react-select";
 import SessionContainer from "./SessionContainer";
 import Logo from "./images/Logo";
 import Avatar from "./Avatar";
-import { Down } from "./Icons";
+import "./Header.css";
 
 class Header extends Component {
+  handleSelect = (option) => {
+    this.props.history.push(option.value);
+  }
+  
   render() {
+    const options = [
+      { value: '/app/profile', label: 'Edit profile' },
+      { value: '/app/sign-out', label: 'Sign out' },
+    ];
+    
+    const styles = {
+      control() {},
+      singleValue() {},
+      placeholder() {},
+      indicatorsContainer() {},
+      indicatorSeparator() {},
+      dropdownIndicator() {},
+      menu() {},
+      option() {},
+    };
+
     return (
       <Subscribe to={[SessionContainer]}>
-        {session => (
-          <header className="flex items-center mb-6">
-            <Link to="/app" className="flex-none text-inherit">
-              <Logo width={180} height={24} />
-            </Link>
+        {session => {
+          const ValueContainer = ({ children }) => (
+            <Fragment>
+              <Avatar 
+                {...session.state.avatarStyles}
+                className="inline-block flex-none cursor-pointer"
+                size="2.5rem"
+              />
+              {children}
+            </Fragment>
+          );
 
-            <div className="flex-1" />
+          return (
+            <header className="flex items-center mb-6 px-6 py-3">
+              <Link to="/app" className="flex-none text-inherit">
+                <Logo width={180} height={24} />
+              </Link>
 
-            <Avatar {...session.state.avatarStyles} className="block flex-none" size="2.5rem" />
-            <Down className="block flex-none ml-3" />
+              <div className="flex-1" />
 
-            <Link to="/app/profile">Edit profile</Link>
-            <Link to="/app/sign-out">Sign out</Link>
-          </header>
-        )}
+              <div className="flex-none">
+                <Select
+                  onChange={this.handleSelect}
+                  components={{
+                    ValueContainer,
+                  }}
+                  options={options}
+                  isSearchable={false}
+                  className="Select"
+                  styles={styles}
+                />
+              </div>
+            </header>
+          );
+        }}
       </Subscribe>
     );
   }
 }
 
-export default Header;
+export default withRouter(Header);

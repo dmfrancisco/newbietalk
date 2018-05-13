@@ -85,11 +85,18 @@ class ProfileSettings extends Component {
               className="p-6 mx-auto max-w-md" 
               onSubmit={(e) => this.handleSubmit(e, session, state)}
             >
-              <input 
-                type="text"
-                value={state.username}
-                onChange={this.setUsername}
-              />
+              <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+                <h4 className="text-lg italic text-center mb-4 tracking-none">
+                  Pick your username
+                </h4>
+
+                <input 
+                  type="text"
+                  className="block mx-auto border-2 px-3 py-2 h-10 rounded m-1"
+                  value={state.username}
+                  onChange={this.setUsername}
+                />
+              </div>
 
               <AvatarBuilder
                 helpUrl="/app/profile/help/avatar"
@@ -110,7 +117,11 @@ class ProfileSettings extends Component {
                 onIconChange={this.setLanguageIcon}
               />
             
-              <button>Save profile</button>
+              <button
+                className="Button bg-brown-lighter text-lg px-4 py-3 block my-8 mx-auto"
+              >
+                Save profile
+              </button>
             </form>
           );
         }}
