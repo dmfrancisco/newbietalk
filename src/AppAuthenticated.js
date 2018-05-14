@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { Subscribe } from "unstated";
 import Loadable from "react-loadable";
 import SessionContainer from "./SessionContainer";
-import Header from "./Header";
 import Start from "./Start";
 import Home from "./Home";
 import ProfileSettings from "./ProfileSettings";
@@ -50,8 +49,6 @@ const AppAuthenticated = () => (
 
       return (
         <Fragment>
-          <Header />
-
           { session.isOnboarded() && (
             <Switch>
               <Route exact path="/app/start" render={() => <Redirect to="/app" />} />

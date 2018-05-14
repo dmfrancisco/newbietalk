@@ -45,6 +45,7 @@
   padding: 0.5rem 1rem;
 }
 
+.Select__control:hover,
 .Select__control--isFocused,
 .Select__option--isFocused {
   background-color: #ddd;

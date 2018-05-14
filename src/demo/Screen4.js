@@ -203,7 +203,7 @@ export default class extends Component {
               {stepIndex >= 11 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--auto">
-                    {helper.name} suggested a video chat
+                    @{helper.username} suggested a video chat
                   </div>
                 </div>
               )}
@@ -211,7 +211,7 @@ export default class extends Component {
               {stepIndex >= 11 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system">
-                    {helper.name} suggested a video chat. If you are too shy, are in a public place
+                    @{helper.username} suggested a video chat. If you are too shy, are in a public place
                     or don’t have the hardware, click “Sorry I can’t”.
                   </div>
                 </div>
@@ -288,7 +288,7 @@ export default class extends Component {
               {stepIndex >= 15 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system">
-                    {helper.name} pressed goodbye! If {helper.pronoun.split(" ")[0].toLowerCase()}{" "}
+                    @{helper.username} pressed goodbye! If {helper.pronoun.split(" ")[0].toLowerCase()}{" "}
                     helped you in any way, be sure to thank{" "}
                     {helper.pronoun.split(" ")[2].toLowerCase()}.
                   </div>
@@ -334,9 +334,9 @@ export default class extends Component {
                 >
                   <p className="mb-4">
                     How are you feeling about this conversation? <br />
-                    Was {helper.name} friendly and respectful?
+                    Was @{helper.username} friendly and respectful?
                   </p>
-                  <p className="mb-4">This feedback is private and is not shared with {helper.name}.</p>
+                  <p className="mb-4">This feedback is private and is not shared with @{helper.username}.</p>
                   <div className="mb-4 inline-block">
                     <Avatar
                       {...profile.state.avatarStyles}

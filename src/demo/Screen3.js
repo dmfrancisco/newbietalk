@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
 import Container from "./Container";
 import Header from "./Header";
-import AvatarBadges from "./AvatarBadges";
+import Card from "../Card";
 
 export default class extends Component {
   static defaultProps = {
@@ -57,29 +57,14 @@ export default class extends Component {
     return (
       <Fragment>
         <h4 className="text-lg italic mb-4">Your profile</h4>
-
-        <div className="bg-brown-lightest rounded-lg p-6 mb-6">
-          <strong className="inline-block text-lg italic mb-4">@myusername</strong>
-
-          <em className="opacity-50 float-right text-lg font-bold">This is you</em>
-
-          <AvatarBadges {...profile.state} />
-
-          <textarea
-            className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
-            readOnly
-            disabled
-            rows={2}
-            value={profile.state.helpDescription}
-            onChange={e => profile.setHelpDescription(e.target.value)}
-          />
-
-          <button className="Button Button--disabled text-lg italic" disabled>
-            Asking for help…
-          </button>
-
-          <button className="Button text-lg bg-brown-light float-right">Stop asking</button>
-        </div>
+      
+        <Card
+          member={profile.state}
+          onClick={() => {}}
+          action="asking"
+          owner
+          className="mb-6"
+        />
       </Fragment>
     );
   }
@@ -101,27 +86,6 @@ export default class extends Component {
     );
   }
 
-  renderMemberCard(profile, member, animated = true) {
-    const className = `bg-${member.color}-lightest rounded-lg p-6 pr-2 ${
-      animated ? "animated flash" : ""
-    }`;
-
-    return (
-      <div className={className}>
-        <strong className="inline-block text-lg italic mb-4">{member.name}</strong>
-
-        <AvatarBadges {...member} />
-
-        <button
-          className="Button text-lg bg-brown-light mt-4"
-          onClick={() => this.handleAccept(profile, member)}
-        >
-          Accept help
-        </button>
-      </div>
-    );
-  }
-
   renderStep1(profile) {
     const member = profile.getHelperOptions()[0];
 
@@ -131,14 +95,23 @@ export default class extends Component {
           className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash"
           style={{ maxWidth: "80%" }}
         >
-          <strong>{member.name}</strong> is available to help! Accept her help or wait to see if
+          <strong>@{member.username}</strong> is available to help! Accept her help or wait to see if
           more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
         <div className="flex">
-          <div className="w-1/2 mb-8 pr-2">{this.renderMemberCard(profile, member)}</div>
+          <div className="w-1/2 mb-8 pr-2">
+            <Card
+              member={member}
+              color={member.color}
+              onClick={() => this.handleAccept(profile, member)}
+              action="accept"
+              className="pr-2"
+              animated
+            />
+          </div>
         </div>
       </Fragment>
     );
@@ -161,8 +134,25 @@ export default class extends Component {
         <h4 className="text-lg italic mb-6">Members offering help</h4>
 
         <div className="flex">
-          <div className="w-1/2 mb-8 pr-2">{this.renderMemberCard(profile, member1, false)}</div>
-          <div className="w-1/2 mb-8">{this.renderMemberCard(profile, member2)}</div>
+          <div className="w-1/2 mb-8 pr-2">
+            <Card
+              member={member1}
+              color={member1.color}
+              onClick={() => this.handleAccept(profile, member1)}
+              action="accept"
+              className="pr-2"
+            />
+          </div>
+          <div className="w-1/2 mb-8">
+            <Card
+              member={member2}
+              color={member2.color}
+              onClick={() => this.handleAccept(profile, member2)}
+              action="accept"
+              className="pr-2"
+              animated
+            />
+          </div>
         </div>
       </Fragment>
     );

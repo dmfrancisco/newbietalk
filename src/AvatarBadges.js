@@ -1,21 +1,24 @@
 import React from "react";
-import Avatar from "../Avatar";
+import Avatar from "./Avatar";
 import "primer-tooltips/build/build.css";
-import "../tooltips.css";
+import "./tooltips.css";
 
-export default props => {
-  let languages = props.languages.filter(lang => lang.name);
-  if (languages.length === 0) languages = [{ name: "English", icon: "🇺🇸" }];
+export default ({ languages, avatarStyles, pronoun, thanked }) => {
+  let filteredLanguages = languages.filter(lang => lang.name);
+
+  if (filteredLanguages.length === 0) {
+    filteredLanguages = [{ name: "English", icon: "🇺🇸" }];
+  }
 
   return (
     <div className="relative">
-      <Avatar {...props.avatarStyles} className="block mb-4" size="8rem" />
+      <Avatar {...avatarStyles} className="block mb-4" size="8rem" />
 
       <div
         className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white h-8"
         style={{ marginLeft: "6rem" }}
       >
-        {languages.map(lang => (
+        {filteredLanguages.map(lang => (
           <span
             key={lang.name}
             aria-label={lang.name}
@@ -30,15 +33,15 @@ export default props => {
         className="absolute pin-b pin-l mb-6 inline-block px-2 py-1 rounded text-white font-bold"
         style={{ background: "#7c4dff", marginLeft: "6rem" }}
       >
-        {props.pronoun}
+        {pronoun}
       </div>
 
-      {props.thanked && (
+      {thanked && (
         <div
           className="absolute pin-b pin-l -mb-2 inline-block px-2 py-1 rounded text-white font-bold"
           style={{ background: "#097f1b", marginLeft: "6rem" }}
         >
-          Thanked {props.thanked} times
+          Thanked {thanked} times
         </div>
       )}
     </div>

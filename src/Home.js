@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import Header from "./Header";
 
 class Home extends Component {
   render() {
     return (
-      <div className="">
-        Home
-      </div>
+      <Fragment>
+        <Header />
+      
+        <div>Home</div>
+      </Fragment>
     );
   }
 }

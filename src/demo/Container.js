@@ -2,7 +2,7 @@ import { Container } from "unstated";
 
 const helperOptions = [
   {
-    name: "@zaberjs",
+    username: "zaberjs",
     color: "teal",
     thanked: 14,
     avatarStyles: {
@@ -21,7 +21,7 @@ const helperOptions = [
     ],
   },
   {
-    name: "@davidcodes",
+    username: "davidcodes",
     color: "blue",
     thanked: 6,
     avatarStyles: {
@@ -40,6 +40,7 @@ const helperOptions = [
 
 export default class extends Container {
   state = {
+    username: "myusername",
     avatarStyles: {
       topType: "NoHair",
       accessoriesType: "Blank",

@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
 import deepmerge from 'deepmerge';
+import Header from "./Header";
 import SessionContainer from "./SessionContainer";
 import AvatarBuilder from "./AvatarBuilder";
 import PronounBuilder from "./PronounBuilder";
@@ -81,48 +82,52 @@ class ProfileSettings extends Component {
           });
 
           return (
-            <form 
-              className="p-6 mx-auto max-w-md" 
-              onSubmit={(e) => this.handleSubmit(e, session, state)}
-            >
-              <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
-                <h4 className="text-lg italic text-center mb-4 tracking-none">
-                  Pick your username
-                </h4>
-
-                <input 
-                  type="text"
-                  className="block mx-auto border-2 px-3 py-2 h-10 rounded m-1"
-                  value={state.username}
-                  onChange={this.setUsername}
-                />
-              </div>
-
-              <AvatarBuilder
-                helpUrl="/app/profile/help/avatar"
-                avatarStyles={state.avatarStyles}
-                onChange={this.setAvatarStyle}
-              />
-
-              <PronounBuilder
-                helpUrl="/app/profile/help/pronoun"
-                value={state.pronoun}
-                onChange={this.setPronoun}
-              />
-
-              <LanguagesBuilder
-                helpUrl="/app/profile/help/languages"
-                value={state.languages}
-                onNameChange={this.setLanguageName}
-                onIconChange={this.setLanguageIcon}
-              />
-            
-              <button
-                className="Button bg-brown-lighter text-lg px-4 py-3 block my-8 mx-auto"
+            <Fragment>
+              <Header />
+              
+              <form 
+                className="p-6 mx-auto max-w-md" 
+                onSubmit={(e) => this.handleSubmit(e, session, state)}
               >
-                Save profile
-              </button>
-            </form>
+                <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+                  <h4 className="text-lg italic text-center mb-4 tracking-none">
+                    Pick your username
+                  </h4>
+
+                  <input 
+                    type="text"
+                    className="block mx-auto border-2 px-3 py-2 h-10 rounded m-1"
+                    value={state.username}
+                    onChange={this.setUsername}
+                  />
+                </div>
+
+                <AvatarBuilder
+                  helpUrl="/app/profile/help/avatar"
+                  avatarStyles={state.avatarStyles}
+                  onChange={this.setAvatarStyle}
+                />
+
+                <PronounBuilder
+                  helpUrl="/app/profile/help/pronoun"
+                  value={state.pronoun}
+                  onChange={this.setPronoun}
+                />
+
+                <LanguagesBuilder
+                  helpUrl="/app/profile/help/languages"
+                  value={state.languages}
+                  onNameChange={this.setLanguageName}
+                  onIconChange={this.setLanguageIcon}
+                />
+
+                <button
+                  className="Button bg-brown-lighter text-lg px-4 py-3 block my-8 mx-auto"
+                >
+                  Save profile
+                </button>
+              </form>
+            </Fragment>
           );
         }}
       </Subscribe>
