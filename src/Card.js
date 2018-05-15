@@ -27,11 +27,11 @@ class Card extends Component {
             Ask for help
           </button>
 
-          <label className="flex-none select-none ml-4">
+          <label className="select-none ml-4">
             <input 
               type="checkbox"
               className="mr-1"
-              defaultChecked={member.readCodeOfConduct}
+              checked={member.readCodeOfConduct}
               onChange={onReadCodeOfConductChange}
             /> I’ve read the Code of Conduct
           </label>
@@ -41,8 +41,11 @@ class Card extends Component {
   }
 
   renderAskingHelp() {
-    const { member, onClick } = this.props;
-    
+    const { member, helper = {}, onClick, owner = false, onReadCodeOfConductChange = () => {} } = this.props;
+    const disabled = !helper.readCodeOfConduct;
+    const buttonClassName = `flex-none Button text-lg ${ 
+      disabled ? 'Button--disabled rounded-lg' : 'bg-brown-light' }`;
+
     return (
       <Fragment>
         <textarea
@@ -53,16 +56,41 @@ class Card extends Component {
           value={member.helpDescription}
         />
 
-        <button className="Button Button--disabled text-lg italic" disabled>
-          Asking for help…
-        </button>
+        { owner && (
+          <Fragment>
+            <button className="Button Button--disabled text-lg italic" disabled>
+              Asking for help
+            </button>
 
-        <button
-          onClick={onClick}
-          className="Button text-lg bg-brown-light float-right"
-        >
-          Stop asking
-        </button>
+            <button
+              onClick={onClick}
+              className="Button text-lg bg-brown-light float-right"
+            >
+              Stop asking
+            </button>
+          </Fragment>
+        )}
+
+        { !owner && (
+          <div className="flex items-center">
+            <button
+              onClick={onClick}
+              className={buttonClassName}
+              disabled={disabled}
+            >
+              Offer help
+            </button>
+
+            <label className="select-none ml-4">
+              <input 
+                type="checkbox"
+                className="mr-1"
+                checked={helper.readCodeOfConduct}
+                onChange={onReadCodeOfConductChange}
+              /> I’ve read the <br/> Code of Conduct
+            </label>
+          </div>
+        )} 
       </Fragment>
     );
   }

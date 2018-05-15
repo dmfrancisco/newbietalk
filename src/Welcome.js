@@ -28,9 +28,7 @@ class Welcome extends Component {
           // Additional user info profile not available via:
           // result.additionalUserInfo.profile == null
           // You can check if the user is new or existing:
-          // result.additionalUserInfo.isNewUser
-          console.log(result);
-        
+          // result.additionalUserInfo.isNewUser        
           if (result.additionalUserInfo.isNewUser) {
             // This is a new user, start the onboarding
             this.props.history.push('/app/profile');

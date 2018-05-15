@@ -36,10 +36,16 @@ class SessionContainer extends Container {
 
   updateProfile(profile) {
     return database.ref('users/' + this.state.uid)
-      .set({ ...this.state, ...profile })
-      .then(() => {
-        this.setState(profile);
-      });
+      .set({ ...this.state, ...profile });
+  }
+
+  ask = () => {
+    return database.ref('asks/' + this.state.uid)
+      .set({ asker: this.state });
+  }
+  
+  stopAsking = () => {
+    return database.ref('asks/' + this.state.uid).remove();
   }
 }
 
@@ -47,8 +53,13 @@ const session = new SessionContainer();
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    database.ref('users/' + user.uid).once('value').then((profile) => {
-      session.setState({ uid: user.uid, email: user.email, ...profile.val(), ready: true });
+    database.ref('users/' + user.uid).on('value', (profile) => {
+      session.setState({ 
+        uid: user.uid, 
+        email: user.email, 
+        ...profile.val(), 
+        ready: true
+      });
     });
   } else {
     session.setState({ uid: null, ready: true });
