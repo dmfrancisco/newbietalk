@@ -20,6 +20,8 @@ class SessionContainer extends Container {
       facialHairColor: "BlondeGolden",
       skinColor: "Yellow",
     },
+    helpDescription: "",
+    readCodeOfConduct: false,
     thanked: 0,
   }
 

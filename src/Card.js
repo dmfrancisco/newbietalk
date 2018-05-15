@@ -3,28 +3,37 @@ import AvatarBadges from "./AvatarBadges";
 
 class Card extends Component {
   renderAskHelp() {
-    const { member, onClick, onHelpDescriptionChange } = this.props;
-    
+    const { member, onClick, onHelpDescriptionChange, onReadCodeOfConductChange, validate = true } = this.props;
+    const helpDescription = member.helpDescription || "";
+    const disabled = validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
+    const buttonClassName = `flex-none Button text-lg ${ disabled ? 'Button--disabled rounded-lg' : 'bg-brown-light' }`;
+
     return (
       <Fragment>
         <textarea
           className="block border-2 px-3 py-2 rounded w-full mb-4"
           placeholder="I need help with…"
           rows={2}
-          value={member.helpDescription}
+          defaultValue={helpDescription}
           onChange={onHelpDescriptionChange}
         />
 
         <div className="flex items-center">
           <button
             onClick={onClick}
-            className="flex-none Button text-lg bg-brown-light"
+            className={buttonClassName}
+            disabled={disabled}
           >
             Ask for help
           </button>
 
           <label className="flex-none select-none ml-4">
-            <input type="checkbox" className="mr-1" /> I’ve read the Code of Conduct
+            <input 
+              type="checkbox"
+              className="mr-1"
+              defaultChecked={member.readCodeOfConduct}
+              onChange={onReadCodeOfConductChange}
+            /> I’ve read the Code of Conduct
           </label>
         </div>
       </Fragment>
@@ -103,11 +112,11 @@ class Card extends Component {
   }
 
   render() {
-    const { member, color = "brown", animated = false, className = "", owner = false } = this.props;
+    const { member, color = "brown", animated = false, className = "", owner = false, style = {} } = this.props;
     const wrapperClassName = `bg-${color}-lightest rounded-lg p-6 ${className} ${animated ? "animated flash" : ""}`;
 
     return (
-      <div className={wrapperClassName}>
+      <div className={wrapperClassName} style={style}>
         <strong className="inline-block text-lg italic mb-4">
           @{member.username}
         </strong>

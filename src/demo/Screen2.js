@@ -26,8 +26,10 @@ export default props => (
               member={profile.state}
               onClick={props.showNext}
               onHelpDescriptionChange={e => profile.setHelpDescription(e.target.value)}
+              onReadCodeOfConductClick={() => {}}
               action="ask"
               owner
+              validate={false}
             />
           </div>
 
