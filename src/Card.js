@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import AvatarBadges from "./AvatarBadges";
 
 class Card extends Component {
@@ -41,7 +42,58 @@ class Card extends Component {
   }
 
   renderAskingHelp() {
-    const { member, helper = {}, onClick, owner = false, onReadCodeOfConductChange = () => {} } = this.props;
+    const { member, onClick } = this.props;
+
+    return (
+      <Fragment>
+        <textarea
+          className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
+          readOnly
+          disabled
+          rows={2}
+          value={member.helpDescription}
+        />
+
+        <button className="Button Button--disabled text-lg italic" disabled>
+          Asking for help…
+        </button>
+
+        <button
+          onClick={onClick}
+          className="Button text-lg bg-brown-light float-right"
+        >
+          Stop asking
+        </button>
+      </Fragment>
+    );
+  }
+
+  renderAcceptHelp() {
+    const { onClick, member } = this.props;
+    
+    if (member.accepted) {
+      return (
+        <Link
+          className="Button text-lg bg-brown-light mt-4"
+          to="/"
+        >
+          Open chat
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        className="Button text-lg bg-brown-light mt-4"
+        onClick={onClick}
+      >
+        Accept help
+      </button>
+    );
+  }
+
+  renderOfferHelp() {
+    const { member, helper, onClick, onReadCodeOfConductChange = () => {} } = this.props;
     const disabled = !helper.readCodeOfConduct;
     const buttonClassName = `flex-none Button text-lg ${ 
       disabled ? 'Button--disabled rounded-lg' : 'bg-brown-light' }`;
@@ -56,67 +108,62 @@ class Card extends Component {
           value={member.helpDescription}
         />
 
-        { owner && (
+        <div className="flex items-center">
+          <button
+            onClick={onClick}
+            className={buttonClassName}
+            disabled={disabled}
+          >
+            Offer help
+          </button>
+
+          <label className="select-none ml-4">
+            <input 
+              type="checkbox"
+              className="mr-1"
+              checked={helper.readCodeOfConduct}
+              onChange={onReadCodeOfConductChange}
+            /> I’ve read the <br/> Code of Conduct
+          </label>
+        </div>
+      </Fragment>
+    );
+  }
+  
+  renderOfferingHelp() {
+    const { member, helper, onClick } = this.props;
+
+    return (
+      <Fragment>
+        <textarea
+          className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
+          readOnly
+          disabled
+          rows={2}
+          value={member.helpDescription}
+        />
+
+        {!helper.accepted && (
           <Fragment>
             <button className="Button Button--disabled text-lg italic" disabled>
-              Asking for help
+              Offering help…
             </button>
 
             <button
               onClick={onClick}
               className="Button text-lg bg-brown-light float-right"
             >
-              Stop asking
+              Stop offering
             </button>
           </Fragment>
         )}
 
-        { !owner && (
-          <div className="flex items-center">
-            <button
-              onClick={onClick}
-              className={buttonClassName}
-              disabled={disabled}
-            >
-              Offer help
-            </button>
-
-            <label className="select-none ml-4">
-              <input 
-                type="checkbox"
-                className="mr-1"
-                checked={helper.readCodeOfConduct}
-                onChange={onReadCodeOfConductChange}
-              /> I’ve read the <br/> Code of Conduct
-            </label>
-          </div>
-        )} 
+        {helper.accepted && (
+          <Link to="/" className="Button text-lg bg-brown-light">
+            Open chat
+          </Link>
+        )}
       </Fragment>
-    );
-  }
-
-  renderAcceptHelp() {
-    const { onClick } = this.props;
-    
-    return (
-      <button
-        className="Button text-lg bg-brown-light mt-4"
-        onClick={onClick}
-      >
-        Accept help
-      </button>
-    );
-  }
-
-  renderOfferHelp() {
-    return (
-      null
-    );
-  }
-  
-  renderOfferingHelp() {
-    return (
-      null
     );
   }
   
