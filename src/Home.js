@@ -34,8 +34,9 @@ class Home extends Component {
                         <Card
                           key={helper.uid}
                           color={this.getColor(index)}
-                          member={helper}
-                          onClick={() => asks.accept(session.state.uid, helper)}
+                          member={session.state}
+                          helper={helper}
+                          onClick={() => asks.accept(session.state, helper)}
                           action="accept"
                           className="mr-2 mb-2 inline-block"
                           style={{ width: "18rem" }}

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
 import AvatarBadges from "./AvatarBadges";
 
 class Card extends Component {
@@ -71,14 +70,10 @@ class Card extends Component {
   }
 
   renderAcceptHelp() {
-    const { onClick, member } = this.props;
+    const { onClick, helper } = this.props;
 
-    if (member.accepted) {
-      return (
-        <Link className="Button text-lg bg-brown-light mt-4" to="/">
-          Open chat
-        </Link>
-      );
+    if (helper.chatKey) {
+      return this.renderOpenChat(helper.chatKey);
     }
 
     return (
@@ -137,7 +132,7 @@ class Card extends Component {
           value={member.helpDescription}
         />
 
-        {!helper.accepted && (
+        {!helper.chatKey && (
           <Fragment>
             <button className="Button Button--disabled text-lg italic" disabled>
               Offering help…
@@ -149,12 +144,23 @@ class Card extends Component {
           </Fragment>
         )}
 
-        {helper.accepted && (
-          <Link to="/" className="Button text-lg bg-brown-light">
-            Open chat
-          </Link>
-        )}
+        {helper.chatKey && this.renderOpenChat(helper.chatKey)}
       </Fragment>
+    );
+  }
+
+  renderOpenChat(chatKey) {
+    const chatUrl = `/app/chat/${chatKey}`;
+
+    return (
+      <a
+        href={chatUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="Button text-lg bg-brown-light"
+      >
+        Open chat
+      </a>
     );
   }
 

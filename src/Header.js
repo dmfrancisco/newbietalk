@@ -59,7 +59,7 @@ class Header extends Component {
                   }}
                   options={options}
                   isSearchable={false}
-                  className="Select"
+                  classNamePrefix="Select"
                   styles={styles}
                 />
               </div>

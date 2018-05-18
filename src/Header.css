@@ -46,7 +46,7 @@
 }
 
 .Select__control:hover,
-.Select__control--isFocused,
-.Select__option--isFocused {
+.Select__control--is-focused,
+.Select__option--is-focused {
   background-color: #ddd;
 }

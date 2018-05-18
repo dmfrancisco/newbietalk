@@ -9,19 +9,27 @@ class AsksContainer extends Container {
   };
 
   offer = (askerUID, helper) => {
-    return database
-      .ref(`asks/${askerUID}/helpers/${helper.uid}`)
-      .set({ ...helper, accepted: false });
+    return database.ref(`asks/${askerUID}/helpers/${helper.uid}`).set({ ...helper, chatKey: null });
   };
 
   stopOffer = (askerUID, helper) => {
     return database.ref(`asks/${askerUID}/helpers/${helper.uid}`).remove();
   };
 
-  accept = (askerUID, helper) => {
-    return database
-      .ref(`asks/${askerUID}/helpers/${helper.uid}`)
-      .set({ ...helper, accepted: true });
+  accept = (asker, helper) => {
+    const chatKey = database
+      .ref()
+      .child("chats")
+      .push().key;
+
+    const updates = {};
+    updates[`/chats/${chatKey}`] = { asker, helper };
+    updates[`asks/${asker.uid}/helpers/${helper.uid}`] = { ...helper, chatKey };
+
+    return firebase
+      .database()
+      .ref()
+      .update(updates);
   };
 }
 

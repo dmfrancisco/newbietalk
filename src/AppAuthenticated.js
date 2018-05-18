@@ -27,6 +27,12 @@ const LanguagesHelpModal = Loadable({
   delay: 0,
 });
 
+const Chat = Loadable({
+  loader: () => import("./Chat"),
+  loading: Loading,
+  delay: 0,
+});
+
 const Unauthenticated = () => <h1>Unauthenticated</h1>;
 
 const AppAuthenticated = () => (
@@ -65,6 +71,7 @@ const AppAuthenticated = () => (
           <Route exact path="/app/profile/help/avatar" component={AvatarHelpModal} />
           <Route exact path="/app/profile/help/pronoun" component={PronounHelpModal} />
           <Route exact path="/app/profile/help/languages" component={LanguagesHelpModal} />
+          <Route path="/app/chat/:uid" component={Chat} />
 
           <Route exact path="/app/sign-out" component={SignOut} />
         </Fragment>
