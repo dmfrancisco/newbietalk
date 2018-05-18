@@ -20,7 +20,7 @@ class Demo extends Component {
 
   scrollToBottom = () => {
     if (this.demo) this.demo.scrollTop = this.demo.scrollHeight;
-  }
+  };
 
   render() {
     const { screenIndex } = this.state;

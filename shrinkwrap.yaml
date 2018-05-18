@@ -9147,7 +9147,7 @@ packages:
       tarball: 'https://codeload.github.com/dmfrancisco/typeface-karmilla/tar.gz/b75879c4bc942e0a9a3ec1c09a582944979642a2'
     version: 0.0.1
 registry: 'https://registry.npmjs.org/'
-shrinkwrapMinorVersion: 5
+shrinkwrapMinorVersion: 6
 shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0

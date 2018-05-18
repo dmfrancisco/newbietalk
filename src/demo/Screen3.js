@@ -57,14 +57,8 @@ export default class extends Component {
     return (
       <Fragment>
         <h4 className="text-lg italic mb-4">Your profile</h4>
-      
-        <Card
-          member={profile.state}
-          onClick={() => {}}
-          action="asking"
-          owner
-          className="mb-6"
-        />
+
+        <Card member={profile.state} onClick={() => {}} action="asking" owner className="mb-6" />
       </Fragment>
     );
   }
@@ -95,8 +89,8 @@ export default class extends Component {
           className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash"
           style={{ maxWidth: "80%" }}
         >
-          <strong>@{member.username}</strong> is available to help! Accept her help or wait to see if
-          more members are available.
+          <strong>@{member.username}</strong> is available to help! Accept her help or wait to see
+          if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>

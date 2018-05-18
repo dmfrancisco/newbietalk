@@ -23,8 +23,8 @@ const FlagHelpModal = props => (
         </p>
 
         <p className="text-brown leading-normal m-8 mt-4">
-          Every time you encounter something in any way innapropriate, please let us know by clicking
-          on the flag available on the bottom right corner.
+          Every time you encounter something in any way innapropriate, please let us know by
+          clicking on the flag available on the bottom right corner.
         </p>
       </div>
 

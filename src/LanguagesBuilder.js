@@ -267,13 +267,10 @@ class LanguagesBuilder extends Component {
 
   render() {
     const { helpUrl, value, onNameChange, onIconChange } = this.props;
-    
+
     return (
       <div className="relative w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6 overflow-hidden">
-        <Link
-          to={helpUrl}
-          className="absolute block pin-t pin-r m-2 p-2 text-inherit"
-        >
+        <Link to={helpUrl} className="absolute block pin-t pin-r m-2 p-2 text-inherit">
           <Help />
         </Link>
 
@@ -283,12 +280,12 @@ class LanguagesBuilder extends Component {
 
         {[0, 1, 2].map(index => {
           let placeholder;
-      
+
           if (index === 0) placeholder = "1st language…  (e.g. Portuguese)";
           if (index === 1) placeholder = "Optional: 2nd language…";
           if (index === 2) placeholder = "Optional: 3rd language…";
-    
-          const language = value[index] || { name: "", icon: '🏳️' };
+
+          const language = value[index] || { name: "", icon: "🏳️" };
 
           return (
             <div key={index} className="flex">

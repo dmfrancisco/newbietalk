@@ -6,11 +6,11 @@ class Flash extends Component {
     const state = { ...history.location.state, flash: null };
 
     history.replace({ ...history.location, state });
-  }
+  };
 
   render() {
     const { state = {} } = this.props.history.location;
-    
+
     if (state.flash) {
       return (
         <div className="fixed pin-t pin-x z-50 flex justify-center pointer-events-none">

@@ -27,9 +27,7 @@ const LanguagesHelpModal = Loadable({
   delay: 0,
 });
 
-const Unauthenticated = () => (
-  <h1>Unauthenticated</h1>
-);
+const Unauthenticated = () => <h1>Unauthenticated</h1>;
 
 const AppAuthenticated = () => (
   <Subscribe to={[SessionContainer]}>
@@ -49,14 +47,14 @@ const AppAuthenticated = () => (
 
       return (
         <Fragment>
-          { session.isOnboarded() && (
+          {session.isOnboarded() && (
             <Switch>
               <Route exact path="/app/start" render={() => <Redirect to="/app" />} />
               <Route exact path="/app" component={Home} />
             </Switch>
           )}
 
-          { !session.isOnboarded() && (
+          {!session.isOnboarded() && (
             <Switch>
               <Route exact path="/app/start" render={() => <Redirect to="/app/profile" />} />
               <Route exact path="/app" render={() => <Redirect to="/app/profile" />} />
@@ -70,7 +68,7 @@ const AppAuthenticated = () => (
 
           <Route exact path="/app/sign-out" component={SignOut} />
         </Fragment>
-      )
+      );
     }}
   </Subscribe>
 );

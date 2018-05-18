@@ -50,11 +50,7 @@ export default class extends Container {
       skinColor: "Yellow",
     },
     pronoun: "They / Them",
-    languages: [
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" }
-    ],
+    languages: [{ name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }],
     helpDescription:
       "I know HTML and CSS and have this simple website but I’m not sure how to make this available for free.",
     helper: helperOptions[0],
@@ -64,23 +60,23 @@ export default class extends Container {
     const avatarStyles = { ...this.state.avatarStyles };
     avatarStyles[name] = value;
     this.setState({ avatarStyles });
-  }
+  };
 
-  setPronoun = (pronoun) => {
+  setPronoun = pronoun => {
     this.setState({ pronoun });
-  }
+  };
 
   setLanguageName = (index, name) => {
     const languages = [...this.state.languages];
     languages[index].name = name;
     this.setState({ languages });
-  }
+  };
 
   setLanguageIcon = (index, icon) => {
     const languages = [...this.state.languages];
     languages[index].icon = icon;
     this.setState({ languages });
-  }
+  };
 
   setHelpDescription(helpDescription) {
     this.setState({ helpDescription });

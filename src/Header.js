@@ -8,16 +8,16 @@ import Avatar from "./Avatar";
 import "./Header.css";
 
 class Header extends Component {
-  handleSelect = (option) => {
+  handleSelect = option => {
     this.props.history.push(option.value);
-  }
-  
+  };
+
   render() {
     const options = [
-      { value: '/app/profile', label: 'Edit profile' },
-      { value: '/app/sign-out', label: 'Sign out' },
+      { value: "/app/profile", label: "Edit profile" },
+      { value: "/app/sign-out", label: "Sign out" },
     ];
-    
+
     const styles = {
       control() {},
       singleValue() {},
@@ -34,7 +34,7 @@ class Header extends Component {
         {session => {
           const ValueContainer = ({ children }) => (
             <Fragment>
-              <Avatar 
+              <Avatar
                 {...session.state.avatarStyles}
                 className="inline-block flex-none cursor-pointer"
                 size="2.5rem"

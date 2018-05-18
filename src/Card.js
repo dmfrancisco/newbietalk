@@ -4,10 +4,18 @@ import AvatarBadges from "./AvatarBadges";
 
 class Card extends Component {
   renderAskHelp() {
-    const { member, onClick, onHelpDescriptionChange, onReadCodeOfConductChange, validate = true } = this.props;
+    const {
+      member,
+      onClick,
+      onHelpDescriptionChange,
+      onReadCodeOfConductChange,
+      validate = true,
+    } = this.props;
     const helpDescription = member.helpDescription || "";
     const disabled = validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
-    const buttonClassName = `flex-none Button text-lg ${ disabled ? 'Button--disabled rounded-lg' : 'bg-brown-light' }`;
+    const buttonClassName = `flex-none Button text-lg ${
+      disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
+    }`;
 
     return (
       <Fragment>
@@ -20,21 +28,18 @@ class Card extends Component {
         />
 
         <div className="flex items-center">
-          <button
-            onClick={onClick}
-            className={buttonClassName}
-            disabled={disabled}
-          >
+          <button onClick={onClick} className={buttonClassName} disabled={disabled}>
             Ask for help
           </button>
 
           <label className="select-none ml-4">
-            <input 
+            <input
               type="checkbox"
               className="mr-1"
               checked={member.readCodeOfConduct}
               onChange={onReadCodeOfConductChange}
-            /> I’ve read the Code of Conduct
+            />{" "}
+            I’ve read the Code of Conduct
           </label>
         </div>
       </Fragment>
@@ -58,10 +63,7 @@ class Card extends Component {
           Asking for help…
         </button>
 
-        <button
-          onClick={onClick}
-          className="Button text-lg bg-brown-light float-right"
-        >
+        <button onClick={onClick} className="Button text-lg bg-brown-light float-right">
           Stop asking
         </button>
       </Fragment>
@@ -70,23 +72,17 @@ class Card extends Component {
 
   renderAcceptHelp() {
     const { onClick, member } = this.props;
-    
+
     if (member.accepted) {
       return (
-        <Link
-          className="Button text-lg bg-brown-light mt-4"
-          to="/"
-        >
+        <Link className="Button text-lg bg-brown-light mt-4" to="/">
           Open chat
         </Link>
       );
     }
 
     return (
-      <button
-        className="Button text-lg bg-brown-light mt-4"
-        onClick={onClick}
-      >
+      <button className="Button text-lg bg-brown-light mt-4" onClick={onClick}>
         Accept help
       </button>
     );
@@ -95,8 +91,9 @@ class Card extends Component {
   renderOfferHelp() {
     const { member, helper, onClick, onReadCodeOfConductChange = () => {} } = this.props;
     const disabled = !helper.readCodeOfConduct;
-    const buttonClassName = `flex-none Button text-lg ${ 
-      disabled ? 'Button--disabled rounded-lg' : 'bg-brown-light' }`;
+    const buttonClassName = `flex-none Button text-lg ${
+      disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
+    }`;
 
     return (
       <Fragment>
@@ -109,27 +106,24 @@ class Card extends Component {
         />
 
         <div className="flex items-center">
-          <button
-            onClick={onClick}
-            className={buttonClassName}
-            disabled={disabled}
-          >
+          <button onClick={onClick} className={buttonClassName} disabled={disabled}>
             Offer help
           </button>
 
           <label className="select-none ml-4">
-            <input 
+            <input
               type="checkbox"
               className="mr-1"
               checked={helper.readCodeOfConduct}
               onChange={onReadCodeOfConductChange}
-            /> I’ve read the <br/> Code of Conduct
+            />{" "}
+            I’ve read the <br /> Code of Conduct
           </label>
         </div>
       </Fragment>
     );
   }
-  
+
   renderOfferingHelp() {
     const { member, helper, onClick } = this.props;
 
@@ -149,10 +143,7 @@ class Card extends Component {
               Offering help…
             </button>
 
-            <button
-              onClick={onClick}
-              className="Button text-lg bg-brown-light float-right"
-            >
+            <button onClick={onClick} className="Button text-lg bg-brown-light float-right">
               Stop offering
             </button>
           </Fragment>
@@ -166,43 +157,48 @@ class Card extends Component {
       </Fragment>
     );
   }
-  
+
   renderAction() {
     const { action } = this.props;
-    
+
     switch (action) {
-    case "ask":
-      return this.renderAskHelp();
-    case "asking":
-      return this.renderAskingHelp();
-    case "accept":
-      return this.renderAcceptHelp();
-    case "offer":
-      return this.renderOfferHelp();
-    case "offering":
-      return this.renderOfferingHelp();
-    default:
-      return null;
+      case "ask":
+        return this.renderAskHelp();
+      case "asking":
+        return this.renderAskingHelp();
+      case "accept":
+        return this.renderAcceptHelp();
+      case "offer":
+        return this.renderOfferHelp();
+      case "offering":
+        return this.renderOfferingHelp();
+      default:
+        return null;
     }
   }
 
   render() {
-    const { member, color = "brown", animated = false, className = "", owner = false, style = {} } = this.props;
-    const wrapperClassName = `bg-${color}-lightest rounded-lg p-6 ${className} ${animated ? "animated flash" : ""}`;
+    const {
+      member,
+      color = "brown",
+      animated = false,
+      className = "",
+      owner = false,
+      style = {},
+    } = this.props;
+    const wrapperClassName = `bg-${color}-lightest rounded-lg p-6 ${className} ${
+      animated ? "animated flash" : ""
+    }`;
 
     return (
       <div className={wrapperClassName} style={style}>
-        <strong className="inline-block text-lg italic mb-4">
-          @{member.username}
-        </strong>
-      
-        { owner && (
-          <em className="opacity-50 float-right text-lg font-bold">This is you</em>
-        )}
+        <strong className="inline-block text-lg italic mb-4">@{member.username}</strong>
+
+        {owner && <em className="opacity-50 float-right text-lg font-bold">This is you</em>}
 
         <AvatarBadges {...member} />
 
-        { this.renderAction() }
+        {this.renderAction()}
       </div>
     );
   }

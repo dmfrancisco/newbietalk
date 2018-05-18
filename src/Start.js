@@ -13,40 +13,42 @@ const actionCodeSettings = {
 
 class Start extends Component {
   state = {
-    email: ""
-  }
+    email: "",
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const email = e.target.value;
-    this.setState({ email })
-  }
+    this.setState({ email });
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     const { history } = this.props;
     const { email } = this.state;
-    
-    firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+
+    firebase
+      .auth()
+      .sendSignInLinkToEmail(email, actionCodeSettings)
       .then(() => {
         // The link was successfully sent.
         // Save the email locally so you don't need to ask the user for it again
         // if they open the link on the same device.
-        window.localStorage.setItem('emailForSignIn', email);
+        window.localStorage.setItem("emailForSignIn", email);
 
-        history.push('/', {
-          flash: "Great! Please follow the link in the email we just sent you."
+        history.push("/", {
+          flash: "Great! Please follow the link in the email we just sent you.",
         });
       })
-      .catch((error) => {
+      .catch(error => {
         // Some error occurred, you can inspect the code: error.code
         console.error(error);
-        
-        const flash = `Oops… ${ error.message }`;
+
+        const flash = `Oops… ${error.message}`;
         const state = { ...history.location.state, flash };
         history.push({ ...history.location, state });
       });
-  }
+  };
 
   render() {
     const { email } = this.state;
@@ -63,7 +65,7 @@ class Start extends Component {
           <label className="block mb-8">
             <span className="block mb-4 font-bold">Your email address</span>
 
-            <input 
+            <input
               type="email"
               onChange={this.handleChange}
               value={email}
@@ -72,11 +74,7 @@ class Start extends Component {
             />
           </label>
 
-          <button
-            className="Button bg-brown-lighter px-4 py-2"
-          >
-            Continue
-          </button>
+          <button className="Button bg-brown-lighter px-4 py-2">Continue</button>
         </form>
       </div>
     );

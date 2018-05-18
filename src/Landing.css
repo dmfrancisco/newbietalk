@@ -5,13 +5,19 @@
 /* Lazy temporary alternative to a real responsive design */
 
 @media (max-width: 1019px) {
-  .Landing { zoom: 90% }
+  .Landing {
+    zoom: 90%;
+  }
 }
 
 @media (max-width: 919px) {
-  .Landing { zoom: 80% }
+  .Landing {
+    zoom: 80%;
+  }
 }
 
 @media (max-width: 819px) {
-  .Landing { zoom: 70% }
+  .Landing {
+    zoom: 70%;
+  }
 }

@@ -76,8 +76,7 @@ svg {
 }
 
 .Button--disabled {
-  @apply 
-    .border-2
+  @apply .border-2
     .rounded
     .shadow-none
     .cursor-default;
@@ -89,15 +88,13 @@ svg {
 }
 
 .Box {
-  @apply
-    .border-3
+  @apply .border-3
     .rounded-lg
     .shadow;
 }
 
 .Message {
-  @apply
-    .relative
+  @apply .relative
     .flex
     .mb-2;
 }
@@ -107,48 +104,44 @@ svg {
 }
 
 .Message-author {
-  @apply
-    .flex-none
+  @apply .flex-none
     .absolute
     .pin-t
     .pin-l;
 }
 
 .Message-bubble {
-  @apply
-    .bg-blue-lightest
+  @apply .bg-blue-lightest
     .rounded-lg
     .px-4
     .py-3
     .leading-normal;
-  
+
   margin-left: 5rem;
   max-width: 55%;
 }
 
 .Message--me .Message-author {
   @apply .pin-r;
-  
+
   left: auto;
 }
 
 .Message--me .Message-bubble {
   @apply .bg-brown-lightest;
-  
+
   margin-left: 0;
   margin-right: 5rem;
 }
 
 .Message-bubble--auto,
 .Message--me .Message-bubble--auto {
-  @apply
-    .font-bold
+  @apply .font-bold
     .bg-grey-light;
 }
 
 .Message-bubble--system {
-  @apply
-    .bg-transparent
+  @apply .bg-transparent
     .border
     .border-grey-light
     .text-center
@@ -192,10 +185,11 @@ svg {
   hyphens: auto;
 }
 
-/* Improve select styling in safari and firefox */ 
+/* Improve select styling in safari and firefox */
 
 select {
   appearance: none;
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTEgNyI+CiAgPHBvbHlnb24gZmlsbD0iIzJDMUIxOCIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjExIDAgNS41MjkgNyAwIDAiLz4KPC9zdmc+Cg==) no-repeat 92% 48%;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTEgNyI+CiAgPHBvbHlnb24gZmlsbD0iIzJDMUIxOCIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjExIDAgNS41MjkgNyAwIDAiLz4KPC9zdmc+Cg==)
+    no-repeat 92% 48%;
   padding: 0 0.7rem;
 }

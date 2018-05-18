@@ -211,8 +211,8 @@ export default class extends Component {
               {stepIndex >= 11 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system">
-                    @{helper.username} suggested a video chat. If you are too shy, are in a public place
-                    or don’t have the hardware, click “Sorry I can’t”.
+                    @{helper.username} suggested a video chat. If you are too shy, are in a public
+                    place or don’t have the hardware, click “Sorry I can’t”.
                   </div>
                 </div>
               )}
@@ -288,9 +288,9 @@ export default class extends Component {
               {stepIndex >= 15 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system">
-                    @{helper.username} pressed goodbye! If {helper.pronoun.split(" ")[0].toLowerCase()}{" "}
-                    helped you in any way, be sure to thank{" "}
-                    {helper.pronoun.split(" ")[2].toLowerCase()}.
+                    @{helper.username} pressed goodbye! If{" "}
+                    {helper.pronoun.split(" ")[0].toLowerCase()} helped you in any way, be sure to
+                    thank {helper.pronoun.split(" ")[2].toLowerCase()}.
                   </div>
                 </div>
               )}
@@ -336,7 +336,9 @@ export default class extends Component {
                     How are you feeling about this conversation? <br />
                     Was @{helper.username} friendly and respectful?
                   </p>
-                  <p className="mb-4">This feedback is private and is not shared with @{helper.username}.</p>
+                  <p className="mb-4">
+                    This feedback is private and is not shared with @{helper.username}.
+                  </p>
                   <div className="mb-4 inline-block">
                     <Avatar
                       {...profile.state.avatarStyles}

@@ -34,7 +34,7 @@
   width: 100%;
   z-index: 1;
   border: 3px solid;
-  box-shadow: 5px 6px rgba(0, 0, 0, .15);
+  box-shadow: 5px 6px rgba(0, 0, 0, 0.15);
   font-weight: bold;
   min-width: 10rem;
   cursor: pointer;
