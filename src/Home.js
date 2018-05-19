@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
-import SessionContainer from "./SessionContainer";
-import AsksContainer from "./AsksContainer";
+import SessionContainer from "./containers/SessionContainer";
+import AsksContainer from "./containers/AsksContainer";
 import Header from "./Header";
 import Card from "./Card";
 

@@ -14,7 +14,7 @@ dependencies:
   react-loadable: 5.4.0
   react-router-dom: 4.2.2
   react-scripts: 1.1.4
-  react-select: 2.0.0-beta.2
+  react-select: 2.0.0-beta.5
   tailwindcss: 0.5.3
   typeface-karmilla: github.com/dmfrancisco/typeface-karmilla/b75879c4bc942e0a9a3ec1c09a582944979642a2
   unstated: 2.0.3
@@ -45,10 +45,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-E44AszLVGbTjB73tYVnlukiro64=
-  /@emotion/stylis/0.6.7:
+  /@emotion/stylis/0.6.8:
     dev: false
     resolution:
-      integrity: sha1-cwpqohmCVxJJQAFNf/+sfPPmYUw=
+      integrity: sha1-atTo0ysZtEDvpEgbu8uYqMEnZbs=
   /@emotion/unitless/0.6.3:
     dev: false
     resolution:
@@ -849,7 +849,7 @@ packages:
       '@babel/helper-module-imports': 7.0.0-beta.32
       '@emotion/hash': 0.6.3
       '@emotion/memoize': 0.6.2
-      '@emotion/stylis': 0.6.7
+      '@emotion/stylis': 0.6.8
       babel-plugin-macros: 2.2.1
       babel-plugin-syntax-jsx: 6.18.0
       convert-source-map: 1.5.1
@@ -2170,7 +2170,7 @@ packages:
     dependencies:
       '@emotion/hash': 0.6.3
       '@emotion/memoize': 0.6.2
-      '@emotion/stylis': 0.6.7
+      '@emotion/stylis': 0.6.8
       '@emotion/unitless': 0.6.3
       stylis: 3.5.0
       stylis-rule-sheet: /stylis-rule-sheet/0.0.10/stylis@3.5.0
@@ -7070,7 +7070,7 @@ packages:
       fsevents: 1.2.3
     resolution:
       integrity: sha512-UVZIujEIT9BGbx+NGvyfS92eOrNIIpqqFi1FP7a0O9l94A/XV7bhPk70SfDKaXZouCX81tFdXo0948DjhCEgGw==
-  /react-select/2.0.0-beta.2:
+  /react-select/2.0.0-beta.5:
     dependencies:
       classnames: 2.2.5
       emotion: 9.1.3
@@ -7083,7 +7083,7 @@ packages:
       react: ^15.3.0 || ^16.0.0
       react-dom: ^15.3.0 || ^16.0.0
     resolution:
-      integrity: sha512-SRpBdYNbrwsfQaCLrM1581wX81PAJgtdqJYSTznzzIvUdAYRqom9V3Hv4hGHZR7D445Or7YTPnuvNIKl1Ks0lw==
+      integrity: sha512-B5D117JirwmEU/n18SLLN2oDTUUomGh7m1Hzs3Luar751csy6fkf0/cCwTgrB96YRXBPudpE1MDXiIMyqoYC7A==
   /react-side-effect/1.1.5:
     dependencies:
       exenv: 1.2.2
@@ -9147,7 +9147,7 @@ packages:
       tarball: 'https://codeload.github.com/dmfrancisco/typeface-karmilla/tar.gz/b75879c4bc942e0a9a3ec1c09a582944979642a2'
     version: 0.0.1
 registry: 'https://registry.npmjs.org/'
-shrinkwrapMinorVersion: 5
+shrinkwrapMinorVersion: 6
 shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0
@@ -9166,7 +9166,7 @@ specifiers:
   react-loadable: ^5.4.0
   react-router-dom: ^4.2.2
   react-scripts: ^1.1.4
-  react-select: ^2.0.0-beta.2
+  react-select: ^2.0.0-beta.3
   tailwindcss: ^0.5.3
   typeface-karmilla: 'github:dmfrancisco/typeface-karmilla'
   unstated: ^2.0.3

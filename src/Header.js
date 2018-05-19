@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
 import { Link, withRouter } from "react-router-dom";
 import Select from "react-select";
-import SessionContainer from "./SessionContainer";
+import SessionContainer from "./containers/SessionContainer";
 import Logo from "./images/Logo";
 import Avatar from "./Avatar";
 import "./Header.css";

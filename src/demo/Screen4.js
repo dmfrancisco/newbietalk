@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Subscribe } from "unstated";
-import Container from "./Container";
+import DemoContainer from "../containers/DemoContainer";
 import Header from "./Header";
 import Avatar from "../Avatar";
 
@@ -77,7 +77,7 @@ export default class extends Component {
     const { stepIndex } = this.state;
 
     return (
-      <Subscribe to={[Container]}>
+      <Subscribe to={[DemoContainer]}>
         {profile => {
           const helper = profile.state.helper;
 

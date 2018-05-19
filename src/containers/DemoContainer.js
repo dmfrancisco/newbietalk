@@ -38,7 +38,7 @@ const helperOptions = [
   },
 ];
 
-export default class extends Container {
+class DemoContainer extends Container {
   state = {
     username: "myusername",
     avatarStyles: {
@@ -91,3 +91,5 @@ export default class extends Container {
     callback(); // FIXME: See https://github.com/jamiebuilds/unstated/pull/35
   }
 }
+
+export default DemoContainer;

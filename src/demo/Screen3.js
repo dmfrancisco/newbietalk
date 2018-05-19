@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
-import Container from "./Container";
+import DemoContainer from "../containers/DemoContainer";
 import Header from "./Header";
 import Card from "../Card";
 
@@ -156,7 +156,7 @@ export default class extends Component {
     const { stepIndex } = this.state;
 
     return (
-      <Subscribe to={[Container]}>
+      <Subscribe to={[DemoContainer]}>
         {profile => {
           let languages = profile.state.languages.filter(lang => lang.name);
           if (languages.length === 0) languages = [{ name: "English", icon: "🇺🇸" }];

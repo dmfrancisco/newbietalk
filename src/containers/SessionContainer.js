@@ -1,5 +1,5 @@
 import { Container } from "unstated";
-import firebase from "./firebase";
+import firebase from "../firebase";
 
 const database = firebase.database();
 const auth = firebase.auth();

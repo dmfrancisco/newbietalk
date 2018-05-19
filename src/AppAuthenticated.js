@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { Subscribe } from "unstated";
 import Loadable from "react-loadable";
-import SessionContainer from "./SessionContainer";
+import SessionContainer from "./containers/SessionContainer";
 import Start from "./Start";
 import Home from "./Home";
 import ProfileSettings from "./ProfileSettings";

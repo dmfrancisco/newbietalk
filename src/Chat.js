@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
-import SessionContainer from "./SessionContainer";
+import SessionContainer from "./containers/SessionContainer";
 import Header from "./Header";
 import Avatar from "./Avatar";
 import firebase from "./firebase";

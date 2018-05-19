@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
 import deepmerge from "deepmerge";
 import Header from "./Header";
-import SessionContainer from "./SessionContainer";
+import SessionContainer from "./containers/SessionContainer";
 import AvatarBuilder from "./AvatarBuilder";
 import PronounBuilder from "./PronounBuilder";
 import LanguagesBuilder from "./LanguagesBuilder";

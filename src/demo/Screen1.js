@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Subscribe } from "unstated";
-import Container from "./Container";
+import DemoContainer from "../containers/DemoContainer";
 import AvatarBuilder from "../AvatarBuilder";
 import PronounBuilder from "../PronounBuilder";
 import LanguagesBuilder from "../LanguagesBuilder";
@@ -8,7 +8,7 @@ import LanguagesBuilder from "../LanguagesBuilder";
 class Screen1 extends Component {
   render() {
     return (
-      <Subscribe to={[Container]}>
+      <Subscribe to={[DemoContainer]}>
         {profile => (
           <div className="p-6">
             <AvatarBuilder
