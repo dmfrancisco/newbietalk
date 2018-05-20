@@ -18,3 +18,4 @@ yarn-error.log*
 
 # compiled
 src/index.css
+firebase-rules.json

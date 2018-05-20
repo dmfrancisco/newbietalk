@@ -67,7 +67,7 @@ class Chat extends Component {
 
   sendMessage = (author, value, options = {}) => {
     const { uid } = this.props.match.params;
-    const timestamp = +new Date();
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
     const messageRef = database.ref(`chats/${uid}/messages`).push();
 
     messageRef.set({ value, timestamp, author, ...options });

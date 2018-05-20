@@ -1,0 +1,67 @@
+/* Learn more about Bolt here: https://github.com/firebase/bolt */
+/* After making changes, execute `npm run build:rules` and copy/paste to https://goo.gl/8HD5TQ */
+
+isSignedIn() {
+  auth != null;
+}
+
+isCurrentUser(userId) {
+  auth != null && auth.uid == userId;
+}
+
+/* Users */
+
+path /users {
+  read() { isSignedIn() }
+}
+
+path /users/{userId} is User {
+  write() { isCurrentUser(userId) }
+}
+
+type User {
+  uid: String,
+  username: Username | Null,
+  languages: Languages | Null,
+  avatarStyles: Object | Null,
+  email: String | Null,
+  pronoun: String | Null,
+  helpDescription: String | Null,
+  readCodeOfConduct: Boolean | Null,
+  ready: Boolean | Null,
+  thanked: Number | Null
+}
+
+type Username extends String {
+  validate() { this.length > 0 && this.matches(/^(\w){1,15}$/i) }
+}
+
+type Languages extends Object {
+  validate() { this['0']['name'].length > 0 || this['1']['name'].length > 0 || this['2']['name'].length > 0 }
+}
+
+/* Asks */
+
+path /asks {
+  read() { isSignedIn() }
+}
+
+path /asks/{askerId} {
+  write() { isCurrentUser(askerId) }
+}
+
+path /asks/{askerId}/helpers/{helperId} {
+  write() { isCurrentUser(helperId) }
+}
+
+/* Chats */
+
+path /chats/{chatId} {
+  read() { isCurrentUser(this.asker.uid) || isCurrentUser(this.helper.uid) }
+  write() { isCurrentUser(this.asker.uid) }
+}
+
+path /chats/{chatId}/messages/{messageId} {
+  index() { "timestamp" }
+  write() { isCurrentUser(this.author) }
+}

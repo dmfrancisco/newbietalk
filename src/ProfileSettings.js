@@ -60,12 +60,12 @@ class ProfileSettings extends Component {
         const { username, languages = [] } = state;
         let flash = "We are sorry, an error has occurred";
 
-        if (languages.filter(l => l.name.length > 0).length === 0) {
-          flash = "Please provide at least one language name";
-        } else if (username.length === 0) {
+        if (username.length === 0) {
           flash = "Please provide a username";
         } else if (!usernameRegex.test(username)) {
           flash = "Your username should only use letters, numbers and '_'";
+        } else if (languages.filter(l => l.name.length > 0).length === 0) {
+          flash = "Please provide at least one language name";
         }
 
         const urlState = { ...history.location.state, flash };
@@ -78,7 +78,14 @@ class ProfileSettings extends Component {
       <Subscribe to={[SessionContainer]}>
         {session => {
           const state = deepmerge(session.state, this.state, {
-            arrayMerge: (a, b) => [0, 1, 2].map(i => ({ ...a[i], ...b[i] })),
+            arrayMerge: (target, source) => {
+              const destination = target.slice();
+              source.forEach(
+                (e, i) =>
+                  (destination[i] = typeof target[i] === "undefined" ? e : deepmerge(target[i], e))
+              );
+              return destination;
+            },
           });
 
           return (

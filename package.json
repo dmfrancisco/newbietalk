@@ -7,7 +7,7 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "pushstate-server": "^3.0.1"
+    "firebase-bolt": "^0.8.3"
   },
   "dependencies": {
     "avataaars": "^1.1.0",
@@ -33,12 +33,12 @@
     "url-join": "^4.0.0"
   },
   "scripts": {
-    "start": "npm run build:css & react-scripts start",
-    "_start": "pushstate-server build",
-    "build": "npm run build:css && npm run build:js && refresh",
-    "build:css": "postcss src/index.tw.css -o src/index.css -w",
-    "build:js": "react-scripts build",
-    "prettier": "prettier --write src/**/*.{js,jsx,json,css}"
+    "start": "npm run start:css & react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "start:css": "postcss src/index.tw.css -o src/index.css -w",
+    "build:css": "postcss src/index.tw.css -o src/index.css",
+    "prettier": "prettier --write src/**/*.{js,jsx,json,css}",
+    "build:rules": "firebase-bolt firebase-rules.bolt"
   },
   "prettier": {
     "printWidth": 100,
