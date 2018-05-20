@@ -33,10 +33,10 @@
     "url-join": "^4.0.0"
   },
   "scripts": {
-    "start": "npm run build:css && react-scripts start",
+    "start": "npm run build:css & react-scripts start",
     "_start": "pushstate-server build",
     "build": "npm run build:css && npm run build:js && refresh",
-    "build:css": "postcss src/index.tw.css -o src/index.css",
+    "build:css": "postcss src/index.tw.css -o src/index.css -w",
     "build:js": "react-scripts build",
     "prettier": "prettier --write src/**/*.{js,jsx,json,css}"
   },

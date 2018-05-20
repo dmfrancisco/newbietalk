@@ -98,31 +98,45 @@ class Chat extends Component {
   };
 
   handleAcceptVideo = session => {
-    this.sendMessage(session.state.uid, `Yes, let's video chat!`, {
+    this.sendMessage(session.state.uid, "Yes, let's video chat!", {
       auto: "accepted-video",
     });
   };
 
   handleDeclineVideo = session => {
-    this.sendMessage(session.state.uid, `Sorry I can't!`, {
+    this.sendMessage(session.state.uid, "Sorry I can't!", {
       auto: "declined-video",
+    });
+  };
+
+  handlePressGoodbye = session => {
+    this.sendMessage(session.state.uid, "Goodbye!", {
+      auto: "pressed-goodbye",
+    });
+  };
+
+  handleThankGoodbye = session => {
+    this.sendMessage(session.state.uid, "Bye, thank you!", {
+      auto: "reply-goodbye",
+    });
+  };
+
+  handleReplyGoodbye = session => {
+    this.sendMessage(session.state.uid, "Bye, thank you!", {
+      auto: "reply-goodbye",
     });
   };
 
   renderVideoLink() {
     const { uid } = this.props.match.params;
+    const videoLink = `https://appear.in/smalltalk-${uid}`;
 
     return (
       <div className="Message">
         <div className="Message-bubble Message-bubble--system">
           Alright! You can use this link or a different software if you prefer:{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://appear.in/smalltalk-${uid}`}
-            className="text-inherit"
-          >
-            https://appear.in/smalltalk-{uid}
+          <a target="_blank" rel="noopener noreferrer" href={videoLink} className="text-inherit">
+            {videoLink}
           </a>
         </div>
       </div>
@@ -154,6 +168,10 @@ class Chat extends Component {
             <Avatar {...author.avatarStyles} size="4rem" />
           </div>
         );
+      }
+
+      if (message.auto === "accepted-video") {
+        currentAuthorUID = null;
       }
 
       return (
@@ -202,7 +220,41 @@ class Chat extends Component {
     );
   }
 
-  renderDefaultActions(session, videoChatSuggested) {
+  renderGoodbyeActions(session, message) {
+    const { asker, helper } = this.state;
+    const author = message.author === asker.uid ? asker : helper;
+
+    return (
+      <Fragment>
+        <div className="Message-form-textarea pb-15">
+          <p className="mb-2 leading-normal">
+            @{author.username} pressed goodbye! If {author.pronoun.split(" ")[0].toLowerCase()}{" "}
+            helped you in any way, be sure to thank {author.pronoun.split(" ")[2].toLowerCase()}.
+          </p>
+        </div>
+
+        <div className="Message-form-actions">
+          <button
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            onClick={e => this.handleThankGoodbye(session, e)}
+          >
+            Bye, thank you!
+          </button>
+
+          <button
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            onClick={e => this.handleReplyGoodbye(session, e)}
+          >
+            Bye, see ya!
+          </button>
+        </div>
+      </Fragment>
+    );
+  }
+
+  renderDefaultActions(session, videoChatSuggested, pressedGoodbye) {
+    const hasActions = !videoChatSuggested || !pressedGoodbye;
+
     return (
       <Fragment>
         <form onSubmit={e => this.handleSubmit(session, e)}>
@@ -210,27 +262,34 @@ class Chat extends Component {
             innerRef={node => (this.textarea = node)}
             onKeyDown={e => this.handleKeyDown(session, e)}
             placeholder="Type a message…"
-            className="Message-form-textarea"
+            className={`Message-form-textarea${hasActions ? "" : " pb-4"}`}
             rows={3}
           />
         </form>
 
-        <div className="Message-form-actions">
-          <div className="mb-2 text-grey">Or pick one of these actions:</div>
+        {hasActions && (
+          <div className="Message-form-actions">
+            <div className="mb-2 text-grey">Or pick one of these actions:</div>
 
-          {!videoChatSuggested && (
-            <button
-              className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
-              onClick={e => this.handleSuggestVideo(session, e)}
-            >
-              Suggest a video chat
-            </button>
-          )}
+            {!videoChatSuggested && (
+              <button
+                className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
+                onClick={e => this.handleSuggestVideo(session, e)}
+              >
+                Suggest a video chat
+              </button>
+            )}
 
-          <button className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal">
-            Say goodbye
-          </button>
-        </div>
+            {!pressedGoodbye && (
+              <button
+                className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
+                onClick={e => this.handlePressGoodbye(session, e)}
+              >
+                Say goodbye
+              </button>
+            )}
+          </div>
+        )}
       </Fragment>
     );
   }
@@ -238,6 +297,7 @@ class Chat extends Component {
   renderActions(session) {
     const currentUser = session.state;
     const { messages = [] } = this.state;
+
     const videoChatSuggestion = messages.find(message => message.auto === "suggested-video");
     const videoChatReply = messages.find(
       message => message.auto === "accepted-video" || message.auto === "declined-video"
@@ -247,7 +307,14 @@ class Chat extends Component {
       return this.renderVideoChatActions(session, videoChatSuggestion);
     }
 
-    return this.renderDefaultActions(session, !!videoChatSuggestion);
+    const goodbyeMessage = messages.find(message => message.auto === "pressed-goodbye");
+    const goodbyeReply = messages.find(message => message.auto === "replied-goodbye");
+
+    if (!goodbyeReply && goodbyeMessage) {
+      return this.renderGoodbyeActions(session, goodbyeMessage);
+    }
+
+    return this.renderDefaultActions(session, !!videoChatSuggestion, !!goodbyeMessage);
   }
 
   renderForm(session) {
