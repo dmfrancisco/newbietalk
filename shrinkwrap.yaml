@@ -9,6 +9,7 @@ dependencies:
   primer-tooltips: 1.5.4
   prop-types: 15.6.1
   react: 16.3.2
+  react-autosize-textarea: 3.0.3
   react-dom: 16.3.2
   react-helmet: 5.2.0
   react-loadable: 5.4.0
@@ -588,6 +589,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-C9yv/UF3X+eJTi/zvfxuyfxmLibYrntpF3qoJYrMeQwgUJOZrZvpJiMG2FMQ3qnhWtF/be4pYONBBw95ZGe3vA==
+  /autosize/4.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-jnSyH2d+qdfPGpWlcuhGiHmqBJ6g3X+8T+iRwFrHPLVcdoGJE/x6Qicm6aDHfTsbgZKxyV8UU/YB2p4cjKDRRA==
   /avataaars/1.1.0:
     dependencies:
       lodash: 4.17.10
@@ -2013,6 +2018,10 @@ packages:
     resolution:
       integrity: sha1-qv+81qr4VLROuygDU9WtFlH1mmk=
       tarball: 'http://registry.npmjs.org/compression/-/compression-1.7.2.tgz'
+  /computed-style/0.1.4:
+    dev: false
+    resolution:
+      integrity: sha1-fzRP2FhLLkJb7cpKGvwOMAuwXXQ=
   /concat-map/0.0.1:
     dev: false
     resolution:
@@ -5255,6 +5264,14 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4=
+  /line-height/0.3.1:
+    dependencies:
+      computed-style: 0.1.4
+    dev: false
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha1-SxIF7d4YKHKl76PI9iCzGHqcVMk=
   /load-json-file/1.1.0:
     dependencies:
       graceful-fs: 4.1.11
@@ -6929,6 +6946,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LdLD8xD4zzLsAT5xyushXDNscEjB7+2ulnl8+r1pnESlYtlJtVSoCMBGr30eDRJ3+2Gq89jK9P9e4tCEH1+ywA==
+  /react-autosize-textarea/3.0.3:
+    dependencies:
+      autosize: 4.0.2
+      line-height: 0.3.1
+      prop-types: 15.6.1
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-iOSZK7RUuJ+iEwkJ9rqYciqtjQgrG1CCRFL6h8Bk61kODnRyEq4tS74IgXpI1t4S6jBBZVm+6ugaU+tWTlVxXg==
   /react-dev-utils/5.0.1:
     dependencies:
       address: 1.0.3
@@ -9161,6 +9189,7 @@ specifiers:
   prop-types: ^15.6.1
   pushstate-server: ^3.0.1
   react: ^16.3.2
+  react-autosize-textarea: ^3.0.3
   react-dom: ^16.3.2
   react-helmet: ^5.2.0
   react-loadable: ^5.4.0

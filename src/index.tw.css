@@ -148,8 +148,42 @@ svg {
     .block
     .my-4;
 
-  max-width: 74%;
-  width: 74%;
+  max-width: 100%;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
+
+.Message-form {
+  @apply .relative
+    .w-full;
+
+  margin: 0 5rem;
+}
+
+.Message-form-textarea {
+  @apply .block
+    .px-4
+    .py-3
+    .w-full
+    .border-2
+    .rounded-lg
+    .resize-none
+    .leading-normal;
+
+  padding-bottom: 5rem;
+}
+
+.Message-form-textarea::placeholder {
+  color: config("colors.grey") !important;
+  opacity: 1 !important;
+}
+
+.Message-form-actions {
+  @apply .pin-b
+    .pin-l
+    .absolute
+    .m-4
+    .mr-2;
 }
 
 /**
