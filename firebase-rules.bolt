@@ -19,6 +19,10 @@ path /users/{userId} is User {
   write() { isCurrentUser(userId) }
 }
 
+path /users/{userId}/thanked {
+  write() { isSignedIn() && !isCurrentUser(userId) && prior(this) === this - 1 }
+}
+
 type User {
   uid: String,
   username: Username | Null,
@@ -61,7 +65,10 @@ path /chats/{chatId} {
   write() { isCurrentUser(this.asker.uid) }
 }
 
-path /chats/{chatId}/messages/{messageId} {
+path /chats/{chatId}/messages {
   index() { "timestamp" }
+}
+
+path /chats/{chatId}/messages/{messageId} {
   write() { isCurrentUser(this.author) }
 }

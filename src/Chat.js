@@ -73,6 +73,19 @@ class Chat extends Component {
     messageRef.set({ value, timestamp, author, ...options });
   };
 
+  thank = callback => {
+    const { helper } = this.state;
+
+    database.ref(`users/${helper.uid}`).once("value", data => {
+      const { thanked } = data.val();
+
+      database
+        .ref(`users/${helper.uid}`)
+        .update({ thanked: thanked + 1 })
+        .then(callback);
+    });
+  };
+
   handleSubmit = (session, e) => {
     e.preventDefault();
 
@@ -116,14 +129,16 @@ class Chat extends Component {
   };
 
   handleThankGoodbye = session => {
-    this.sendMessage(session.state.uid, "Bye, thank you!", {
-      auto: "reply-goodbye",
-    });
+    this.thank(() =>
+      this.sendMessage(session.state.uid, "Bye, thank you!", {
+        auto: "replied-goodbye",
+      })
+    );
   };
 
   handleReplyGoodbye = session => {
     this.sendMessage(session.state.uid, "Bye, thank you!", {
-      auto: "reply-goodbye",
+      auto: "replied-goodbye",
     });
   };
 
@@ -253,7 +268,9 @@ class Chat extends Component {
   }
 
   renderDefaultActions(session, videoChatSuggested, pressedGoodbye) {
-    const hasActions = !videoChatSuggested || !pressedGoodbye;
+    const currentUser = session.state;
+    const { asker } = this.state;
+    const hasActions = !videoChatSuggested || (!pressedGoodbye && currentUser.uid !== asker.uid);
 
     return (
       <Fragment>
@@ -280,14 +297,15 @@ class Chat extends Component {
               </button>
             )}
 
-            {!pressedGoodbye && (
-              <button
-                className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
-                onClick={e => this.handlePressGoodbye(session, e)}
-              >
-                Say goodbye
-              </button>
-            )}
+            {!pressedGoodbye &&
+              currentUser.uid !== asker.uid && (
+                <button
+                  className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
+                  onClick={e => this.handlePressGoodbye(session, e)}
+                >
+                  Say goodbye
+                </button>
+              )}
           </div>
         )}
       </Fragment>
@@ -296,7 +314,7 @@ class Chat extends Component {
 
   renderActions(session) {
     const currentUser = session.state;
-    const { messages = [] } = this.state;
+    const { asker, messages = [] } = this.state;
 
     const videoChatSuggestion = messages.find(message => message.auto === "suggested-video");
     const videoChatReply = messages.find(
@@ -310,7 +328,7 @@ class Chat extends Component {
     const goodbyeMessage = messages.find(message => message.auto === "pressed-goodbye");
     const goodbyeReply = messages.find(message => message.auto === "replied-goodbye");
 
-    if (!goodbyeReply && goodbyeMessage) {
+    if (currentUser.uid === asker.uid && !goodbyeReply && goodbyeMessage) {
       return this.renderGoodbyeActions(session, goodbyeMessage);
     }
 
