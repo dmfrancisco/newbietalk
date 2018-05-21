@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Provider } from "unstated";
 import App from "./App";
 import "focus-visible";
-import "./focus-visible.css";
 import "typeface-karmilla";
 import "./index.css";
 

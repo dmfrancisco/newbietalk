@@ -8,7 +8,6 @@ import LandingFooter from "./LandingFooter";
 import Logo from "./images/Logo";
 import { Brick1, Brick2 } from "./images/Bricks";
 import quotes from "./quotes.json";
-import "./Landing.css";
 
 const Landing = () => (
   <div className="relative max-w-xl mx-auto px-15 py-8">

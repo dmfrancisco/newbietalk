@@ -1,10 +1,15 @@
+.Avatar {
+  @apply .relative
+    .overflow-hidden
+    .rounded-full
+    .shadow;
+}
+
 .Avatar:after {
+  @apply .absolute
+    .pin
+    .rounded-full;
+
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   box-shadow: inset 0.1em 0 0 3px currentColor, inset 0 0 0 3px currentColor; /* Works better than border in non-retina */
-  border-radius: 999px;
 }

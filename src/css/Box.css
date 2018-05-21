@@ -1,0 +1,5 @@
+.Box {
+  @apply .border-3
+    .rounded-lg
+    .shadow;
+}

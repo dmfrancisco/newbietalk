@@ -4,226 +4,40 @@
  *
  * You can see the styles here:
  * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/preflight";
  */
-@tailwind preflight;
+@import "tailwindcss/preflight";
+@import "css/focus-visible";
 
 /**
  * This injects any component classes registered by plugins.
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/components";
  */
-@tailwind components;
+@import "tailwindcss/components";
 
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still
  * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "components/buttons";
- * @import "components/forms";
  */
-
-body {
-  @apply .text-black
-    .text-base
-    .font-sans
-    .antialiased
-    .tracking-normal;
-}
-
-svg {
-  @apply .fill-current;
-}
-
-.Button {
-  @apply .select-none
-    .inline-block
-    .no-underline
-    .font-bold
-    .px-4
-    .py-3
-    .border-3
-    .rounded-lg
-    .text-black;
-
-  box-shadow: 5px 6px rgba(0, 0, 0, 0.15);
-  transition: transform, box-shadow;
-  transition-duration: 200ms;
-}
-
-.Button:hover {
-  transform: translateY(-2px);
-  box-shadow: 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.Button:active {
-  transform: translateY(4px);
-  box-shadow: 0 0 rgba(0, 0, 0, 0.15);
-  transition: none;
-}
-
-.Button--disabled {
-  @apply .border-2
-    .rounded
-    .shadow-none
-    .cursor-default;
-}
-
-.Button--disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.Box {
-  @apply .border-3
-    .rounded-lg
-    .shadow;
-}
-
-.Message {
-  @apply .relative
-    .flex
-    .mb-2;
-}
-
-.Message--me {
-  @apply .justify-end;
-}
-
-.Message-author {
-  @apply .flex-none
-    .absolute
-    .pin-t
-    .pin-l;
-}
-
-.Message-bubble {
-  @apply .bg-blue-lightest
-    .rounded-lg
-    .px-4
-    .py-3
-    .leading-normal;
-
-  margin-left: 5rem;
-  max-width: 55%;
-}
-
-.Message--me .Message-author {
-  @apply .pin-r;
-
-  left: auto;
-}
-
-.Message--me .Message-bubble {
-  @apply .bg-brown-lightest;
-
-  margin-left: 0;
-  margin-right: 5rem;
-}
-
-.Message-bubble--auto,
-.Message--me .Message-bubble--auto {
-  @apply .font-bold
-    .bg-grey-light;
-}
-
-.Message-bubble--system {
-  @apply .bg-transparent
-    .border
-    .border-grey-light
-    .text-center
-    .block
-    .my-4;
-
-  max-width: 100%;
-  margin-right: 5rem;
-  margin-left: 5rem;
-}
-
-.Message-form {
-  @apply .relative
-    .w-full;
-
-  margin: 0 5rem;
-}
-
-.Message-form-textarea {
-  @apply .block
-    .px-4
-    .py-3
-    .w-full
-    .border-2
-    .rounded-lg
-    .resize-none
-    .leading-normal;
-
-  padding-bottom: 5rem;
-}
-
-.Message-form-textarea::placeholder {
-  color: config("colors.grey") !important;
-  opacity: 1 !important;
-}
-
-.Message-form-actions {
-  @apply .pin-b
-    .pin-l
-    .absolute
-    .m-4
-    .mr-2;
-}
+@import "css/global";
+@import "css/Landing";
+@import "css/Logo";
+@import "css/Button";
+@import "css/Box";
+@import "css/Message";
+@import "css/Demo";
+@import "css/Select";
+@import "css/Avatar";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/utilities";
  */
-@tailwind utilities;
+@import "tailwindcss/utilities";
 
 /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
  */
-
-.text-inherit {
-  color: inherit;
-}
-
-.hyphens {
-  hyphens: auto;
-}
-
-/* Improve select styling in safari and firefox */
-
-select {
-  appearance: none;
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTEgNyI+CiAgPHBvbHlnb24gZmlsbD0iIzJDMUIxOCIgZmlsbC1ydWxlPSJldmVub2RkIiBwb2ludHM9IjExIDAgNS41MjkgNyAwIDAiLz4KPC9zdmc+Cg==)
-    no-repeat 92% 48%;
-  padding: 0 0.7rem;
-}
+@import "css/utilities";
+@import "css/animate";
+@import "css/tooltips";

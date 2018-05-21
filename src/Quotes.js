@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Left, Right } from "./Icons";
-import "./animate.css";
 
 class Quotes extends Component {
   constructor(props) {
@@ -84,11 +83,11 @@ class Quotes extends Component {
         ? (currentItemIndex === 0 ? items.length : currentItemIndex) - 1
         : (currentItemIndex + 1) % items.length;
 
-    const latestItemClassName = `absolute animated slideOut${
-      latestAction === "decrement" ? "Right" : "Left"
+    const latestItemClassName = `absolute animated slide-out-${
+      latestAction === "decrement" ? "right" : "left"
     }`;
-    const currentItemClassName = `animated slideIn${
-      latestAction === "increment" ? "Right" : "Left"
+    const currentItemClassName = `animated slide-in-${
+      latestAction === "increment" ? "right" : "left"
     }`;
 
     return (

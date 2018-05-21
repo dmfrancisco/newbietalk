@@ -1,6 +1,5 @@
 import React from "react";
 import Avataaar from "avataaars";
-import "./Avatar.css";
 
 const Avatar = props => {
   const {
@@ -28,8 +27,7 @@ const Avatar = props => {
     transform: "rotate(3deg)",
   };
 
-  const className = `Avatar relative overflow-hidden rounded-full shadow ${props.className ||
-    ""}`;
+  const className = `Avatar ${props.className || ""}`;
 
   return (
     <div style={{ width, height, fontSize }} className={className}>

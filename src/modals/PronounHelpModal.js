@@ -9,7 +9,7 @@ const PronounHelpModal = ({ history }) => (
     onDismiss={history.goBack}
     className="pin-b pin-x absolute max-w-xl mx-auto px-15"
   >
-    <div className="animated bounceInUp w-1/2">
+    <div className="animated bounce-in-up w-1/2">
       <div className="Box bg-purple-lightest mb-6">
         <button className="Button rounded-full bg-grey-light p-3 -mt-6 -ml-6 float-left">
           <Cross className="block" />

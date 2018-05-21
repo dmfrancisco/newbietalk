@@ -1,0 +1,54 @@
+.Select__control {
+  @apply .flex
+    .items-center
+    .relative
+    .rounded-lg;
+
+  padding: 0.5rem 0.7rem;
+}
+
+.Select__indicators {
+  @apply .inline-block;
+}
+
+.Select__placeholder,
+.Select__single-value {
+  @apply .hidden;
+}
+
+.Select__dropdown-indicator {
+  @apply .p-2
+    .pr-0;
+}
+
+.Select__menu {
+  @apply .bg-white
+    .flex
+    .flex-col
+    .absolute
+    .pin-r
+    .w-full
+    .rounded-lg
+    .shadow
+    .font-bold
+    .cursor-pointer
+    .overflow-hidden
+    .my-2
+    .border-3
+    .z-10;
+
+  top: 100%;
+  max-height: 300px;
+  min-width: 10rem;
+}
+
+.Select__option {
+  @apply .py-2
+    .px-4;
+}
+
+.Select__control:hover,
+.Select__control--is-focused,
+.Select__option--is-focused {
+  background-color: config("colors.grey-light");
+}

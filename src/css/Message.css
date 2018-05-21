@@ -1,0 +1,92 @@
+.Message {
+  @apply .relative
+    .flex
+    .mb-2;
+}
+
+.Message--me {
+  @apply .justify-end;
+}
+
+.Message-author {
+  @apply .flex-none
+    .absolute
+    .pin-t
+    .pin-l;
+}
+
+.Message-bubble {
+  @apply .bg-blue-lightest
+    .rounded-lg
+    .px-4
+    .py-3
+    .leading-normal;
+
+  margin-left: 5rem;
+  max-width: 55%;
+}
+
+.Message--me .Message-author {
+  @apply .pin-r;
+
+  left: auto;
+}
+
+.Message--me .Message-bubble {
+  @apply .bg-brown-lightest;
+
+  margin-left: 0;
+  margin-right: 5rem;
+}
+
+.Message-bubble--auto,
+.Message--me .Message-bubble--auto {
+  @apply .font-bold
+    .bg-grey-light;
+}
+
+.Message-bubble--system {
+  @apply .bg-transparent
+    .border
+    .border-grey-light
+    .text-center
+    .block
+    .my-4;
+
+  max-width: 100%;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
+
+.Message-form {
+  @apply .relative
+    .w-full;
+
+  margin: 0 5rem;
+}
+
+.Message-form-textarea {
+  @apply .block
+    .px-4
+    .py-3
+    .w-full
+    .border-2
+    .rounded-lg
+    .resize-none
+    .leading-normal;
+
+  padding-bottom: 5rem;
+}
+
+.Message-form-textarea::placeholder {
+  color: config("colors.grey") !important;
+  opacity: 1 !important;
+}
+
+.Message-form-actions {
+  @apply .pin-b
+    .pin-l
+    .absolute
+    .m-4
+    .mr-2;
+}

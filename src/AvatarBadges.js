@@ -1,7 +1,5 @@
 import React from "react";
 import Avatar from "./Avatar";
-import "primer-tooltips/build/build.css";
-import "./tooltips.css";
 
 const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
   let filteredLanguages = languages.filter(lang => lang.name);
