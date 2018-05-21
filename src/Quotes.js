@@ -18,7 +18,8 @@ class Quotes extends Component {
 
     this.setState({
       latestAction: "decrement",
-      currentItemIndex: (currentItemIndex === 0 ? length : currentItemIndex) - 1,
+      currentItemIndex:
+        (currentItemIndex === 0 ? length : currentItemIndex) - 1,
     });
   };
 
@@ -62,7 +63,12 @@ class Quotes extends Component {
 
         <footer className="mt-4">
           —{" "}
-          <a href={item.src} target="_blank" rel="noopener noreferrer" className="text-inherit">
+          <a
+            href={item.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-inherit"
+          >
             {item.author}
           </a>, {item.job}
         </footer>

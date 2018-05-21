@@ -10,7 +10,9 @@ const database = firebase.database();
 
 class Chat extends Component {
   state = {};
-  container = document.documentElement || document.body.parentNode || document.body;
+  container = document.documentElement ||
+  document.body.parentNode ||
+  document.body;
 
   scrollToBottom = () => {
     const scrollHeight = this.container.scrollHeight;
@@ -22,7 +24,8 @@ class Chat extends Component {
 
   componentWillUpdate() {
     const scrollPos = this.container.scrollTop;
-    const scrollBottom = this.container.scrollHeight - this.container.clientHeight;
+    const scrollBottom =
+      this.container.scrollHeight - this.container.clientHeight;
 
     this.scrollAtBottom = scrollBottom <= 0 || scrollPos === scrollBottom;
   }
@@ -150,7 +153,12 @@ class Chat extends Component {
       <div className="Message">
         <div className="Message-bubble Message-bubble--system">
           Alright! You can use this link or a different software if you prefer:{" "}
-          <a target="_blank" rel="noopener noreferrer" href={videoLink} className="text-inherit">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={videoLink}
+            className="text-inherit"
+          >
             {videoLink}
           </a>
         </div>
@@ -193,7 +201,11 @@ class Chat extends Component {
         <Fragment key={message.timestamp}>
           <div className={`Message${isMyMessage ? " Message--me" : ""}`}>
             {avatar}
-            <div className={`Message-bubble ${message.auto ? "Message-bubble--auto" : ""}`}>
+            <div
+              className={`Message-bubble ${
+                message.auto ? "Message-bubble--auto" : ""
+              }`}
+            >
               {message.value}
             </div>
           </div>
@@ -211,8 +223,8 @@ class Chat extends Component {
       <Fragment>
         <div className="Message-form-textarea pb-15">
           <p className="mb-2 leading-normal">
-            @{author.username} suggested a video chat. If you are too shy, are in a public place or
-            don’t have the hardware, click “Sorry I can’t”.
+            @{author.username} suggested a video chat. If you are too shy, are
+            in a public place or don’t have the hardware, click “Sorry I can’t”.
           </p>
         </div>
 
@@ -243,8 +255,9 @@ class Chat extends Component {
       <Fragment>
         <div className="Message-form-textarea pb-15">
           <p className="mb-2 leading-normal">
-            @{author.username} pressed goodbye! If {author.pronoun.split(" ")[0].toLowerCase()}{" "}
-            helped you in any way, be sure to thank {author.pronoun.split(" ")[2].toLowerCase()}.
+            @{author.username} pressed goodbye! If{" "}
+            {author.pronoun.split(" ")[0].toLowerCase()} helped you in any way,
+            be sure to thank {author.pronoun.split(" ")[2].toLowerCase()}.
           </p>
         </div>
 
@@ -270,7 +283,8 @@ class Chat extends Component {
   renderDefaultActions(session, videoChatSuggested, pressedGoodbye) {
     const currentUser = session.state;
     const { asker } = this.state;
-    const hasActions = !videoChatSuggested || (!pressedGoodbye && currentUser.uid !== asker.uid);
+    const hasActions =
+      !videoChatSuggested || (!pressedGoodbye && currentUser.uid !== asker.uid);
 
     return (
       <Fragment>
@@ -316,23 +330,38 @@ class Chat extends Component {
     const currentUser = session.state;
     const { asker, messages = [] } = this.state;
 
-    const videoChatSuggestion = messages.find(message => message.auto === "suggested-video");
+    const videoChatSuggestion = messages.find(
+      message => message.auto === "suggested-video"
+    );
     const videoChatReply = messages.find(
-      message => message.auto === "accepted-video" || message.auto === "declined-video"
+      message =>
+        message.auto === "accepted-video" || message.auto === "declined-video"
     );
 
-    if (!videoChatReply && videoChatSuggestion && videoChatSuggestion.author !== currentUser.uid) {
+    if (
+      !videoChatReply &&
+      videoChatSuggestion &&
+      videoChatSuggestion.author !== currentUser.uid
+    ) {
       return this.renderVideoChatActions(session, videoChatSuggestion);
     }
 
-    const goodbyeMessage = messages.find(message => message.auto === "pressed-goodbye");
-    const goodbyeReply = messages.find(message => message.auto === "replied-goodbye");
+    const goodbyeMessage = messages.find(
+      message => message.auto === "pressed-goodbye"
+    );
+    const goodbyeReply = messages.find(
+      message => message.auto === "replied-goodbye"
+    );
 
     if (currentUser.uid === asker.uid && !goodbyeReply && goodbyeMessage) {
       return this.renderGoodbyeActions(session, goodbyeMessage);
     }
 
-    return this.renderDefaultActions(session, !!videoChatSuggestion, !!goodbyeMessage);
+    return this.renderDefaultActions(
+      session,
+      !!videoChatSuggestion,
+      !!goodbyeMessage
+    );
   }
 
   renderForm(session) {

@@ -34,7 +34,10 @@ const Flag = props => (
           <feMergeNode in="SourceGraphic" />
         </feMerge>
       </filter>
-      <path d="M10 0c5.523 0 10 4.477 10 10v173H0V10C0 4.477 4.477 0 10 0z" id="b" />
+      <path
+        d="M10 0c5.523 0 10 4.477 10 10v173H0V10C0 4.477 4.477 0 10 0z"
+        id="b"
+      />
       <path
         d="M0 23c0 5.523 4.477 10 10 10h37c5.523 0 10 4.477 10 10s4.477 10 10 10h47v62H67c-5.523 0-10-4.477-10-10s-4.477-10-10-10H10C4.477 95 0 90.523 0 85V23z"
         id="c"
@@ -43,7 +46,11 @@ const Flag = props => (
     </defs>
     <g filter="url(#a)" fill="none" fillRule="evenodd">
       <use fill="#DDD" xlinkHref="#b" />
-      <path stroke="#2C1B18" strokeWidth={3} d="M1.5 181.5h17V10a8.5 8.5 0 1 0-17 0v171.5z" />
+      <path
+        stroke="#2C1B18"
+        strokeWidth={3}
+        d="M1.5 181.5h17V10a8.5 8.5 0 1 0-17 0v171.5z"
+      />
       <use fill="#F6292E" xlinkHref="#c" />
       <path
         stroke="#2C1B18"
@@ -52,7 +59,14 @@ const Flag = props => (
       />
       <g>
         <use fill="#DDD" xlinkHref="#d" />
-        <ellipse stroke="#2C1B18" strokeWidth={3} cx={10} cy={7} rx={8.5} ry={5.5} />
+        <ellipse
+          stroke="#2C1B18"
+          strokeWidth={3}
+          cx={10}
+          cy={7}
+          rx={8.5}
+          ry={5.5}
+        />
       </g>
     </g>
   </svg>

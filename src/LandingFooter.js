@@ -21,7 +21,10 @@ const LandingFooter = () => (
         Languages
       </Link>
 
-      <Link to="/code-of-conduct" className="text-inherit no-underline font-bold p-3">
+      <Link
+        to="/code-of-conduct"
+        className="text-inherit no-underline font-bold p-3"
+      >
         Code of Conduct
       </Link>
 

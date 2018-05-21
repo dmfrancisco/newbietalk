@@ -59,7 +59,14 @@ const Drum = props => (
       </g>
       <g fillRule="nonzero">
         <use fill="#FBF2ED" fillRule="evenodd" xlinkHref="#d" />
-        <ellipse cx={64} cy={43.6} stroke="#2C1B18" strokeWidth={3} rx={56.9} ry={26.9} />
+        <ellipse
+          cx={64}
+          cy={43.6}
+          stroke="#2C1B18"
+          strokeWidth={3}
+          rx={56.9}
+          ry={26.9}
+        />
       </g>
       <path
         fill="#AA695B"

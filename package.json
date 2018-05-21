@@ -37,11 +37,10 @@
     "build": "npm run build:css && react-scripts build",
     "start:css": "postcss src/index.tw.css -o src/index.css -w",
     "build:css": "postcss src/index.tw.css -o src/index.css",
-    "prettier": "prettier --write src/**/*.{js,jsx,json,css}",
+    "prettier": "prettier --write **/*.{js,jsx,json,css}",
     "build:rules": "firebase-bolt firebase-rules.bolt"
   },
   "prettier": {
-    "printWidth": 100,
     "trailingComma": "es5"
   },
   "license": "MIT"

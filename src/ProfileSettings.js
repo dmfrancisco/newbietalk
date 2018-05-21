@@ -82,7 +82,10 @@ class ProfileSettings extends Component {
               const destination = target.slice();
               source.forEach(
                 (e, i) =>
-                  (destination[i] = typeof target[i] === "undefined" ? e : deepmerge(target[i], e))
+                  (destination[i] =
+                    typeof target[i] === "undefined"
+                      ? e
+                      : deepmerge(target[i], e))
               );
               return destination;
             },

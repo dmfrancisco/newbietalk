@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
 import { Help } from "./Icons";
-import { Top, Accessories, HairColor, FacialHair, FacialHairColor, Skin } from "./avatarStyles";
+import {
+  Top,
+  Accessories,
+  HairColor,
+  FacialHair,
+  FacialHairColor,
+  Skin,
+} from "./avatarStyles";
 
 class AvatarBuilder extends Component {
   getAvatarStyleOptions = () => {
@@ -10,7 +17,8 @@ class AvatarBuilder extends Component {
 
     return [
       Top,
-      avatarStyles.topType.includes("Hair") && !avatarStyles.topType.includes("NoHair")
+      avatarStyles.topType.includes("Hair") &&
+      !avatarStyles.topType.includes("NoHair")
         ? HairColor
         : null,
       FacialHair,
@@ -25,11 +33,16 @@ class AvatarBuilder extends Component {
 
     return (
       <div className="relative mx-auto rounded-lg bg-blue-lightest p-6 mb-6 w-3/4">
-        <Link to={helpUrl} className="absolute block pin-t pin-r m-2 p-2 text-inherit">
+        <Link
+          to={helpUrl}
+          className="absolute block pin-t pin-r m-2 p-2 text-inherit"
+        >
           <Help />
         </Link>
 
-        <h4 className="text-lg italic text-center mb-4 tracking-none">Let’s build your avatar…</h4>
+        <h4 className="text-lg italic text-center mb-4 tracking-none">
+          Let’s build your avatar…
+        </h4>
 
         <Avatar {...avatarStyles} className="block mb-4 mx-auto" />
 

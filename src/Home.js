@@ -27,7 +27,9 @@ class Home extends Component {
               <div className="px-6 mx-auto max-w-xl mb-8">
                 {userIsAsking && (
                   <div className="mb-8">
-                    <h4 className="text-lg italic mb-4">Members offering help</h4>
+                    <h4 className="text-lg italic mb-4">
+                      Members offering help
+                    </h4>
 
                     {helpers.map((helper, index) => {
                       return (
@@ -44,7 +46,9 @@ class Home extends Component {
                       );
                     })}
 
-                    {helpers.length === 0 && <p>Waiting for members to show up…</p>}
+                    {helpers.length === 0 && (
+                      <p>Waiting for members to show up…</p>
+                    )}
                   </div>
                 )}
 
@@ -55,10 +59,14 @@ class Home extends Component {
                     <Card
                       member={session.state}
                       onHelpDescriptionChange={e =>
-                        session.updateProfile({ helpDescription: e.target.value })
+                        session.updateProfile({
+                          helpDescription: e.target.value,
+                        })
                       }
                       onReadCodeOfConductChange={e =>
-                        session.updateProfile({ readCodeOfConduct: e.target.checked })
+                        session.updateProfile({
+                          readCodeOfConduct: e.target.checked,
+                        })
                       }
                       onClick={session.ask}
                       action="ask"
@@ -95,7 +103,9 @@ class Home extends Component {
                           color={this.getColor(index)}
                           member={asker}
                           helper={userHelp}
-                          onClick={() => asks.stopOffer(asker.uid, session.state)}
+                          onClick={() =>
+                            asks.stopOffer(asker.uid, session.state)
+                          }
                           action="offering"
                           className="mr-2 mb-2 flex-none"
                           style={{ width: "25.5rem" }}
@@ -110,7 +120,9 @@ class Home extends Component {
                           helper={session.state}
                           onClick={() => asks.offer(asker.uid, session.state)}
                           onReadCodeOfConductChange={e =>
-                            session.updateProfile({ readCodeOfConduct: e.target.checked })
+                            session.updateProfile({
+                              readCodeOfConduct: e.target.checked,
+                            })
                           }
                           action="offer"
                           className="mr-2 mb-2 flex-none"

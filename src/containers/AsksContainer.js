@@ -9,7 +9,9 @@ class AsksContainer extends Container {
   };
 
   offer = (askerUID, helper) => {
-    return database.ref(`asks/${askerUID}/helpers/${helper.uid}`).set({ ...helper, chatKey: null });
+    return database
+      .ref(`asks/${askerUID}/helpers/${helper.uid}`)
+      .set({ ...helper, chatKey: null });
   };
 
   stopOffer = (askerUID, helper) => {

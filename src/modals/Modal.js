@@ -31,7 +31,10 @@ class Modal extends Component {
     const { children, className = "relative" } = this.props;
 
     return (
-      <div className="fixed pin overflow-auto z-30 cursor-pointer" onClick={this.handleDismiss}>
+      <div
+        className="fixed pin overflow-auto z-30 cursor-pointer"
+        onClick={this.handleDismiss}
+      >
         <div className="fixed bg-brown-lightest pin pointer-events-none opacity-85 animated slideInUp" />
 
         <div className={className}>{children}</div>

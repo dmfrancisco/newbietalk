@@ -29,8 +29,8 @@ class Avatar extends Component {
       transform: "rotate(3deg)",
     };
 
-    const className = `Avatar relative overflow-hidden rounded-full shadow ${this.props.className ||
-      ""}`;
+    const className = `Avatar relative overflow-hidden rounded-full shadow ${this
+      .props.className || ""}`;
 
     return (
       <div style={{ width, height, fontSize }} className={className}>

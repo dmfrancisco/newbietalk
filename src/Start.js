@@ -74,7 +74,9 @@ class Start extends Component {
             />
           </label>
 
-          <button className="Button bg-brown-lighter px-4 py-2">Continue</button>
+          <button className="Button bg-brown-lighter px-4 py-2">
+            Continue
+          </button>
         </form>
       </div>
     );

@@ -62,7 +62,11 @@ const App = () => (
 
             <Route exact path="/help/avatar" component={AvatarHelpModal} />
             <Route exact path="/help/pronoun" component={PronounHelpModal} />
-            <Route exact path="/help/languages" component={LanguagesHelpModal} />
+            <Route
+              exact
+              path="/help/languages"
+              component={LanguagesHelpModal}
+            />
             <Route exact path="/help/flag" component={FlagHelpModal} />
 
             <Route exact path="/languages" component={NotFound} />

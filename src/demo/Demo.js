@@ -45,7 +45,12 @@ class Demo extends Component {
           </h4>
 
           <div className="Demo bg-white" ref={node => (this.demo = node)}>
-            {<currentStep.screen showNext={this.showNext} scrollToBottom={this.scrollToBottom} />}
+            {
+              <currentStep.screen
+                showNext={this.showNext}
+                scrollToBottom={this.scrollToBottom}
+              />
+            }
           </div>
         </div>
 

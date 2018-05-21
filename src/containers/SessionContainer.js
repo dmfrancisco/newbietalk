@@ -35,7 +35,9 @@ class SessionContainer extends Container {
   }
 
   updateProfile(profile) {
-    return database.ref("users/" + this.state.uid).set({ ...this.state, ...profile });
+    return database
+      .ref("users/" + this.state.uid)
+      .set({ ...this.state, ...profile });
   }
 
   ask = () => {

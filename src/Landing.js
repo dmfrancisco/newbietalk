@@ -59,18 +59,22 @@ const Landing = () => (
       </div>
 
       <p className="text-xl text-brown font-bold mb-8 leading-normal">
-        So you hit a roadblock. You don’t know what to search for and the tech-related forums are
-        very intimidating.
+        So you hit a roadblock. You don’t know what to search for and the
+        tech-related forums are very intimidating.
       </p>
 
       <p className="text-xl text-brown font-bold mb-8 leading-normal">
         Small Talk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
-        </Link>* where you can privately chat with another person to get code or design help.
+        </Link>* where you can privately chat with another person to get code or
+        design help.
       </p>
 
-      <Link to="/app/start" className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6">
+      <Link
+        to="/app/start"
+        className="Button bg-brown-light text-xl px-6 py-4 mt-8 mb-6"
+      >
         Get started
       </Link>
 
@@ -80,28 +84,33 @@ const Landing = () => (
     <div className="flex flex-wrap items-end justify-end -mx-8 mb-8">
       <div className="w-1/2" style={{ marginBottom: -160 }}>
         <div className="Box bg-teal-lightest mr-8 ml-2">
-          <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all beginners at something</h3>
+          <h3 className="text-lg italic m-8">
+            Fact: &nbsp;We’re all beginners at something
+          </h3>
 
           <p className="text-brown leading-normal m-8">
-            Everyone started as a beginner in their careers. Not only that’s a fact of life and
-            completely fine, it can be fun. But learning new things can also be very frustrating at
-            times.
+            Everyone started as a beginner in their careers. Not only that’s a
+            fact of life and completely fine, it can be fun. But learning new
+            things can also be very frustrating at times.
           </p>
 
           <p className="text-brown leading-normal m-8">
-            Small Talk is a safe place where you can remain anonymous and share your questions
-            privately with someone you choose to connect with.
+            Small Talk is a safe place where you can remain anonymous and share
+            your questions privately with someone you choose to connect with.
           </p>
         </div>
       </div>
 
       <div className="w-1/2" style={{ marginTop: 20 }}>
         <div className="Box bg-blue-lightest m-6 mr-8">
-          <h3 className="text-lg italic m-8">Fact: &nbsp;We’re all good at something</h3>
+          <h3 className="text-lg italic m-8">
+            Fact: &nbsp;We’re all good at something
+          </h3>
 
           <p className="text-brown leading-normal m-8">
-            Have you been working in tech for some time? Pretty sure what you have to share is huge.
-            Join us in helping others. We won’t bug you, you decide whom and when you want to help.
+            Have you been working in tech for some time? Pretty sure what you
+            have to share is huge. Join us in helping others. We won’t bug you,
+            you decide whom and when you want to help.
           </p>
         </div>
       </div>

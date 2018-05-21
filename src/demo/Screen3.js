@@ -58,7 +58,13 @@ export default class extends Component {
       <Fragment>
         <h4 className="text-lg italic mb-4">Your profile</h4>
 
-        <Card member={profile.state} onClick={() => {}} action="asking" owner className="mb-6" />
+        <Card
+          member={profile.state}
+          onClick={() => {}}
+          action="asking"
+          owner
+          className="mb-6"
+        />
       </Fragment>
     );
   }
@@ -89,8 +95,8 @@ export default class extends Component {
           className="Box bg-teal-lightest px-6 py-4 leading-normal mb-8 animated flash"
           style={{ maxWidth: "80%" }}
         >
-          <strong>@{member.username}</strong> is available to help! Accept her help or wait to see
-          if more members are available.
+          <strong>@{member.username}</strong> is available to help! Accept her
+          help or wait to see if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
@@ -121,8 +127,8 @@ export default class extends Component {
           className="Box bg-blue-lightest px-6 py-4 leading-normal mb-8 animated flash"
           style={{ maxWidth: "80%" }}
         >
-          <strong>2 members</strong> are available to help! Accept their help or wait to see if more
-          members are available.
+          <strong>2 members</strong> are available to help! Accept their help or
+          wait to see if more members are available.
         </div>
 
         <h4 className="text-lg italic mb-6">Members offering help</h4>
@@ -159,7 +165,8 @@ export default class extends Component {
       <Subscribe to={[DemoContainer]}>
         {profile => {
           let languages = profile.state.languages.filter(lang => lang.name);
-          if (languages.length === 0) languages = [{ name: "English", icon: "🇺🇸" }];
+          if (languages.length === 0)
+            languages = [{ name: "English", icon: "🇺🇸" }];
 
           return (
             <div className="p-6 pt-4">
@@ -169,7 +176,9 @@ export default class extends Component {
               {stepIndex === 1 && this.renderStep1(profile)}
               {stepIndex === 2 && this.renderStep2(profile)}
 
-              <div style={{ maxWidth: "80%" }}>{this.renderProfile(profile)}</div>
+              <div style={{ maxWidth: "80%" }}>
+                {this.renderProfile(profile)}
+              </div>
             </div>
           );
         }}

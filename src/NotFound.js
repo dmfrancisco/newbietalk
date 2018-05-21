@@ -29,9 +29,15 @@ class NotFound extends Component {
         className="pin fixed flex justify-center items-center z-50"
         onClick={this.props.history.goBack}
       >
-        <div className="pin fixed opacity-50" style={{ background: "#34a245" }} />
+        <div
+          className="pin fixed opacity-50"
+          style={{ background: "#34a245" }}
+        />
 
-        <div className="Box relative p-15 text-center" style={{ background: "#34a245" }}>
+        <div
+          className="Box relative p-15 text-center"
+          style={{ background: "#34a245" }}
+        >
           <NotFoundImage />
           <h1 className="text-4xl text-white">Soon</h1>
         </div>

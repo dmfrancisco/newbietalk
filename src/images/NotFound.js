@@ -53,8 +53,22 @@ const NotFound = props => (
         <g transform="rotate(3 -1460.7 946.7)">
           <ellipse cx={43.1} cy={31.2} fill="#FFF" rx={20.1} ry={19.9} />
           <ellipse cx={117.8} cy={31.2} fill="#FFF" rx={20.1} ry={19.9} />
-          <ellipse cx={43.1} cy={31.2} fill="#000" fillOpacity={0.7} rx={8.6} ry={8.5} />
-          <ellipse cx={117.8} cy={31.2} fill="#000" fillOpacity={0.7} rx={8.6} ry={8.5} />
+          <ellipse
+            cx={43.1}
+            cy={31.2}
+            fill="#000"
+            fillOpacity={0.7}
+            rx={8.6}
+            ry={8.5}
+          />
+          <ellipse
+            cx={117.8}
+            cy={31.2}
+            fill="#000"
+            fillOpacity={0.7}
+            rx={8.6}
+            ry={8.5}
+          />
         </g>
         <g fill="#000" fillOpacity={0.6} fillRule="nonzero">
           <path d="M69.2 92.6c6-7.7 21.7-11.4 34.8-7.4 1.5.5 3.1-.4 3.6-2a3 3 0 0 0-2-3.6c-15-4.6-33.1-.4-40.8 9.4a3 3 0 0 0 .5 4.1c1.2 1 3 .8 4-.5zM185 98.7c-5.2-8.3-20.3-13.6-33.8-11-1.5.3-3-.8-3.3-2.3a3 3 0 0 1 2.3-3.5c15.6-3 33.1 3.2 39.7 13.7a3 3 0 0 1-1 4c-1.2.9-3 .5-3.9-.9z" />

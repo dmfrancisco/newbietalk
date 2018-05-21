@@ -34,7 +34,10 @@ const helperOptions = [
       mouthType: "Smile",
     },
     pronoun: "He / Him",
-    languages: [{ name: "Portuguese", icon: "🇵🇹" }, { name: "English", icon: "🇬🇧" }],
+    languages: [
+      { name: "Portuguese", icon: "🇵🇹" },
+      { name: "English", icon: "🇬🇧" },
+    ],
   },
 ];
 
@@ -50,7 +53,11 @@ class DemoContainer extends Container {
       skinColor: "Yellow",
     },
     pronoun: "They / Them",
-    languages: [{ name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }, { name: "", icon: "🏳️" }],
+    languages: [
+      { name: "", icon: "🏳️" },
+      { name: "", icon: "🏳️" },
+      { name: "", icon: "🏳️" },
+    ],
     helpDescription:
       "I know HTML and CSS and have this simple website but I’m not sure how to make this available for free.",
     helper: helperOptions[0],

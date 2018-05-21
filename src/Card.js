@@ -11,7 +11,8 @@ class Card extends Component {
       validate = true,
     } = this.props;
     const helpDescription = member.helpDescription || "";
-    const disabled = validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
+    const disabled =
+      validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
     const buttonClassName = `flex-none Button text-lg ${
       disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
     }`;
@@ -27,7 +28,11 @@ class Card extends Component {
         />
 
         <div className="flex items-center">
-          <button onClick={onClick} className={buttonClassName} disabled={disabled}>
+          <button
+            onClick={onClick}
+            className={buttonClassName}
+            disabled={disabled}
+          >
             Ask for help
           </button>
 
@@ -62,7 +67,10 @@ class Card extends Component {
           Asking for help…
         </button>
 
-        <button onClick={onClick} className="Button text-lg bg-brown-light float-right">
+        <button
+          onClick={onClick}
+          className="Button text-lg bg-brown-light float-right"
+        >
           Stop asking
         </button>
       </Fragment>
@@ -84,7 +92,12 @@ class Card extends Component {
   }
 
   renderOfferHelp() {
-    const { member, helper, onClick, onReadCodeOfConductChange = () => {} } = this.props;
+    const {
+      member,
+      helper,
+      onClick,
+      onReadCodeOfConductChange = () => {},
+    } = this.props;
     const disabled = !helper.readCodeOfConduct;
     const buttonClassName = `flex-none Button text-lg ${
       disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
@@ -101,7 +114,11 @@ class Card extends Component {
         />
 
         <div className="flex items-center">
-          <button onClick={onClick} className={buttonClassName} disabled={disabled}>
+          <button
+            onClick={onClick}
+            className={buttonClassName}
+            disabled={disabled}
+          >
             Offer help
           </button>
 
@@ -138,7 +155,10 @@ class Card extends Component {
               Offering help…
             </button>
 
-            <button onClick={onClick} className="Button text-lg bg-brown-light float-right">
+            <button
+              onClick={onClick}
+              className="Button text-lg bg-brown-light float-right"
+            >
               Stop offering
             </button>
           </Fragment>
@@ -198,9 +218,15 @@ class Card extends Component {
 
     return (
       <div className={wrapperClassName} style={style}>
-        <strong className="inline-block text-lg italic mb-4">@{member.username}</strong>
+        <strong className="inline-block text-lg italic mb-4">
+          @{member.username}
+        </strong>
 
-        {owner && <em className="opacity-50 float-right text-lg font-bold">This is you</em>}
+        {owner && (
+          <em className="opacity-50 float-right text-lg font-bold">
+            This is you
+          </em>
+        )}
 
         <AvatarBadges {...member} />
 

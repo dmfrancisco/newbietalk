@@ -55,22 +55,46 @@ const AppAuthenticated = () => (
         <Fragment>
           {session.isOnboarded() && (
             <Switch>
-              <Route exact path="/app/start" render={() => <Redirect to="/app" />} />
+              <Route
+                exact
+                path="/app/start"
+                render={() => <Redirect to="/app" />}
+              />
               <Route exact path="/app" component={Home} />
             </Switch>
           )}
 
           {!session.isOnboarded() && (
             <Switch>
-              <Route exact path="/app/start" render={() => <Redirect to="/app/profile" />} />
-              <Route exact path="/app" render={() => <Redirect to="/app/profile" />} />
+              <Route
+                exact
+                path="/app/start"
+                render={() => <Redirect to="/app/profile" />}
+              />
+              <Route
+                exact
+                path="/app"
+                render={() => <Redirect to="/app/profile" />}
+              />
             </Switch>
           )}
 
           <Route path="/app/profile" component={ProfileSettings} />
-          <Route exact path="/app/profile/help/avatar" component={AvatarHelpModal} />
-          <Route exact path="/app/profile/help/pronoun" component={PronounHelpModal} />
-          <Route exact path="/app/profile/help/languages" component={LanguagesHelpModal} />
+          <Route
+            exact
+            path="/app/profile/help/avatar"
+            component={AvatarHelpModal}
+          />
+          <Route
+            exact
+            path="/app/profile/help/pronoun"
+            component={PronounHelpModal}
+          />
+          <Route
+            exact
+            path="/app/profile/help/languages"
+            component={LanguagesHelpModal}
+          />
           <Route path="/app/chat/:uid" component={Chat} />
 
           <Route exact path="/app/sign-out" component={SignOut} />
