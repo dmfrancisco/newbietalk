@@ -4,9 +4,9 @@ import Modal from "./Modal";
 import Help from "../images/Help";
 import { Cross } from "../Icons";
 
-const LanguagesHelpModal = props => (
+const LanguagesHelpModal = ({ history }) => (
   <Modal
-    onDismiss={props.history.goBack}
+    onDismiss={history.goBack}
     className="pin-b pin-x absolute max-w-xl mx-auto px-15"
   >
     <div className="animated bounceInUp w-1/2">

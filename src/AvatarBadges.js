@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import "primer-tooltips/build/build.css";
 import "./tooltips.css";
 
-export default ({ languages, avatarStyles, pronoun, thanked }) => {
+const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
   let filteredLanguages = languages.filter(lang => lang.name);
 
   if (filteredLanguages.length === 0) {
@@ -47,3 +47,5 @@ export default ({ languages, avatarStyles, pronoun, thanked }) => {
     </div>
   );
 };
+
+export default AvatarBadges;

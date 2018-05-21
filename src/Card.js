@@ -212,6 +212,7 @@ class Card extends Component {
       owner = false,
       style = {},
     } = this.props;
+
     const wrapperClassName = `bg-${color}-lightest rounded-lg p-6 ${className} ${
       animated ? "animated flash" : ""
     }`;

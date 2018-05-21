@@ -89,9 +89,10 @@ class Chat extends Component {
     });
   };
 
-  handleSubmit = (session, e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
+    const { session } = this.props;
     const author = session.state.uid;
     const value = this.textarea.value;
     if (value === "") return;
@@ -100,47 +101,47 @@ class Chat extends Component {
     this.textarea.value = "";
   };
 
-  handleKeyDown = (session, e) => {
+  handleKeyDown = e => {
     if (e.keyCode === 13) {
-      if (!e.shiftKey) this.handleSubmit(session, e);
+      if (!e.shiftKey) this.handleSubmit(e);
       else this.scrollToBottom();
     }
   };
 
-  handleSuggestVideo = session => {
-    this.sendMessage(session.state.uid, `Suggested a video chat`, {
+  handleSuggestVideo = () => {
+    this.sendMessage(this.props.session.state.uid, `Suggested a video chat`, {
       auto: "suggested-video",
     });
   };
 
-  handleAcceptVideo = session => {
-    this.sendMessage(session.state.uid, "Yes, let's video chat!", {
+  handleAcceptVideo = () => {
+    this.sendMessage(this.props.session.state.uid, "Yes, let's video chat!", {
       auto: "accepted-video",
     });
   };
 
-  handleDeclineVideo = session => {
-    this.sendMessage(session.state.uid, "Sorry I can't!", {
+  handleDeclineVideo = () => {
+    this.sendMessage(this.props.session.state.uid, "Sorry I can't!", {
       auto: "declined-video",
     });
   };
 
-  handlePressGoodbye = session => {
-    this.sendMessage(session.state.uid, "Goodbye!", {
+  handlePressGoodbye = () => {
+    this.sendMessage(this.props.session.state.uid, "Goodbye!", {
       auto: "pressed-goodbye",
     });
   };
 
-  handleThankGoodbye = session => {
+  handleThankGoodbye = () => {
     this.thank(() =>
-      this.sendMessage(session.state.uid, "Bye, thank you!", {
+      this.sendMessage(this.props.session.state.uid, "Bye, thank you!", {
         auto: "replied-goodbye",
       })
     );
   };
 
-  handleReplyGoodbye = session => {
-    this.sendMessage(session.state.uid, "Bye, thank you!", {
+  handleReplyGoodbye = () => {
+    this.sendMessage(this.props.session.state.uid, "Bye, thank you!", {
       auto: "replied-goodbye",
     });
   };
@@ -166,7 +167,8 @@ class Chat extends Component {
     );
   }
 
-  renderMessages(session) {
+  renderMessages() {
+    const { session } = this.props;
     let { asker, helper, messages = [] } = this.state;
     let currentAuthorUID = null;
 
@@ -215,7 +217,7 @@ class Chat extends Component {
     });
   }
 
-  renderVideoChatActions(session, message) {
+  renderVideoChatActions(message) {
     const { asker, helper } = this.state;
     const author = message.author === asker.uid ? asker : helper;
 
@@ -231,14 +233,14 @@ class Chat extends Component {
         <div className="Message-form-actions">
           <button
             className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
-            onClick={e => this.handleAcceptVideo(session, e)}
+            onClick={this.handleAcceptVideo}
           >
             Yes, let's video chat!
           </button>
 
           <button
             className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
-            onClick={e => this.handleDeclineVideo(session, e)}
+            onClick={this.handleDeclineVideo}
           >
             Sorry, I can't!
           </button>
@@ -247,7 +249,7 @@ class Chat extends Component {
     );
   }
 
-  renderGoodbyeActions(session, message) {
+  renderGoodbyeActions(message) {
     const { asker, helper } = this.state;
     const author = message.author === asker.uid ? asker : helper;
 
@@ -264,14 +266,14 @@ class Chat extends Component {
         <div className="Message-form-actions">
           <button
             className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
-            onClick={e => this.handleThankGoodbye(session, e)}
+            onClick={this.handleThankGoodbye}
           >
             Bye, thank you!
           </button>
 
           <button
             className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
-            onClick={e => this.handleReplyGoodbye(session, e)}
+            onClick={this.handleReplyGoodbye}
           >
             Bye, see ya!
           </button>
@@ -280,7 +282,8 @@ class Chat extends Component {
     );
   }
 
-  renderDefaultActions(session, videoChatSuggested, pressedGoodbye) {
+  renderDefaultActions(videoChatSuggested, pressedGoodbye) {
+    const { session } = this.props;
     const currentUser = session.state;
     const { asker } = this.state;
     const hasActions =
@@ -288,10 +291,10 @@ class Chat extends Component {
 
     return (
       <Fragment>
-        <form onSubmit={e => this.handleSubmit(session, e)}>
+        <form onSubmit={this.handleSubmit}>
           <Textarea
             innerRef={node => (this.textarea = node)}
-            onKeyDown={e => this.handleKeyDown(session, e)}
+            onKeyDown={this.handleKeyDown}
             placeholder="Type a message…"
             className={`Message-form-textarea${hasActions ? "" : " pb-4"}`}
             rows={3}
@@ -305,7 +308,7 @@ class Chat extends Component {
             {!videoChatSuggested && (
               <button
                 className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
-                onClick={e => this.handleSuggestVideo(session, e)}
+                onClick={this.handleSuggestVideo}
               >
                 Suggest a video chat
               </button>
@@ -315,7 +318,7 @@ class Chat extends Component {
               currentUser.uid !== asker.uid && (
                 <button
                   className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
-                  onClick={e => this.handlePressGoodbye(session, e)}
+                  onClick={this.handlePressGoodbye}
                 >
                   Say goodbye
                 </button>
@@ -326,7 +329,8 @@ class Chat extends Component {
     );
   }
 
-  renderActions(session) {
+  renderActions() {
+    const { session } = this.props;
     const currentUser = session.state;
     const { asker, messages = [] } = this.state;
 
@@ -343,7 +347,7 @@ class Chat extends Component {
       videoChatSuggestion &&
       videoChatSuggestion.author !== currentUser.uid
     ) {
-      return this.renderVideoChatActions(session, videoChatSuggestion);
+      return this.renderVideoChatActions(videoChatSuggestion);
     }
 
     const goodbyeMessage = messages.find(
@@ -354,24 +358,22 @@ class Chat extends Component {
     );
 
     if (currentUser.uid === asker.uid && !goodbyeReply && goodbyeMessage) {
-      return this.renderGoodbyeActions(session, goodbyeMessage);
+      return this.renderGoodbyeActions(goodbyeMessage);
     }
 
-    return this.renderDefaultActions(
-      session,
-      !!videoChatSuggestion,
-      !!goodbyeMessage
-    );
+    return this.renderDefaultActions(!!videoChatSuggestion, !!goodbyeMessage);
   }
 
-  renderForm(session) {
+  renderForm() {
+    const { session } = this.props;
+
     return (
       <div className="Message Message--me mt-8">
         <div className="Message-author">
           <Avatar {...session.state.avatarStyles} size="4rem" />
         </div>
 
-        <div className="Message-form">{this.renderActions(session)}</div>
+        <div className="Message-form">{this.renderActions()}</div>
       </div>
     );
   }
@@ -381,22 +383,22 @@ class Chat extends Component {
     if (!asker || !helper) return null;
 
     return (
-      <Subscribe to={[SessionContainer]}>
-        {session => (
-          <div className="flex flex-col min-h-screen">
-            <Header />
+      <div className="flex flex-col min-h-screen">
+        <Header />
 
-            <div className="flex-1" />
+        <div className="flex-1" />
 
-            <div className="p-6 mx-auto w-full max-w-md mb-8">
-              {this.renderMessages(session)}
-              {this.renderForm(session)}
-            </div>
-          </div>
-        )}
-      </Subscribe>
+        <div className="p-6 mx-auto w-full max-w-md mb-8">
+          {this.renderMessages()}
+          {this.renderForm()}
+        </div>
+      </div>
     );
   }
 }
 
-export default Chat;
+export default props => (
+  <Subscribe to={[SessionContainer]}>
+    {session => <Chat {...props} session={session} />}
+  </Subscribe>
+);

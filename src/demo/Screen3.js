@@ -163,25 +163,17 @@ export default class extends Component {
 
     return (
       <Subscribe to={[DemoContainer]}>
-        {profile => {
-          let languages = profile.state.languages.filter(lang => lang.name);
-          if (languages.length === 0)
-            languages = [{ name: "English", icon: "🇺🇸" }];
+        {profile => (
+          <div className="p-6 pt-4">
+            <Header avatarStyles={profile.state.avatarStyles} />
 
-          return (
-            <div className="p-6 pt-4">
-              <Header avatarStyles={profile.state.avatarStyles} />
+            {stepIndex === 0 && this.renderStep0(profile)}
+            {stepIndex === 1 && this.renderStep1(profile)}
+            {stepIndex === 2 && this.renderStep2(profile)}
 
-              {stepIndex === 0 && this.renderStep0(profile)}
-              {stepIndex === 1 && this.renderStep1(profile)}
-              {stepIndex === 2 && this.renderStep2(profile)}
-
-              <div style={{ maxWidth: "80%" }}>
-                {this.renderProfile(profile)}
-              </div>
-            </div>
-          );
-        }}
+            <div style={{ maxWidth: "80%" }}>{this.renderProfile(profile)}</div>
+          </div>
+        )}
       </Subscribe>
     );
   }

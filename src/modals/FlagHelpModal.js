@@ -4,9 +4,9 @@ import Modal from "./Modal";
 import Flag from "../images/Flag";
 import { Cross } from "../Icons";
 
-const FlagHelpModal = props => (
+const FlagHelpModal = ({ history }) => (
   <Modal
-    onDismiss={props.history.goBack}
+    onDismiss={history.goBack}
     className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6 pt-15 overflow-hidden"
   >
     <div className="animated bounceInUp float-right w-1/2">
