@@ -2,9 +2,9 @@
   @apply .flex
     .items-center
     .relative
-    .rounded-lg;
-
-  padding: 0.5rem 0.7rem;
+    .rounded-lg
+    .p-2
+    .pl-3;
 }
 
 .Select__indicators {

@@ -12,7 +12,8 @@
   @apply .flex-none
     .absolute
     .pin-t
-    .pin-l;
+    .pin-l
+    .hidden;
 }
 
 .Message-bubble {
@@ -21,9 +22,6 @@
     .px-4
     .py-3
     .leading-normal;
-
-  margin-left: 5rem;
-  max-width: 55%;
 }
 
 .Message--me .Message-author {
@@ -34,9 +32,6 @@
 
 .Message--me .Message-bubble {
   @apply .bg-brown-lightest;
-
-  margin-left: 0;
-  margin-right: 5rem;
 }
 
 .Message-bubble--auto,
@@ -55,15 +50,11 @@
 
   max-width: 100%;
   width: 100%;
-  margin-right: 5rem;
-  margin-left: 5rem;
 }
 
 .Message-form {
   @apply .relative
     .w-full;
-
-  margin: 0 5rem;
 }
 
 .Message-form-textarea {
@@ -90,4 +81,33 @@
     .absolute
     .m-4
     .mr-2;
+}
+
+@media (min-width: config("screens.sm")) {
+  .Message-author {
+    @apply .block;
+  }
+
+  .Message-bubble {
+    margin-left: 5rem;
+    max-width: 55%;
+  }
+
+  .Message-bubble--system {
+    max-width: 100%;
+  }
+
+  .Message--me .Message-bubble {
+    margin-left: 0;
+    margin-right: 5rem;
+  }
+
+  .Message-bubble--system {
+    margin-right: 5rem;
+    margin-left: 5rem;
+  }
+
+  .Message-form {
+    margin: 0 5rem;
+  }
 }

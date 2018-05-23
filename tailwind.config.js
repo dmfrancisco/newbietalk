@@ -26,7 +26,6 @@ View the full documentation at https://tailwindcss.com.
 
 // let defaultConfig = require('tailwindcss/defaultConfig')()
 
-
 /*
 |-------------------------------------------------------------------------------
 | Colors                                    https://tailwindcss.com/docs/colors
@@ -44,17 +43,17 @@ View the full documentation at https://tailwindcss.com.
 */
 
 let colors = {
-  'transparent': 'transparent',
+  transparent: "transparent",
 
-  'black': '#2c1b18',
+  black: "#2c1b18",
   // 'grey-darkest': '#3d4852',
   // 'grey-darker': '#606f7b',
   // 'grey-dark': '#8795a1',
-  'grey': '#888888',
-  'grey-light': '#dddddd',
-  // 'grey-lighter': '#f1f5f8',
+  grey: "#888888",
+  "grey-light": "#dddddd",
+  "grey-lighter": "#f4f4f4",
   // 'grey-lightest': '#f8fafc',
-  'white': '#ffffff',
+  white: "#ffffff",
 
   // 'red-darkest': '#3b0d0c',
   // 'red-darker': '#621b18',
@@ -67,10 +66,10 @@ let colors = {
   // 'brown-darkest': '#462a16',
   // 'brown-darker': '#613b1f',
   // 'brown-dark': '#de751f',
-  'brown': '#7b5e59',
-  'brown-light': '#ffd1c6',
-  'brown-lighter': '#fde1d4',
-  'brown-lightest': '#fbf2ed',
+  brown: "#7b5e59",
+  "brown-light": "#ffd1c6",
+  "brown-lighter": "#fde1d4",
+  "brown-lightest": "#fbf2ed",
 
   // 'yellow-darkest': '#453411',
   // 'yellow-darker': '#684f1d',
@@ -78,7 +77,7 @@ let colors = {
   // 'yellow': '#ffed4a',
   // 'yellow-light': '#fff382',
   // 'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#ffefad',
+  "yellow-lightest": "#ffefad",
 
   // 'green-darkest': '#0f2f21',
   // 'green-darker': '#1a4731',
@@ -94,7 +93,7 @@ let colors = {
   // 'teal': '#4dc0b5',
   // 'teal-light': '#64d5ca',
   // 'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#c9e8dc',
+  "teal-lightest": "#c9e8dc",
 
   // 'blue-darkest': '#12283a',
   // 'blue-darker': '#1c3d5a',
@@ -102,7 +101,7 @@ let colors = {
   // 'blue': '#3490dc',
   // 'blue-light': '#6cb2eb',
   // 'blue-lighter': '#bcdefa',
-  'blue-lightest': '#d0e5f6',
+  "blue-lightest": "#d0e5f6",
 
   // 'indigo-darkest': '#191e38',
   // 'indigo-darker': '#2f365f',
@@ -118,7 +117,7 @@ let colors = {
   // 'purple': '#9561e2',
   // 'purple-light': '#a779e9',
   // 'purple-lighter': '#d6bbfc',
-  'purple-lightest': '#ddd5e9',
+  "purple-lightest": "#ddd5e9",
 
   // 'pink-darkest': '#451225',
   // 'pink-darker': '#6f213f',
@@ -127,10 +126,9 @@ let colors = {
   // 'pink-light': '#fa7ea8',
   // 'pink-lighter': '#ffbbca',
   // 'pink-lightest': '#ffebef',
-}
+};
 
 module.exports = {
-
   /*
   |-----------------------------------------------------------------------------
   | Colors                                  https://tailwindcss.com/docs/colors
@@ -145,7 +143,6 @@ module.exports = {
   */
 
   colors: colors,
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -167,12 +164,11 @@ module.exports = {
   */
 
   screens: {
-    'sm': '576px',
-    'md': '768px',
-    'lg': '992px',
-    'xl': '1200px',
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -193,43 +189,42 @@ module.exports = {
   */
 
   fonts: {
-    'sans': [
-      'Karmilla',
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
-      'sans-serif',
+    sans: [
+      "Karmilla",
+      "system-ui",
+      "BlinkMacSystemFont",
+      "-apple-system",
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      "sans-serif",
     ],
-    'serif': [
-      'Constantia',
-      'Lucida Bright',
-      'Lucidabright',
-      'Lucida Serif',
-      'Lucida',
-      'DejaVu Serif',
-      'Bitstream Vera Serif',
-      'Liberation Serif',
-      'Georgia',
-      'serif',
+    serif: [
+      "Constantia",
+      "Lucida Bright",
+      "Lucidabright",
+      "Lucida Serif",
+      "Lucida",
+      "DejaVu Serif",
+      "Bitstream Vera Serif",
+      "Liberation Serif",
+      "Georgia",
+      "serif",
     ],
-    'mono': [
-      'Menlo',
-      'Monaco',
-      'Consolas',
-      'Liberation Mono',
-      'Courier New',
-      'monospace',
-    ]
+    mono: [
+      "Menlo",
+      "Monaco",
+      "Consolas",
+      "Liberation Mono",
+      "Courier New",
+      "monospace",
+    ],
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -252,15 +247,14 @@ module.exports = {
 
   textSizes: {
     // 'xs': '.75rem',   // 12px
-    'sm': '.95rem',  // 14px
-    'base': '1.0625rem', // 17px
-    'lg': '1.3125rem',   // 21px
-    'xl': '1.5rem',      // 24px
-    '2xl': '1.875rem',   // 30px
+    sm: ".95rem", // 14px
+    base: "1.0625rem", // 17px
+    lg: "1.3125rem", // 21px
+    xl: "1.5rem", // 24px
+    "2xl": "1.875rem", // 30px
     // '3xl': '2.25rem',    // 36px
-    '4xl': '2.9375rem',  // 47px
+    "4xl": "2.9375rem", // 47px
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -277,17 +271,16 @@ module.exports = {
   */
 
   fontWeights: {
-    'hairline': 100,
-    'thin': 200,
-    'light': 300,
-    'normal': 400,
-    'medium': 500,
-    'semibold': 600,
-    'bold': 700,
-    'extrabold': 800,
-    'black': 900,
+    hairline: 100,
+    thin: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -302,12 +295,11 @@ module.exports = {
   */
 
   leading: {
-    'none': 1,
-    'tight': 1.25,
-    'normal': 1.5,
-    'loose': 2,
+    none: 1,
+    tight: 1.25,
+    normal: 1.5,
+    loose: 2,
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -322,12 +314,11 @@ module.exports = {
   */
 
   tracking: {
-    'none': '0',
+    none: "0",
     // 'tight': '-0.05em',
-    'normal': '-0.01em',
+    normal: "-0.01em",
     //'wide': '0.05em',
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -344,7 +335,6 @@ module.exports = {
 
   textColors: colors,
 
-
   /*
   |-----------------------------------------------------------------------------
   | Background colors             https://tailwindcss.com/docs/background-color
@@ -360,7 +350,6 @@ module.exports = {
 
   backgroundColors: colors,
 
-
   /*
   |-----------------------------------------------------------------------------
   | Background sizes               https://tailwindcss.com/docs/background-size
@@ -375,11 +364,10 @@ module.exports = {
   */
 
   backgroundSize: {
-    'auto': 'auto',
-    'cover': 'cover',
-    'contain': 'contain',
+    auto: "auto",
+    cover: "cover",
+    contain: "contain",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -395,14 +383,13 @@ module.exports = {
   */
 
   borderWidths: {
-    default: '1px',
-    '0': '0',
-    '2': '2px',
-    '3': '3px',
+    default: "1px",
+    "0": "0",
+    "2": "2px",
+    "3": "3px",
     // '4': '4px',
     // '8': '8px',
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -421,8 +408,7 @@ module.exports = {
   |
   */
 
-  borderColors: global.Object.assign({ default: 'currentColor' }, colors),
-
+  borderColors: global.Object.assign({ default: "currentColor" }, colors),
 
   /*
   |-----------------------------------------------------------------------------
@@ -441,13 +427,12 @@ module.exports = {
   */
 
   borderRadius: {
-    'none': '0',
+    none: "0",
     // 'sm': '.125rem',
-    default: '.25rem',
-    'lg': '.625rem',
-    'full': '9999px',
+    default: ".25rem",
+    lg: ".625rem",
+    full: "9999px",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -470,36 +455,35 @@ module.exports = {
   */
 
   width: {
-    'auto': 'auto',
-    'px': '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    '1/2': '50%',
-    '1/3': '33.33333%',
-    '2/3': '66.66667%',
-    '1/4': '25%',
-    '3/4': '75%',
-    '1/5': '20%',
-    '2/5': '40%',
-    '3/5': '60%',
-    '4/5': '80%',
-    '1/6': '16.66667%',
-    '5/6': '83.33333%',
-    'full': '100%',
-    'screen': '100vw'
+    auto: "auto",
+    px: "1px",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "24": "6rem",
+    "32": "8rem",
+    "48": "12rem",
+    "64": "16rem",
+    "1/2": "50%",
+    "1/3": "33.33333%",
+    "2/3": "66.66667%",
+    "1/4": "25%",
+    "3/4": "75%",
+    "1/5": "20%",
+    "2/5": "40%",
+    "3/5": "60%",
+    "4/5": "80%",
+    "1/6": "16.66667%",
+    "5/6": "83.33333%",
+    full: "100%",
+    screen: "100vw",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -517,25 +501,24 @@ module.exports = {
   */
 
   height: {
-    'auto': 'auto',
-    'px': '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    'full': '100%',
-    'screen': '100vh'
+    auto: "auto",
+    px: "1px",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "24": "6rem",
+    "32": "8rem",
+    "48": "12rem",
+    "64": "16rem",
+    full: "100%",
+    screen: "100vh",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -552,10 +535,9 @@ module.exports = {
   */
 
   minWidth: {
-    '0': '0',
-    'full': '100%',
+    "0": "0",
+    full: "100%",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -572,11 +554,10 @@ module.exports = {
   */
 
   minHeight: {
-    '0': '0',
-    'full': '100%',
-    'screen': '100vh'
+    "0": "0",
+    full: "100%",
+    screen: "100vh",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -596,16 +577,15 @@ module.exports = {
   maxWidth: {
     // 'xs': '20rem',
     // 'sm': '30rem',
-    'md': '38.75rem', // 620px
+    md: "38.75rem", // 620px
     // 'lg': '50rem',
-    'xl': '63.75rem', // 1020px
+    xl: "63.75rem", // 1020px
     // '2xl': '70rem',
     // '3xl': '80rem',
     // '4xl': '90rem',
     // '5xl': '100rem',
-    'full': '100%',
+    full: "100%",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -622,10 +602,9 @@ module.exports = {
   */
 
   maxHeight: {
-    'full': '100%',
-    'screen': '100vh',
+    full: "100%",
+    screen: "100vh",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -643,20 +622,19 @@ module.exports = {
   */
 
   padding: {
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
+    px: "1px",
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
     // '10': '2.5rem',
     // '12': '3rem',
     // '14': '3.5rem',
-    '15': '3.75rem'
+    "15": "3.75rem",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -674,17 +652,16 @@ module.exports = {
   */
 
   margin: {
-    'auto': 'auto',
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
+    auto: "auto",
+    px: "1px",
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -702,16 +679,15 @@ module.exports = {
   */
 
   negativeMargin: {
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
+    px: "1px",
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -730,13 +706,12 @@ module.exports = {
   */
 
   shadows: {
-    default: '5px 6px rgba(0,0,0,0.15)',
+    default: "5px 6px rgba(0,0,0,0.15)",
     // 'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
     // 'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
     // 'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'none': 'none',
+    none: "none",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -752,15 +727,14 @@ module.exports = {
   */
 
   zIndex: {
-    'auto': 'auto',
-    '0': 0,
-    '10': 10,
-    '20': 20,
-    '30': 30,
-    '40': 40,
-    '50': 50,
+    auto: "auto",
+    "0": 0,
+    "10": 10,
+    "20": 20,
+    "30": 30,
+    "40": 40,
+    "50": 50,
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -778,12 +752,11 @@ module.exports = {
   opacity: {
     // '0': '0',
     // '25': '.25',
-    '50': '.5',
+    "50": ".5",
     // '75': '.75',
-    '85': '.85',
+    "85": ".85",
     // '100': '1',
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -800,9 +773,8 @@ module.exports = {
   */
 
   svgFill: {
-    'current': 'currentColor',
+    current: "currentColor",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -819,9 +791,8 @@ module.exports = {
   */
 
   svgStroke: {
-    'current': 'currentColor',
+    current: "currentColor",
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -843,53 +814,52 @@ module.exports = {
   */
 
   modules: {
-    appearance: ['responsive'],
-    backgroundAttachment: ['responsive'],
-    backgroundColors: ['responsive', 'hover'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderColors: ['responsive', 'hover'],
-    borderRadius: ['responsive'],
-    borderStyle: ['responsive'],
-    borderWidths: ['responsive'],
-    cursor: ['responsive'],
-    display: ['responsive'],
-    flexbox: ['responsive'],
-    float: ['responsive'],
-    fonts: ['responsive'],
-    fontWeights: ['responsive', 'hover'],
-    height: ['responsive'],
-    leading: ['responsive'],
-    lists: ['responsive'],
-    margin: ['responsive'],
-    maxHeight: ['responsive'],
-    maxWidth: ['responsive'],
-    minHeight: ['responsive'],
-    minWidth: ['responsive'],
-    negativeMargin: ['responsive'],
-    opacity: ['responsive'],
-    overflow: ['responsive'],
-    padding: ['responsive'],
-    pointerEvents: ['responsive'],
-    position: ['responsive'],
-    resize: ['responsive'],
-    shadows: ['responsive'],
+    appearance: ["responsive"],
+    backgroundAttachment: ["responsive"],
+    backgroundColors: ["responsive", "hover"],
+    backgroundPosition: ["responsive"],
+    backgroundRepeat: ["responsive"],
+    backgroundSize: ["responsive"],
+    borderColors: ["responsive", "hover"],
+    borderRadius: ["responsive"],
+    borderStyle: ["responsive"],
+    borderWidths: ["responsive"],
+    cursor: ["responsive"],
+    display: ["responsive"],
+    flexbox: ["responsive"],
+    float: ["responsive"],
+    fonts: ["responsive"],
+    fontWeights: ["responsive", "hover"],
+    height: ["responsive"],
+    leading: ["responsive"],
+    lists: ["responsive"],
+    margin: ["responsive"],
+    maxHeight: ["responsive"],
+    maxWidth: ["responsive"],
+    minHeight: ["responsive"],
+    minWidth: ["responsive"],
+    negativeMargin: ["responsive"],
+    opacity: ["responsive"],
+    overflow: ["responsive"],
+    padding: ["responsive"],
+    pointerEvents: ["responsive"],
+    position: ["responsive"],
+    resize: ["responsive"],
+    shadows: ["responsive"],
     svgFill: [],
     svgStroke: [],
-    textAlign: ['responsive'],
-    textColors: ['responsive', 'hover'],
-    textSizes: ['responsive'],
-    textStyle: ['responsive', 'hover'],
-    tracking: ['responsive'],
-    userSelect: ['responsive'],
-    verticalAlign: ['responsive'],
-    visibility: ['responsive'],
-    whitespace: ['responsive'],
-    width: ['responsive'],
-    zIndex: ['responsive'],
+    textAlign: ["responsive"],
+    textColors: ["responsive", "hover"],
+    textSizes: ["responsive"],
+    textStyle: ["responsive", "hover"],
+    tracking: ["responsive"],
+    userSelect: ["responsive"],
+    verticalAlign: ["responsive"],
+    visibility: ["responsive"],
+    whitespace: ["responsive"],
+    width: ["responsive"],
+    zIndex: ["responsive"],
   },
-
 
   /*
   |-----------------------------------------------------------------------------
@@ -912,7 +882,6 @@ module.exports = {
     // }),
   ],
 
-
   /*
   |-----------------------------------------------------------------------------
   | Advanced Options         https://tailwindcss.com/docs/configuration#options
@@ -924,9 +893,8 @@ module.exports = {
   */
 
   options: {
-    prefix: '',
+    prefix: "",
     important: false,
-    separator: ':',
+    separator: ":",
   },
-
-}
+};

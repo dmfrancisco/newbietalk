@@ -190,6 +190,38 @@ class Chat extends Component {
     );
   }
 
+  renderIntro() {
+    let { asker, helper } = this.state;
+
+    return (
+      <div className="Message">
+        <div className="Message-bubble Message-bubble--system py-6 mt-0 mb-8">
+          <div className="mb-2">
+            <Avatar
+              {...asker.avatarStyles}
+              size="4rem"
+              className="inline-block mr-4"
+            />
+
+            <Avatar
+              {...helper.avatarStyles}
+              size="4rem"
+              className="inline-block"
+            />
+          </div>
+
+          <p className="text-grey">
+            Welcome! This is the beginning of a conversation. You can start by
+            saying hello!{" "}
+            <span role="img" aria-label="wave">
+              👋
+            </span>
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   renderMessages() {
     const { session } = this.props;
     let { asker, helper, messages = [] } = this.state;
@@ -259,14 +291,14 @@ class Chat extends Component {
 
         <div className="Message-form-actions">
           <button
-            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 mb-2 rounded tracking-normal"
             onClick={this.handleAcceptVideo}
           >
             Yes, let's video chat!
           </button>
 
           <button
-            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 mb-2 rounded tracking-normal"
             onClick={this.handleDeclineVideo}
           >
             Sorry, I can't!
@@ -292,14 +324,14 @@ class Chat extends Component {
 
         <div className="Message-form-actions">
           <button
-            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 mb-2 rounded tracking-normal"
             onClick={this.handleThankGoodbye}
           >
             Bye, thank you!
           </button>
 
           <button
-            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 rounded tracking-normal"
+            className="Button border-none bg-teal-lightest py-2 px-3 mr-2 mb-2 rounded tracking-normal"
             onClick={this.handleReplyGoodbye}
           >
             Bye, see ya!
@@ -334,7 +366,7 @@ class Chat extends Component {
 
             {!videoChatSuggested && (
               <button
-                className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
+                className="Button border-none bg-brown-light py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
                 onClick={this.handleSuggestVideo}
               >
                 Suggest a video chat
@@ -344,7 +376,7 @@ class Chat extends Component {
             {!pressedGoodbye &&
               currentUser.uid !== asker.uid && (
                 <button
-                  className="Button border-none bg-brown-light py-2 px-3 mr-2 rounded text-sm tracking-normal"
+                  className="Button border-none bg-brown-light py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
                   onClick={this.handlePressGoodbye}
                 >
                   Say goodbye
@@ -437,12 +469,13 @@ class Chat extends Component {
     if (!asker || !helper) return null;
 
     return (
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col">
         <Header />
 
         <div className="flex-1" />
 
-        <div className="p-6 mx-auto w-full max-w-md mb-8">
+        <div className="p-3 mx-auto w-full max-w-md mb-8">
+          {this.renderIntro()}
           {this.renderMessages()}
           {this.renderForm()}
         </div>

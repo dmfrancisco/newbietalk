@@ -10,10 +10,11 @@ class Card extends Component {
       onReadCodeOfConductChange,
       validate = true,
     } = this.props;
+
     const helpDescription = member.helpDescription || "";
     const disabled =
       validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
-    const buttonClassName = `flex-none Button text-lg ${
+    const buttonClassName = `flex-none Button ${
       disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
     }`;
 
@@ -63,14 +64,11 @@ class Card extends Component {
           value={member.helpDescription}
         />
 
-        <button className="Button Button--disabled text-lg italic" disabled>
-          Asking for help…
+        <button className="Button Button--disabled italic" disabled>
+          Asking…
         </button>
 
-        <button
-          onClick={onClick}
-          className="Button text-lg bg-brown-light float-right"
-        >
+        <button onClick={onClick} className="Button bg-brown-light float-right">
           Stop asking
         </button>
       </Fragment>
@@ -78,14 +76,14 @@ class Card extends Component {
   }
 
   renderAcceptHelp() {
-    const { onClick, helper } = this.props;
+    const { onClick, member } = this.props;
 
-    if (helper.chatKey) {
-      return this.renderOpenChat(helper.chatKey);
+    if (member.chatKey) {
+      return this.renderOpenChat(member.chatKey);
     }
 
     return (
-      <button className="Button text-lg bg-brown-light mt-4" onClick={onClick}>
+      <button className="Button bg-brown-light mt-4" onClick={onClick}>
         Accept help
       </button>
     );
@@ -98,8 +96,9 @@ class Card extends Component {
       onClick,
       onReadCodeOfConductChange = () => {},
     } = this.props;
+
     const disabled = !helper.readCodeOfConduct;
-    const buttonClassName = `flex-none Button text-lg ${
+    const buttonClassName = `flex-none Button ${
       disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
     }`;
 
@@ -129,7 +128,7 @@ class Card extends Component {
               checked={helper.readCodeOfConduct}
               onChange={onReadCodeOfConductChange}
             />{" "}
-            I’ve read the <br /> Code of Conduct
+            I’ve read the Code of Conduct
           </label>
         </div>
       </Fragment>
@@ -151,13 +150,13 @@ class Card extends Component {
 
         {!helper.chatKey && (
           <Fragment>
-            <button className="Button Button--disabled text-lg italic" disabled>
-              Offering help…
+            <button className="Button Button--disabled italic" disabled>
+              Offering…
             </button>
 
             <button
               onClick={onClick}
-              className="Button text-lg bg-brown-light float-right"
+              className="Button bg-brown-light float-right"
             >
               Stop offering
             </button>
@@ -177,7 +176,7 @@ class Card extends Component {
         href={chatUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="Button text-lg bg-brown-light"
+        className="Button bg-brown-light"
       >
         Open chat
       </a>
@@ -206,28 +205,31 @@ class Card extends Component {
   render() {
     const {
       member,
-      color = "brown",
+      color,
       animated = false,
       className = "",
       owner = false,
-      style = {},
     } = this.props;
 
-    const wrapperClassName = `bg-${color}-lightest rounded-lg p-6 ${className} ${
+    const wrapperClassName = `bg-${
+      owner ? "brown" : color
+    }-lightest rounded-lg p-4 md:p-6 overflow-hidden ${className} ${
       animated ? "animated flash" : ""
     }`;
 
     return (
-      <div className={wrapperClassName} style={style}>
-        <strong className="inline-block text-lg italic mb-4">
-          @{member.username}
-        </strong>
+      <div className={wrapperClassName} style={{ maxWidth: "30rem" }}>
+        <div className="h-8 overflow-hidden">
+          <strong className="inline-block text-lg italic mb-4 mr-2">
+            @{member.username}
+          </strong>
 
-        {owner && (
-          <em className="opacity-50 float-right text-lg font-bold">
-            This is you
-          </em>
-        )}
+          {owner && (
+            <em className="opacity-50 float-right text-lg font-bold">
+              This is you
+            </em>
+          )}
+        </div>
 
         <AvatarBadges {...member} />
 

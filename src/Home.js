@@ -7,129 +7,167 @@ import Card from "./Card";
 
 class Home extends Component {
   getColor(index) {
-    const colors = ["teal", "blue", "purple"];
+    const colors = ["purple", "teal", "blue"];
     return colors[index % colors.length];
+  }
+
+  renderProfile() {
+    const { session } = this.props;
+
+    return (
+      <Fragment>
+        <h4 className="text-lg italic mb-4">Your profile</h4>
+
+        <div className="mb-8 flex">
+          <Card
+            member={session.state}
+            onHelpDescriptionChange={e =>
+              session.updateProfile({
+                helpDescription: e.target.value,
+              })
+            }
+            onReadCodeOfConductChange={e =>
+              session.updateProfile({
+                readCodeOfConduct: e.target.checked,
+              })
+            }
+            onClick={session.ask}
+            action="ask"
+            owner
+            className="w-full md:w-1/2 md:mr-2"
+          />
+
+          <div className="w-1/2 mr-2 bg-grey-lighter rounded-lg hidden md:block" />
+        </div>
+      </Fragment>
+    );
+  }
+
+  renderOffering() {
+    const { session, asks } = this.props;
+    const userAsk = asks.state.current[session.state.uid] || {};
+    const helpers = Object.values(userAsk.helpers || {});
+
+    return (
+      <div className="mb-8">
+        <h4 className="text-lg italic mb-4">Members offering help</h4>
+
+        <div className="flex flex-wrap">
+          {helpers.map((helper, index) => {
+            return (
+              <div
+                key={helper.uid}
+                className="w-full mb-2 md:w-1/2 md:pr-2 lg:w-1/3"
+              >
+                <Card
+                  color={this.getColor(index)}
+                  member={helper}
+                  onClick={() => asks.accept(session.state, helper)}
+                  action="accept"
+                  className="w-full h-full"
+                />
+              </div>
+            );
+          })}
+
+          {this.renderPlaceholders(3 - helpers.length % 3)}
+        </div>
+
+        {helpers.length === 0 && <p>Waiting for members to show up…</p>}
+      </div>
+    );
+  }
+
+  renderAsking() {
+    const { session, asks } = this.props;
+    const currentUser = session.state;
+    const currentAsks = Object.values(asks.state.current).reverse();
+
+    return (
+      <Fragment>
+        <h4 className="text-lg italic mb-6">Asking for help</h4>
+
+        <div className="flex flex-wrap">
+          {currentAsks.map(({ asker, helpers = {} }, index) => {
+            const userHelp = helpers[currentUser.uid] || {};
+            const userIsHelping = Object.values(userHelp).length > 0;
+            let props = {};
+
+            if (asker.uid === currentUser.uid) {
+              props = {
+                member: currentUser,
+                onClick: session.stopAsking,
+                action: "asking",
+                owner: true,
+              };
+            } else if (userIsHelping) {
+              props = {
+                member: asker,
+                helper: userHelp,
+                onClick: () => asks.stopOffer(asker.uid, currentUser),
+                action: "offering",
+              };
+            } else {
+              props = {
+                member: asker,
+                helper: currentUser,
+                onClick: () => asks.offer(asker.uid, currentUser),
+                onReadCodeOfConductChange: e =>
+                  session.updateProfile({
+                    readCodeOfConduct: e.target.checked,
+                  }),
+                action: "offer",
+              };
+            }
+
+            return (
+              <div
+                key={asker.uid}
+                className="w-full mb-2 md:w-1/2 md:pr-2 lg:w-1/3"
+              >
+                <Card
+                  className="w-full h-full"
+                  color={this.getColor(index)}
+                  {...props}
+                />
+              </div>
+            );
+          })}
+
+          {this.renderPlaceholders(3 - currentAsks.length % 3)}
+        </div>
+
+        {currentAsks.length === 0 && (
+          <p>It looks like nobody is asking for help at the moment.</p>
+        )}
+      </Fragment>
+    );
+  }
+
+  renderPlaceholders(length) {
+    return [...Array(length)].map((el, index) => (
+      <div
+        key={`placeholder-${index}`}
+        className="w-full mb-2 md:w-1/2 md:pr-2 lg:w-1/3 hidden md:block"
+      >
+        <div className="w-full h-full bg-grey-lighter rounded-lg" />
+      </div>
+    ));
   }
 
   render() {
     const { session, asks } = this.props;
     const userAsk = asks.state.current[session.state.uid] || {};
-    const helpers = Object.values(userAsk.helpers || {});
     const userIsAsking = Object.values(userAsk).length > 0;
-    const currentAsks = Object.values(asks.state.current);
 
     return (
       <Fragment>
         <Header />
 
-        <div className="px-6 mx-auto max-w-xl mb-8">
-          {userIsAsking && (
-            <div className="mb-8">
-              <h4 className="text-lg italic mb-4">Members offering help</h4>
-
-              {helpers.map((helper, index) => {
-                return (
-                  <Card
-                    key={helper.uid}
-                    color={this.getColor(index)}
-                    member={session.state}
-                    helper={helper}
-                    onClick={() => asks.accept(session.state, helper)}
-                    action="accept"
-                    className="mr-2 mb-2 inline-block"
-                    style={{ width: "18rem" }}
-                  />
-                );
-              })}
-
-              {helpers.length === 0 && <p>Waiting for members to show up…</p>}
-            </div>
-          )}
-
-          {!userIsAsking && (
-            <div className="mb-8">
-              <h4 className="text-lg italic mb-4">Your profile</h4>
-
-              <Card
-                member={session.state}
-                onHelpDescriptionChange={e =>
-                  session.updateProfile({
-                    helpDescription: e.target.value,
-                  })
-                }
-                onReadCodeOfConductChange={e =>
-                  session.updateProfile({
-                    readCodeOfConduct: e.target.checked,
-                  })
-                }
-                onClick={session.ask}
-                action="ask"
-                owner
-                className="mb-8"
-                style={{ width: "32rem" }}
-              />
-            </div>
-          )}
-
-          <h4 className="text-lg italic mb-6">Asking for help</h4>
-
-          <div className="flex flex-wrap items-start">
-            {currentAsks.map(({ asker, helpers = {} }, index) => {
-              const userHelp = helpers[session.state.uid] || {};
-              const userIsHelping = Object.values(userHelp).length > 0;
-
-              if (asker.uid === session.state.uid) {
-                return (
-                  <Card
-                    key={session.state.uid}
-                    member={session.state}
-                    onClick={session.stopAsking}
-                    action="asking"
-                    owner
-                    className="mr-2 mb-2 flex-none"
-                    style={{ width: "25.5rem" }}
-                  />
-                );
-              }
-
-              if (userIsHelping) {
-                return (
-                  <Card
-                    key={asker.uid}
-                    color={this.getColor(index)}
-                    member={asker}
-                    helper={userHelp}
-                    onClick={() => asks.stopOffer(asker.uid, session.state)}
-                    action="offering"
-                    className="mr-2 mb-2 flex-none"
-                    style={{ width: "25.5rem" }}
-                  />
-                );
-              }
-
-              return (
-                <Card
-                  key={asker.uid}
-                  color={this.getColor(index)}
-                  member={asker}
-                  helper={session.state}
-                  onClick={() => asks.offer(asker.uid, session.state)}
-                  onReadCodeOfConductChange={e =>
-                    session.updateProfile({
-                      readCodeOfConduct: e.target.checked,
-                    })
-                  }
-                  action="offer"
-                  className="mr-2 mb-2 flex-none"
-                  style={{ width: "25.5rem" }}
-                />
-              );
-            })}
-          </div>
-
-          {currentAsks.length === 0 && (
-            <p>It looks like nobody is asking for help at the moment.</p>
-          )}
+        <div className="px-3 md:p-6 mx-auto max-w-xl mb-8">
+          {userIsAsking && this.renderOffering()}
+          {!userIsAsking && this.renderProfile()}
+          {this.renderAsking()}
         </div>
       </Fragment>
     );

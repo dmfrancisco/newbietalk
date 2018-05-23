@@ -4,6 +4,20 @@ body {
     .font-sans
     .antialiased
     .tracking-normal;
+
+  min-width: 240px;
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 15.06px; /* `text-base` becomes 16px */
+  }
+}
+
+@media (max-width: 279px) {
+  html {
+    font-size: 13px; /* Weirdly small screens */
+  }
 }
 
 svg {

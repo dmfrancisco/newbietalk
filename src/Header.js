@@ -43,7 +43,7 @@ class Header extends Component {
           );
 
           return (
-            <header className="flex items-center mb-3 p-3 pl-6">
+            <header className="flex items-center p-3 md:px-6 md:mb-3">
               <Link to="/app" className="flex-none text-inherit">
                 <Logo width={180} height={24} />
               </Link>
