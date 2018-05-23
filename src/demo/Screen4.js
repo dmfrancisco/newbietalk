@@ -3,6 +3,7 @@ import { Subscribe } from "unstated";
 import DemoContainer from "../containers/DemoContainer";
 import Header from "./Header";
 import Avatar from "../Avatar";
+import FeedbackBuilder from "../FeedbackBuilder";
 
 const durations = [
   1800,
@@ -356,60 +357,13 @@ export default class extends Component {
               )}
 
               {stepIndex >= 16 && (
-                <div
-                  className="Box bg-purple-lightest p-6 text-center m-6 italic leading-normal"
+                <FeedbackBuilder
+                  author={profile.state}
+                  about={helper}
+                  className="m-6"
                   style={{ marginRight: "5rem", marginLeft: "5rem" }}
-                >
-                  <p className="mb-4">
-                    How are you feeling about this conversation? <br />
-                    Was @{helper.username} friendly and respectful?
-                  </p>
-                  <p className="mb-4">
-                    This feedback is private and is not shared with @{
-                      helper.username
-                    }.
-                  </p>
-                  <div className="mb-4 inline-block">
-                    <Avatar
-                      {...profile.state.avatarStyles}
-                      eyebrowType="SadConcerned"
-                      eyeType="Cry"
-                      mouthType="Sad"
-                      size="3rem"
-                      className={
-                        "inline-block mr-2" +
-                        (stepIndex >= 17 ? " opacity-50" : "")
-                      }
-                    />
-                    <Avatar
-                      {...profile.state.avatarStyles}
-                      mouthType="Serious"
-                      size="3rem"
-                      className={
-                        "inline-block mr-2" +
-                        (stepIndex >= 17 ? " opacity-50" : "")
-                      }
-                    />
-                    <Avatar
-                      {...profile.state.avatarStyles}
-                      mouthType="Twinkle"
-                      size="3rem"
-                      className={
-                        "inline-block mr-2" +
-                        (stepIndex >= 17 ? " opacity-50" : "")
-                      }
-                    />
-                    <Avatar
-                      {...profile.state.avatarStyles}
-                      eyebrowType="RaisedExcited"
-                      eyeType="Hearts"
-                      mouthType="Smile"
-                      size="3rem"
-                      className="inline-block mr-2"
-                    />
-                  </div>
-                  <p>Please, pick one.</p>
-                </div>
+                  rating={stepIndex >= 17 ? 4 : null}
+                />
               )}
 
               {stepIndex >= 17 && (
@@ -424,7 +378,7 @@ export default class extends Component {
               {stepIndex >= 17 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system mt-1">
-                    This conversation will be deleted in 6 hours.
+                    This conversation will be deleted in 48 hours.
                   </div>
                 </div>
               )}

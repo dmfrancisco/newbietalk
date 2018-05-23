@@ -16,6 +16,7 @@ const Avatar = props => {
     eyebrowType,
     mouthType,
     skinColor,
+    onClick,
   } = props;
 
   const avatarStyle = {
@@ -30,7 +31,11 @@ const Avatar = props => {
   const className = `Avatar ${props.className || ""}`;
 
   return (
-    <div style={{ width, height, fontSize }} className={className}>
+    <div
+      style={{ width, height, fontSize }}
+      className={className}
+      onClick={onClick}
+    >
       <Avataaar
         style={avatarStyle}
         topType={topType}

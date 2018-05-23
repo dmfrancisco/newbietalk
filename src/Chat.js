@@ -4,6 +4,7 @@ import Textarea from "react-autosize-textarea";
 import SessionContainer from "./containers/SessionContainer";
 import Header from "./Header";
 import Avatar from "./Avatar";
+import FeedbackBuilder from "./FeedbackBuilder";
 import firebase from "./firebase";
 
 const database = firebase.database();
@@ -146,6 +147,17 @@ class Chat extends Component {
     });
   };
 
+  handleFeedback = (rating, author, about) => {
+    database
+      .ref(`feedback/${about.uid}`)
+      .push()
+      .set(rating);
+
+    this.sendMessage(this.props.session.state.uid, null, {
+      auto: "feedback",
+    });
+  };
+
   renderVideoLink() {
     const { uid } = this.props.match.params;
     const videoLink = `https://appear.in/smalltalk-${uid}`;
@@ -167,22 +179,34 @@ class Chat extends Component {
     );
   }
 
+  renderClosed() {
+    return (
+      <div className="Message">
+        <div className="Message-bubble Message-bubble--system">
+          Thank you for your feedback! This conversation will be deleted in 48
+          hours.
+        </div>
+      </div>
+    );
+  }
+
   renderMessages() {
     const { session } = this.props;
     let { asker, helper, messages = [] } = this.state;
+    const currentUser = session.state;
     let currentAuthorUID = null;
 
     // Use latest personal data for the currently logged user
     // We don't update for the other part to avoid confusion
-    if (session.state.uid === asker.uid) {
-      asker = session.state;
+    if (currentUser.uid === asker.uid) {
+      asker = currentUser;
     } else {
-      helper = session.state;
+      helper = currentUser;
     }
 
     return messages.map(message => {
       const author = message.author === asker.uid ? asker : helper;
-      const isMyMessage = author.uid === session.state.uid;
+      const isMyMessage = author.uid === currentUser.uid;
       let avatar = null;
 
       if (currentAuthorUID !== message.author) {
@@ -201,17 +225,20 @@ class Chat extends Component {
 
       return (
         <Fragment key={message.timestamp}>
-          <div className={`Message${isMyMessage ? " Message--me" : ""}`}>
-            {avatar}
-            <div
-              className={`Message-bubble ${
-                message.auto ? "Message-bubble--auto" : ""
-              }`}
-            >
-              {message.value}
+          {!!message.value && (
+            <div className={`Message${isMyMessage ? " Message--me" : ""}`}>
+              {avatar}
+              <div
+                className={`Message-bubble ${
+                  message.auto ? "Message-bubble--auto" : ""
+                }`}
+              >
+                {message.value}
+              </div>
             </div>
-          </div>
+          )}
           {message.auto === "accepted-video" && this.renderVideoLink()}
+          {message.auto === "feedback" && isMyMessage && this.renderClosed()}
         </Fragment>
       );
     });
@@ -329,10 +356,24 @@ class Chat extends Component {
     );
   }
 
+  renderFeedbackActions(about) {
+    const { session } = this.props;
+    const currentUser = session.state;
+
+    return (
+      <FeedbackBuilder
+        author={currentUser}
+        about={about}
+        rating={null}
+        onClick={this.handleFeedback}
+      />
+    );
+  }
+
   renderActions() {
     const { session } = this.props;
     const currentUser = session.state;
-    const { asker, messages = [] } = this.state;
+    const { asker, helper, messages = [] } = this.state;
 
     const videoChatSuggestion = messages.find(
       message => message.auto === "suggested-video"
@@ -359,6 +400,19 @@ class Chat extends Component {
 
     if (currentUser.uid === asker.uid && !goodbyeReply && goodbyeMessage) {
       return this.renderGoodbyeActions(goodbyeMessage);
+    }
+
+    const feedbackMessage = messages.find(
+      message =>
+        message.auto === "feedback" && message.author === currentUser.uid
+    );
+
+    if (!feedbackMessage && currentUser.uid === asker.uid && goodbyeReply) {
+      return this.renderFeedbackActions(helper);
+    }
+
+    if (!feedbackMessage && currentUser.uid !== asker.uid && goodbyeMessage) {
+      return this.renderFeedbackActions(asker);
     }
 
     return this.renderDefaultActions(!!videoChatSuggestion, !!goodbyeMessage);

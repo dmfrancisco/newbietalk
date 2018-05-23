@@ -72,3 +72,9 @@ path /chats/{chatId}/messages {
 path /chats/{chatId}/messages/{messageId} {
   write() { isCurrentUser(this.author) }
 }
+
+/* Feedbacks */
+
+path /feedback/{aboutId} {
+  write() { isSignedIn() && !isCurrentUser(aboutId) }
+}
