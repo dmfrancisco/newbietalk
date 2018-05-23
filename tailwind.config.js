@@ -167,7 +167,7 @@ module.exports = {
     sm: "576px",
     md: "768px",
     lg: "992px",
-    // xl: "1200px",
+    xl: "1020px",
   },
 
   /*
@@ -630,7 +630,7 @@ module.exports = {
     "4": "1rem",
     "6": "1.5rem",
     "8": "2rem",
-    // '10': '2.5rem',
+    "10": "2.5rem",
     // '12': '3rem',
     // '14': '3.5rem',
     "15": "3.75rem",
@@ -661,6 +661,7 @@ module.exports = {
     "4": "1rem",
     "6": "1.5rem",
     "8": "2rem",
+    "18": "5rem",
   },
 
   /*
@@ -838,7 +839,7 @@ module.exports = {
     maxWidth: ["responsive"],
     minHeight: ["responsive"],
     minWidth: ["responsive"],
-    negativeMargin: [],
+    negativeMargin: ["responsive"],
     opacity: [],
     overflow: ["responsive"],
     padding: ["responsive"],

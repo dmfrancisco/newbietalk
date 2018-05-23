@@ -10,13 +10,19 @@ import { Brick1, Brick2 } from "./images/Bricks";
 import quotes from "./quotes.json";
 
 const Landing = () => (
-  <div className="relative max-w-xl mx-auto px-15 py-8">
+  <div className="relative max-w-xl mx-auto p-6 sm:px-10 sm:py-8 md:px-15">
     <Helmet>
       <html className="Landing bg-brown-lightest" />
     </Helmet>
 
-    <Brick1 className="absolute" style={{ top: 100, left: 100 }} />
-    <Brick2 className="absolute" style={{ top: 500, left: 850 }} />
+    <Brick1
+      className="absolute hidden md:block"
+      style={{ top: 100, left: 100 }}
+    />
+    <Brick2
+      className="absolute hidden lg:block"
+      style={{ top: 500, left: 850 }}
+    />
 
     <nav className="text-right mb-8">
       <Link className="Button" to="/app/start">
@@ -25,24 +31,27 @@ const Landing = () => (
     </nav>
 
     <header className="max-w-md mx-auto text-center">
-      <div style={{ marginBottom: "5rem" }}>
-        <Logo animated width={340} height={45} />
-      </div>
+      <Logo
+        animated
+        width={340}
+        height={45}
+        className="max-w-full mb-8 sm:mb-18"
+      />
 
-      <h2 className="text-4xl mb-8 leading-tight">
+      <h2 className="text-xl sm:text-4xl mb-8 leading-tight">
         Where aspiring tech people meet friendly professionals
       </h2>
 
       <div className="text-center mb-8">
         <Avatar
-          className="inline-block m-8"
+          className="inline-block m-2 sm:m-8"
           topType="LongHairStraight2"
           skinColor="Brown"
           eyeType="Close"
           mouthType="Smile"
         />
         <Avatar
-          className="inline-block m-8"
+          className="inline-block m-2 sm:m-8"
           topType="LongHairCurvy"
           skinColor="Black"
           hairColor="PastelPink"
@@ -50,19 +59,19 @@ const Landing = () => (
           accessoriesType="Round"
         />
         <Avatar
-          className="inline-block m-8"
+          className="inline-block m-2 sm:m-8"
           topType="LongHairShavedSides"
           eyeType="WinkWacky"
           mouthType="Twinkle"
         />
       </div>
 
-      <p className="text-xl text-brown font-bold mb-8 leading-normal">
+      <p className="text-lg sm:text-xl text-brown font-bold mb-8 leading-normal">
         So you hit a roadblock. You don’t know what to search for and the
         tech-related forums are very intimidating.
       </p>
 
-      <p className="text-xl text-brown font-bold mb-8 leading-normal">
+      <p className="text-lg sm:text-xl text-brown font-bold mb-8 leading-normal">
         Small Talk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
@@ -80,9 +89,9 @@ const Landing = () => (
       <div className="italic text-brown mb-8">It’s anonymous and free.</div>
     </header>
 
-    <div className="flex flex-wrap items-end justify-end -mx-8 mb-8">
-      <div className="w-1/2" style={{ marginBottom: -160 }}>
-        <div className="Box bg-teal-lightest mr-8 ml-2">
+    <div className="flex flex-wrap justify-center md:items-end md:justify-end md:-mx-8 mb-8">
+      <div className="Landing-fact Landing-fact--1 w-full md:w-1/2">
+        <div className="Box bg-teal-lightest md:mr-8 md:ml-2">
           <h3 className="text-lg italic m-8">
             Fact: &nbsp;We’re all beginners at something
           </h3>
@@ -100,8 +109,8 @@ const Landing = () => (
         </div>
       </div>
 
-      <div className="w-1/2" style={{ marginTop: 20 }}>
-        <div className="Box bg-blue-lightest m-6 mr-8">
+      <div className="Landing-fact Landing-fact--2 w-full md:w-1/2">
+        <div className="Box bg-blue-lightest md:m-6 md:mr-8">
           <h3 className="text-lg italic m-8">
             Fact: &nbsp;We’re all good at something
           </h3>
@@ -114,19 +123,23 @@ const Landing = () => (
         </div>
       </div>
 
-      <div className="w-1/2" style={{ marginTop: 20 }}>
+      <div className="Landing-fact Landing-fact--3 w-full hidden sm:block md:w-1/2">
         <Quotes
-          className="Box bg-purple-lightest m-4 mr-6"
+          className="Box bg-purple-lightest md:m-4 md:mr-6"
           title="Fact: &nbsp;We all make miskates"
           items={quotes}
         />
       </div>
     </div>
 
-    <div className="w-3/4 mx-auto mb-8 py-8">
+    <div className="w-full mx-auto mb-8 py-8" style={{ maxWidth: "40rem" }}>
       <h3 className="text-xl text-center mb-8">How it works</h3>
 
-      <Demo />
+      <p className="sm:hidden text-center text-brown">
+        You can try out an interactive demo in larger screens!
+      </p>
+
+      <Demo className="hidden sm:flex" />
     </div>
 
     <LandingFooter />

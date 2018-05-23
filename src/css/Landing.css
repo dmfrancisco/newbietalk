@@ -1,23 +1,42 @@
-.Landing body {
-  min-width: 1020px;
+html.Landing {
+  font-size: 15.06px; /* `text-base` becomes 16px */
 }
 
-/* Lazy temporary alternative to a real responsive design */
-
-@media (max-width: 1019px) {
-  .Landing {
-    zoom: 90%;
+@media (min-width: config("screens.xl")) {
+  html.Landing {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 919px) {
-  .Landing {
-    zoom: 80%;
+.Landing-fact {
+  margin: 1rem 0;
+  max-width: 31.6rem;
+}
+
+.Landing-footer-link {
+  @apply .block
+    .text-inherit
+    .no-underline
+    .font-bold
+    .p-1;
+}
+
+@media (min-width: config("screens.md")) {
+  .Landing-fact--1 {
+    margin-top: 0;
+    margin-bottom: -160px;
+  }
+
+  .Landing-fact--2,
+  .Landing-fact--3 {
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 }
 
-@media (max-width: 819px) {
-  .Landing {
-    zoom: 70%;
+@media (min-width: config("screens.sm")) {
+  .Landing-footer-link {
+    @apply .inline
+      .p-3;
   }
 }

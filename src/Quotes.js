@@ -54,7 +54,7 @@ class Quotes extends Component {
   }
 
   renderItem(item, className) {
-    const itemClassName = `mx-8 pl-6 pr-4 text-brown leading-normal ${className}`;
+    const itemClassName = `mx-8 pl-4 pr-2 lg:pl-6 lg:pr-4 text-brown leading-normal ${className}`;
 
     return (
       <blockquote key={item.author} className={itemClassName}>
@@ -94,7 +94,7 @@ class Quotes extends Component {
       <div className={className}>
         <h3 className="text-lg italic m-8 mb-6">{title}</h3>
 
-        <div className="flex items-center mb-8" style={{ height: 120 }}>
+        <div className="flex items-center mb-8" style={{ height: 150 }}>
           <button
             className="flex-none Button bg-grey-light -ml-8 -mr-6 -mt-8 z-10"
             onClick={this.showPrevious}

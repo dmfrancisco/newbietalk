@@ -22,6 +22,7 @@ class Demo extends Component {
   };
 
   render() {
+    const { className = "flex" } = this.props;
     const { screenIndex } = this.state;
     const currentStep = screens[screenIndex];
 
@@ -33,7 +34,7 @@ class Demo extends Component {
     }`;
 
     return (
-      <div className="mb-8 flex items-center">
+      <div className={`mb-8 items-center ${className}`}>
         <button className={previousButtonClassName} onClick={this.showPrevious}>
           <Left className="block" />
         </button>

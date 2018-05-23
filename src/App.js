@@ -74,6 +74,7 @@ const App = () => (
             <Route exact path="/thanks" component={NotFound} />
             <Route exact path="/privacy" component={NotFound} />
             <Route exact path="/terms" component={NotFound} />
+            <Route exact path="/about" component={NotFound} />
           </Fragment>
         </Route>
       </Switch>
