@@ -8,6 +8,7 @@ import Home from "./Home";
 import ProfileSettings from "./ProfileSettings";
 import SignOut from "./SignOut";
 import Loading from "./Loading";
+import Unauthenticated from "./Unauthenticated";
 
 const AvatarHelpModal = Loadable({
   loader: () => import("./modals/AvatarHelpModal"),
@@ -32,8 +33,6 @@ const Chat = Loadable({
   loading: Loading,
   delay: 0,
 });
-
-const Unauthenticated = () => <h1>Unauthenticated</h1>;
 
 const AppAuthenticated = () => (
   <Subscribe to={[SessionContainer]}>

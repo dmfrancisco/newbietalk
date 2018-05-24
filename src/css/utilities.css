@@ -5,3 +5,7 @@
 .hyphens {
   hyphens: auto;
 }
+
+.bg-noir {
+  background: #000;
+}
