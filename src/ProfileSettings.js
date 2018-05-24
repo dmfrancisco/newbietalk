@@ -76,12 +76,17 @@ class ProfileSettings extends Component {
   };
 
   render() {
+    const style = { maxWidth: "28rem" };
+
     return (
       <Fragment>
         <Header />
 
-        <form className="p-6 mx-auto max-w-md" onSubmit={this.handleSubmit}>
-          <div className="w-3/4 mx-auto rounded-lg bg-blue-lightest p-6 mb-6">
+        <form className="container max-w-xl" onSubmit={this.handleSubmit}>
+          <div
+            className="mx-auto rounded-lg bg-blue-lightest p-6 mb-6"
+            style={style}
+          >
             <h4 className="text-lg italic text-center mb-4 tracking-none">
               Pick your username
             </h4>
@@ -98,12 +103,14 @@ class ProfileSettings extends Component {
             helpUrl="/app/profile/help/avatar"
             avatarStyles={this.state.avatarStyles}
             onChange={this.setAvatarStyle}
+            style={style}
           />
 
           <PronounBuilder
             helpUrl="/app/profile/help/pronoun"
             value={this.state.pronoun}
             onChange={this.setPronoun}
+            style={style}
           />
 
           <LanguagesBuilder
@@ -111,6 +118,7 @@ class ProfileSettings extends Component {
             value={this.state.languages}
             onNameChange={this.setLanguageName}
             onIconChange={this.setLanguageIcon}
+            style={style}
           />
 
           <button className="Button bg-brown-lighter text-lg px-4 py-3 block my-8 mx-auto">

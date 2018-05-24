@@ -43,7 +43,7 @@ class Header extends Component {
           );
 
           return (
-            <header className="flex items-center p-3 md:px-6 md:mb-3">
+            <header className="container py-3 flex items-center md:mb-3">
               <Link to="/app" className="flex-none text-inherit">
                 <Logo width={180} height={24} />
               </Link>

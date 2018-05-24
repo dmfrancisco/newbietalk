@@ -1,0 +1,11 @@
+.container {
+  @apply .px-3
+    .mx-auto
+    .w-full;
+}
+
+@media (min-width: config("screens.md")) {
+  .container {
+    @apply .p-6;
+  }
+}

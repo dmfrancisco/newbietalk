@@ -54,12 +54,16 @@ class Start extends Component {
     const { email } = this.state;
 
     return (
-      <div className="p-6 mx-auto max-w-md flex justify-center items-center text-center text-lg min-h-screen">
+      <div className="container max-w-md flex justify-center items-center text-center text-lg min-h-screen">
         <Helmet>
           <html className="bg-brown-light" />
         </Helmet>
 
-        <form onSubmit={this.handleSubmit} className="w-3/4">
+        <form
+          onSubmit={this.handleSubmit}
+          className="w-full"
+          style={{ maxWidth: "22rem" }}
+        >
           <Drum className="mb-8" />
 
           <label className="block mb-8">

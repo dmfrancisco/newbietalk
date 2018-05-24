@@ -164,7 +164,7 @@ class Home extends Component {
       <Fragment>
         <Header />
 
-        <div className="px-3 md:p-6 mx-auto max-w-xl mb-8">
+        <div className="container max-w-xl mb-8">
           {userIsAsking && this.renderOffering()}
           {!userIsAsking && this.renderProfile()}
           {this.renderAsking()}

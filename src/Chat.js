@@ -195,7 +195,7 @@ class Chat extends Component {
 
     return (
       <div className="Message">
-        <div className="Message-bubble Message-bubble--system py-6 mt-0 mb-8">
+        <div className="Message-bubble Message-bubble--system py-6 mt-0 md:mb-8">
           <div className="mb-2">
             <Avatar
               {...asker.avatarStyles}
@@ -474,7 +474,7 @@ class Chat extends Component {
 
         <div className="flex-1" />
 
-        <div className="p-3 mx-auto w-full max-w-md mb-8">
+        <div className="container max-w-md mb-8">
           {this.renderIntro()}
           {this.renderMessages()}
           {this.renderForm()}

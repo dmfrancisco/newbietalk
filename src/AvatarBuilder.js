@@ -29,10 +29,19 @@ class AvatarBuilder extends Component {
   };
 
   render() {
-    const { helpUrl, avatarStyles, onChange } = this.props;
+    const {
+      helpUrl,
+      avatarStyles,
+      onChange,
+      className = "",
+      style = {},
+    } = this.props;
 
     return (
-      <div className="relative mx-auto rounded-lg bg-blue-lightest p-6 mb-6 w-3/4">
+      <div
+        className={`relative mx-auto rounded-lg bg-blue-lightest p-6 mb-6 ${className}`}
+        style={style}
+      >
         <Link
           to={helpUrl}
           className="absolute block pin-t pin-r m-2 p-2 text-inherit"

@@ -15,12 +15,14 @@ class Screen1 extends Component {
               helpUrl="/help/avatar"
               avatarStyles={profile.state.avatarStyles}
               onChange={profile.setAvatarStyle}
+              className="w-3/4"
             />
 
             <PronounBuilder
               helpUrl="/help/pronoun"
               value={profile.state.pronoun}
               onChange={profile.setPronoun}
+              className="w-3/4"
             />
 
             <LanguagesBuilder
@@ -28,6 +30,7 @@ class Screen1 extends Component {
               onNameChange={profile.setLanguageName}
               onIconChange={profile.setLanguageIcon}
               value={profile.state.languages}
+              className="w-3/4"
             />
 
             <div className="text-center my-8">
