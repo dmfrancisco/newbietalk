@@ -11,6 +11,25 @@ class Home extends Component {
     return colors[index % colors.length];
   }
 
+  ask = () => {
+    const { session, history } = this.props;
+
+    return session.ask().then(() => {
+      const flash = "Great! Let’s wait and see if someone’s available to help.";
+      history.push({ ...history.location, state: { flash } });
+    });
+  };
+
+  offer = (...args) => {
+    const { asks, history } = this.props;
+
+    return asks.offer(...args).then(() => {
+      const flash =
+        "Thanks! If they don’t reply it may be because someone else's already helping.";
+      history.push({ ...history.location, state: { flash } });
+    });
+  };
+
   renderProfile() {
     const { session } = this.props;
 
@@ -31,7 +50,7 @@ class Home extends Component {
                 readCodeOfConduct: e.target.checked,
               })
             }
-            onClick={session.ask}
+            onClick={this.ask}
             action="ask"
             owner
             className="w-full md:w-1/2 md:mr-2"
@@ -81,7 +100,10 @@ class Home extends Component {
   renderAsking() {
     const { session, asks } = this.props;
     const currentUser = session.state;
-    const currentAsks = Object.values(asks.state.current).reverse();
+    const currentAsks = Object.values(asks.state.current).sort(
+      // Show the current user's ask first
+      ({ asker }) => (asker.uid === currentUser.uid ? -1 : 0)
+    );
 
     return (
       <Fragment>
@@ -111,7 +133,7 @@ class Home extends Component {
               props = {
                 member: asker,
                 helper: currentUser,
-                onClick: () => asks.offer(asker.uid, currentUser),
+                onClick: () => this.offer(asker.uid, currentUser),
                 onReadCodeOfConductChange: e =>
                   session.updateProfile({
                     readCodeOfConduct: e.target.checked,
@@ -134,7 +156,8 @@ class Home extends Component {
             );
           })}
 
-          {this.renderPlaceholders(3 - currentAsks.length % 3)}
+          {currentAsks.length > 0 &&
+            this.renderPlaceholders(3 - currentAsks.length % 3)}
         </div>
 
         {currentAsks.length === 0 && (

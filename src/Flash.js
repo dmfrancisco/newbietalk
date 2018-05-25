@@ -3,9 +3,7 @@ import React, { Component } from "react";
 class Flash extends Component {
   handleDismiss = () => {
     const { history } = this.props;
-    const state = { ...history.location.state, flash: null };
-
-    history.replace({ ...history.location, state });
+    history.replace({ ...history.location, state: { flash: null } });
   };
 
   render() {
@@ -15,7 +13,9 @@ class Flash extends Component {
       return (
         <div className="fixed pin-t pin-x z-50 flex justify-center pointer-events-none">
           <div
-            className="Box m-6 bg-yellow-lightest px-4 py-3 text-center font-bold leading-tight cursor-pointer pointer-events-auto"
+            className={`Box m-6 bg-yellow-lightest px-4 py-3 text-center font-bold leading-tight cursor-pointer pointer-events-auto${
+              state.flashType === "error" ? " animated shake" : ""
+            }`}
             onClick={this.handleDismiss}
           >
             {state.flash}

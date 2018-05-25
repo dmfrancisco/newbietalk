@@ -1,21 +1,24 @@
 import React, { Component, Fragment } from "react";
+import { Link, withRouter } from "react-router-dom";
 import AvatarBadges from "./AvatarBadges";
 
 class Card extends Component {
   renderAskHelp() {
-    const {
-      member,
-      onClick,
-      onHelpDescriptionChange,
-      onReadCodeOfConductChange,
-      validate = true,
-    } = this.props;
-
+    const { member, onHelpDescriptionChange, validate = true } = this.props;
     const helpDescription = member.helpDescription || "";
-    const disabled =
-      validate && (helpDescription.length === 0 || !member.readCodeOfConduct);
+    let disabled = true;
+    let onClick = this.props.onClick;
+
+    if (validate && helpDescription.length === 0) {
+      onClick = this.showDescriptionFlash;
+    } else if (validate && !member.readCodeOfConduct) {
+      onClick = this.showCoCFlash;
+    } else {
+      disabled = false;
+    }
+
     const buttonClassName = `flex-none Button ${
-      disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
+      disabled ? "Button--disabled rounded-lg cursor-pointer" : "bg-brown-light"
     }`;
 
     return (
@@ -29,23 +32,11 @@ class Card extends Component {
         />
 
         <div className="flex items-center">
-          <button
-            onClick={onClick}
-            className={buttonClassName}
-            disabled={disabled}
-          >
+          <button onClick={onClick} className={buttonClassName}>
             Ask for help
           </button>
 
-          <label className="select-none ml-4">
-            <input
-              type="checkbox"
-              className="mr-1"
-              checked={member.readCodeOfConduct}
-              onChange={onReadCodeOfConductChange}
-            />{" "}
-            I’ve read the Code of Conduct
-          </label>
+          {this.renderCoC(member)}
         </div>
       </Fragment>
     );
@@ -59,9 +50,8 @@ class Card extends Component {
         <textarea
           className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
           readOnly
-          disabled
           rows={2}
-          value={member.helpDescription}
+          defaultValue={member.helpDescription}
         />
 
         <button className="Button Button--disabled italic" disabled>
@@ -83,23 +73,18 @@ class Card extends Component {
     }
 
     return (
-      <button className="Button bg-brown-light mt-4" onClick={onClick}>
+      <button className="Button bg-brown-light" onClick={onClick}>
         Accept help
       </button>
     );
   }
 
   renderOfferHelp() {
-    const {
-      member,
-      helper,
-      onClick,
-      onReadCodeOfConductChange = () => {},
-    } = this.props;
+    const { member, helper, onClick } = this.props;
 
     const disabled = !helper.readCodeOfConduct;
     const buttonClassName = `flex-none Button ${
-      disabled ? "Button--disabled rounded-lg" : "bg-brown-light"
+      disabled ? "Button--disabled rounded-lg cursor-pointer" : "bg-brown-light"
     }`;
 
     return (
@@ -107,29 +92,19 @@ class Card extends Component {
         <textarea
           className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
           readOnly
-          disabled
           rows={2}
-          value={member.helpDescription}
+          defaultValue={member.helpDescription}
         />
 
         <div className="flex items-center">
           <button
-            onClick={onClick}
+            onClick={disabled ? this.showCoCFlash : onClick}
             className={buttonClassName}
-            disabled={disabled}
           >
             Offer help
           </button>
 
-          <label className="select-none ml-4">
-            <input
-              type="checkbox"
-              className="mr-1"
-              checked={helper.readCodeOfConduct}
-              onChange={onReadCodeOfConductChange}
-            />{" "}
-            I’ve read the Code of Conduct
-          </label>
+          {this.renderCoC(helper)}
         </div>
       </Fragment>
     );
@@ -143,9 +118,8 @@ class Card extends Component {
         <textarea
           className="block border-2 px-3 py-2 rounded w-full mb-4 bg-transparent text-black"
           readOnly
-          disabled
           rows={2}
-          value={member.helpDescription}
+          defaultValue={member.helpDescription}
         />
 
         {!helper.chatKey && (
@@ -172,16 +146,48 @@ class Card extends Component {
     const chatUrl = `/app/chat/${chatKey}`;
 
     return (
-      <a
-        href={chatUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="Button bg-brown-light"
-      >
+      <a href={chatUrl} target={chatKey} className="Button bg-brown-light">
         Open chat
       </a>
     );
   }
+
+  renderCoC(user) {
+    const { onReadCodeOfConductChange = () => {} } = this.props;
+
+    return (
+      <label className="select-none ml-4">
+        <input
+          type="checkbox"
+          className="mr-1"
+          checked={user.readCodeOfConduct}
+          onChange={onReadCodeOfConductChange}
+        />{" "}
+        I’ve read the{" "}
+        <Link
+          to="/code-of-conduct"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-inherit"
+        >
+          Code of Conduct
+        </Link>
+      </label>
+    );
+  }
+
+  showCoCFlash = () => {
+    return this.showFlash("Please make sure you read the Code of Conduct!");
+  };
+
+  showDescriptionFlash = () => {
+    return this.showFlash("Please make sure you describe your problem!");
+  };
+
+  showFlash = (flash, flashType = "error") => {
+    const { history } = this.props;
+    history.push({ ...history.location, state: { flash, flashType } });
+  };
 
   renderAction() {
     const { action } = this.props;
@@ -239,4 +245,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default withRouter(Card);

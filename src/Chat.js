@@ -8,12 +8,13 @@ import FeedbackBuilder from "./FeedbackBuilder";
 import firebase from "./firebase";
 
 const database = firebase.database();
+const body =
+  document.documentElement || document.body.parentNode || document.body;
 
 class Chat extends Component {
   state = {};
-  container = document.documentElement ||
-  document.body.parentNode ||
-  document.body;
+
+  container = body;
 
   scrollToBottom = () => {
     const scrollHeight = this.container.scrollHeight;
@@ -69,6 +70,12 @@ class Chat extends Component {
     this.subscribe();
   }
 
+  chatPeer() {
+    const { asker, helper } = this.state;
+    const currentUser = this.props.session.state;
+    return currentUser.uid === asker.uid ? asker : helper;
+  }
+
   sendMessage = (author, value, options = {}) => {
     const { uid } = this.props.match.params;
     const timestamp = firebase.database.ServerValue.TIMESTAMP;
@@ -110,6 +117,13 @@ class Chat extends Component {
   };
 
   handleSuggestVideo = () => {
+    const peer = this.chatPeer();
+    const username = peer.username;
+    const pronoun = peer.pronoun.split(" ")[0].toLowerCase();
+    const question = `You are about to ask @${username} if ${pronoun} wants to video chat. Continue?`;
+
+    if (!window.confirm(question)) return;
+
     this.sendMessage(this.props.session.state.uid, `Suggested a video chat`, {
       auto: "suggested-video",
     });
@@ -128,6 +142,15 @@ class Chat extends Component {
   };
 
   handlePressGoodbye = () => {
+    const peer = this.chatPeer();
+    const username = peer.username;
+    const pronoun = peer.pronoun.split(" ")[0];
+    const question =
+      `You are about to send a goodbye message to @${username}. ${pronoun}'ll be ` +
+      `able to thank you and we'll ask you to provide feedback. Continue?`;
+
+    if (!window.confirm(question)) return;
+
     this.sendMessage(this.props.session.state.uid, "Goodbye!", {
       auto: "pressed-goodbye",
     });
@@ -345,8 +368,10 @@ class Chat extends Component {
     const { session } = this.props;
     const currentUser = session.state;
     const { asker } = this.state;
-    const hasActions =
-      !videoChatSuggested || (!pressedGoodbye && currentUser.uid !== asker.uid);
+
+    const canSuggestVideo = !pressedGoodbye && !videoChatSuggested;
+    const canSayGoodbye = !pressedGoodbye && currentUser.uid !== asker.uid;
+    const hasActions = canSuggestVideo || canSayGoodbye;
 
     return (
       <Fragment>
@@ -362,26 +387,25 @@ class Chat extends Component {
 
         {hasActions && (
           <div className="Message-form-actions">
-            <div className="mb-2 text-grey">Or pick one of these actions:</div>
+            <div className="mb-2 text-grey">Or pick an action:</div>
 
-            {!videoChatSuggested && (
+            {canSuggestVideo && (
               <button
-                className="Button border-none bg-brown-light py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
+                className="Button border-none bg-teal-lightest py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
                 onClick={this.handleSuggestVideo}
               >
-                Suggest a video chat
+                Suggest video chat
               </button>
             )}
 
-            {!pressedGoodbye &&
-              currentUser.uid !== asker.uid && (
-                <button
-                  className="Button border-none bg-brown-light py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
-                  onClick={this.handlePressGoodbye}
-                >
-                  Say goodbye
-                </button>
-              )}
+            {canSayGoodbye && (
+              <button
+                className="Button border-none bg-brown-light py-2 px-3 mr-2 mb-2 rounded text-sm tracking-normal"
+                onClick={this.handlePressGoodbye}
+              >
+                Say goodbye
+              </button>
+            )}
           </div>
         )}
       </Fragment>
