@@ -24,16 +24,17 @@ class Chat extends Component {
     this.container.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   };
 
-  componentWillUpdate() {
+  getSnapshotBeforeUpdate() {
     const scrollPos = this.container.scrollTop;
     const scrollBottom =
       this.container.scrollHeight - this.container.clientHeight;
+    const scrollAtBottom = scrollBottom <= 0 || scrollPos === scrollBottom;
 
-    this.scrollAtBottom = scrollBottom <= 0 || scrollPos === scrollBottom;
+    return { scrollAtBottom };
   }
 
-  componentDidUpdate() {
-    if (this.scrollAtBottom) {
+  componentDidUpdate(prevProps, prevState, { scrollAtBottom }) {
+    if (scrollAtBottom) {
       this.scrollToBottom();
     }
   }
