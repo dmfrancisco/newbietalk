@@ -54,9 +54,9 @@ class DemoContainer extends Container {
     },
     pronoun: "They / Them",
     languages: [
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" },
-      { name: "", icon: "🏳️" },
+      { name: "", icon: "waving_white_flag" },
+      { name: "", icon: "waving_white_flag" },
+      { name: "", icon: "waving_white_flag" },
     ],
     helpDescription:
       "I know HTML and CSS and have this simple website but I’m not sure how to make this available for free.",

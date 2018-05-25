@@ -33,7 +33,7 @@ class ProfileSettings extends Component {
   setLanguageName = (index, name) => {
     const initial = this.state.languages || [];
     const languages = [...initial];
-    if (!languages[index]) languages[index] = { icon: "🏳️" };
+    if (!languages[index]) languages[index] = { icon: "waving_white_flag" };
     languages[index].name = name;
     this.setState({ languages });
   };
@@ -121,7 +121,7 @@ class ProfileSettings extends Component {
             style={style}
           />
 
-          <button className="Button bg-brown-lighter text-lg px-4 py-3 block my-8 mx-auto">
+          <button className="Button bg-brown-lighter text-lg px-4 py-3 block mt-8 mb-18 mx-auto">
             Save profile
           </button>
         </form>

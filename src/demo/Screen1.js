@@ -33,7 +33,7 @@ class Screen1 extends Component {
               className="w-3/4"
             />
 
-            <div className="text-center my-8">
+            <div className="text-center mt-8 mb-18">
               <button
                 onClick={this.props.showNext}
                 className="Button bg-purple-lightest text-lg px-4 py-2"

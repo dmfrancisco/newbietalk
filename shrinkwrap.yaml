@@ -1,5 +1,6 @@
 dependencies:
   avataaars: 1.1.0
+  emoji-mart: 2.6.1
   firebase: 5.0.2
   firebase-bolt: 0.8.3
   focus-visible: 4.1.4
@@ -2718,6 +2719,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=
+  /emoji-mart/2.6.1:
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0-0 || ^16.0.0
+    resolution:
+      integrity: sha512-YKqPVwLW2YjsP3yli/RcmVzctOTNl2aLixfwxStIFn3SSPdfBtm3dqkLtN59dh0RlnsR40HWp0icP5DK3QYAJw==
   /emoji-regex/6.5.1:
     dev: false
     resolution:
@@ -9101,6 +9108,7 @@ shrinkwrapMinorVersion: 6
 shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0
+  emoji-mart: ^2.6.1
   firebase: ^5.0.2
   firebase-bolt: ^0.8.3
   focus-visible: ^4.1.4

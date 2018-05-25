@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "avataaars": "^1.1.0",
+    "emoji-mart": "^2.6.1",
     "firebase": "^5.0.2",
+    "firebase-bolt": "^0.8.3",
     "focus-visible": "^4.1.4",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",
@@ -26,8 +28,7 @@
     "tailwindcss": "^0.5.3",
     "typeface-karmilla": "github:dmfrancisco/typeface-karmilla",
     "unstated": "^2.0.3",
-    "url-join": "^4.0.0",
-    "firebase-bolt": "^0.8.3"
+    "url-join": "^4.0.0"
   },
   "scripts": {
     "start": "npm run start:css & react-scripts start",

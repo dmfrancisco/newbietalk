@@ -19,7 +19,6 @@
  * override them.
  */
 @import "css/global";
-@import "css/container";
 @import "css/Landing";
 @import "css/Logo";
 @import "css/Button";
@@ -29,6 +28,7 @@
 @import "css/Select";
 @import "css/Avatar";
 @import "css/Door";
+@import "css/Flags";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -40,6 +40,7 @@
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.
  */
+@import "css/container";
 @import "css/utilities";
 @import "css/animate";
 @import "css/tooltips";

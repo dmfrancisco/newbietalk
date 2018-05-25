@@ -1,11 +1,12 @@
 import React from "react";
 import Avatar from "./Avatar";
+import { Flag } from "./Flags";
 
 const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
   let filteredLanguages = languages.filter(lang => lang.name);
 
   if (filteredLanguages.length === 0) {
-    filteredLanguages = [{ name: "English", icon: "🇺🇸" }];
+    filteredLanguages = [{ name: "English", icon: "flag-gb" }];
   }
 
   return (
@@ -13,8 +14,8 @@ const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
       <Avatar {...avatarStyles} className="block mb-4" size="8rem" />
 
       <div
-        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white h-8"
-        style={{ marginLeft: "6rem" }}
+        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white"
+        style={{ marginLeft: "6rem", height: "2.2rem" }}
       >
         {filteredLanguages.map(lang => (
           <span
@@ -22,7 +23,7 @@ const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
             aria-label={lang.name}
             className="tooltipped tooltipped-s tooltipped-no-delay cursor-pointer"
           >
-            {lang.icon}{" "}
+            <Flag emoji={lang.icon} />{" "}
           </span>
         ))}
       </div>

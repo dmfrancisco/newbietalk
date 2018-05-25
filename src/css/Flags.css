@@ -1,0 +1,46 @@
+@import "emoji-mart/css/emoji-mart";
+
+.emoji-mart .emoji-mart-bar:first-child,
+.emoji-mart-category-label {
+  display: none;
+}
+
+.emoji-mart {
+  @apply .border-2
+    .border-black
+    .rounded-lg
+    .z-10
+    .absolute;
+
+  box-sizing: content-box;
+  font-family: inherit;
+}
+
+.emoji-mart-bar:last-child {
+  @apply .border-t-2
+    .border-black;
+}
+
+.emoji-mart-category .emoji-mart-emoji span {
+  @apply .cursor-pointer;
+}
+
+.emoji-mart-search {
+  padding-bottom: 6px;
+}
+
+.emoji-mart-scroll {
+  height: 140px;
+}
+
+.emoji-mart-preview {
+  height: 60px;
+}
+
+.emoji-mart-preview-emoji {
+  left: 5px;
+}
+
+.emoji-mart-preview-data {
+  left: 60px;
+}
