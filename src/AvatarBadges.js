@@ -13,7 +13,7 @@ const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
       <Avatar {...avatarStyles} className="block mb-4" size="8rem" />
 
       <div
-        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white h-8 overflow-hidden"
+        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white h-8"
         style={{ marginLeft: "6rem" }}
       >
         {filteredLanguages.map(lang => (

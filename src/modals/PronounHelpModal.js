@@ -7,9 +7,9 @@ import { Cross } from "../Icons";
 const PronounHelpModal = ({ history }) => (
   <Modal
     onDismiss={history.goBack}
-    className="pin-b pin-x absolute max-w-xl mx-auto px-15"
+    className="pin-b pin-x absolute max-w-xl mx-auto px-6 sm:px-15 pt-6 max-h-full"
   >
-    <div className="animated bounce-in-up w-1/2">
+    <div className="animated bounce-in-up" style={{ maxWidth: "28.125rem" }}>
       <div className="Box bg-purple-lightest mb-6">
         <button className="Button rounded-full bg-grey-light p-3 -mt-6 -ml-6 float-left">
           <Cross className="block" />

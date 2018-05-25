@@ -7,9 +7,12 @@ import { Cross } from "../Icons";
 const FlagHelpModal = ({ history }) => (
   <Modal
     onDismiss={history.goBack}
-    className="pin-b pin-x absolute max-w-xl mx-auto px-15 -mb-6 pt-15 overflow-hidden"
+    className="pin-b pin-x absolute max-w-xl mx-auto px-6 sm:px-15 -mb-6 pt-15 sm:overflow-hidden max-h-full"
   >
-    <div className="animated bounce-in-up float-right w-1/2">
+    <div
+      className="animated bounce-in-up float-right"
+      style={{ maxWidth: "28.125rem" }}
+    >
       <div className="Box bg-yellow-lightest hyphens mb-6">
         <button className="Button rounded-full bg-grey-light p-3 -mt-6 -ml-6 float-left">
           <Cross className="block" />
