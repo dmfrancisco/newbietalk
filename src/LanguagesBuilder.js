@@ -69,7 +69,7 @@ class LanguagesBuilder extends Component {
 
               <div className="relative">
                 <button
-                  className="flex items-center justify-center border-2 h-10 rounded text-2xl m-1 ml-2 leading-none"
+                  className="flex items-center justify-center border-2 border-black h-10 rounded text-2xl m-1 ml-2 leading-none"
                   style={{ width: "4rem" }}
                   onClick={e => this.handleIconClick(e, index)}
                 >

@@ -14,7 +14,7 @@ const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
       <Avatar {...avatarStyles} className="block mb-4" size="8rem" />
 
       <div
-        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white"
+        className="absolute pin-t pin-l inline-block px-2 rounded border-2 text-2xl bg-white whitespace-no-wrap"
         style={{ marginLeft: "6rem", height: "2.2rem" }}
       >
         {filteredLanguages.map(lang => (
@@ -37,7 +37,7 @@ const AvatarBadges = ({ languages, avatarStyles, pronoun, thanked }) => {
 
       {thanked > 0 && (
         <div
-          className="absolute pin-b pin-l -mb-2 inline-block px-2 py-1 rounded text-white font-bold"
+          className="absolute pin-b pin-l -mb-2 inline-block px-2 py-1 rounded text-white font-bold whitespace-no-wrap"
           style={{ background: "#097f1b", marginLeft: "6rem" }}
         >
           {thanked > 2 ? `Thanked ${thanked} times` : "Thanked once"}

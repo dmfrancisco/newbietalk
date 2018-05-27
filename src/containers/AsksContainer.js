@@ -25,7 +25,7 @@ class AsksContainer extends Container {
       .push().key;
 
     const updates = {};
-    updates[`/chats/${chatKey}`] = { asker, helper };
+    updates[`chats/${chatKey}`] = { asker, helper };
     updates[`asks/${asker.uid}/helpers/${helper.uid}`] = { ...helper, chatKey };
 
     return firebase

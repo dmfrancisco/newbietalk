@@ -102,7 +102,7 @@ class Home extends Component {
     const currentUser = session.state;
     const currentAsks = Object.values(asks.state.current).sort(
       // Show the current user's ask first
-      ({ asker }) => (asker.uid === currentUser.uid ? -1 : 0)
+      ({ asker }) => (asker.uid === currentUser.uid ? -1 : 1)
     );
 
     return (

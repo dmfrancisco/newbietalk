@@ -46,8 +46,7 @@ class Welcome extends Component {
 
           const { history } = this.props;
           const flash = `Oops… ${error.message}`;
-          const state = { ...history.location.state, flash };
-          history.push({ ...history.location, state });
+          history.push({ ...history.location, state: { flash } });
         });
     } else {
       // The user is not coming from an email, so redirect to homepage

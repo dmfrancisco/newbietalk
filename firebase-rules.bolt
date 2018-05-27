@@ -25,8 +25,8 @@ path /users/{userId}/thanked {
 
 type User {
   uid: String,
-  username: Username | Null,
-  languages: Languages | Null,
+  username: Username,
+  languages: Languages,
   avatarStyles: Object | Null,
   email: String | Null,
   pronoun: String | Null,

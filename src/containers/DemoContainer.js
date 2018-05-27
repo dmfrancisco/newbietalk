@@ -15,9 +15,9 @@ const helperOptions = [
     },
     pronoun: "She / Her",
     languages: [
-      { name: "Portuguese", icon: "🇵🇹" },
-      { name: "English", icon: "🇬🇧" },
-      { name: "Tetun-prasa", icon: "🇹🇱" },
+      { name: "Portuguese", icon: "flag-pt" },
+      { name: "English", icon: "flag-gb" },
+      { name: "Tetun-prasa", icon: "flag-tl" },
     ],
   },
   {
@@ -35,8 +35,8 @@ const helperOptions = [
     },
     pronoun: "He / Him",
     languages: [
-      { name: "Portuguese", icon: "🇵🇹" },
-      { name: "English", icon: "🇬🇧" },
+      { name: "Portuguese", icon: "flag-pt" },
+      { name: "English", icon: "flag-gb" },
     ],
   },
 ];

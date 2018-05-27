@@ -35,7 +35,7 @@ class Modal extends Component {
         className="fixed pin overflow-auto z-30 cursor-pointer"
         onClick={this.handleDismiss}
       >
-        <div className="fixed bg-brown-lightest pin pointer-events-none opacity-85 animated slide-in-up" />
+        <div className="fixed bg-teal-lightest pin pointer-events-none opacity-85 animated slide-in-up" />
 
         <div className={className}>{children}</div>
       </div>

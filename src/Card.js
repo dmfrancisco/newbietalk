@@ -146,7 +146,7 @@ class Card extends Component {
     const chatUrl = `/app/chat/${chatKey}`;
 
     return (
-      <a href={chatUrl} target={chatKey} className="Button bg-brown-light">
+      <a href={chatUrl} target={chatKey} className="Button bg-yellow-lightest">
         Open chat
       </a>
     );

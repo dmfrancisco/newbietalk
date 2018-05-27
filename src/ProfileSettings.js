@@ -55,10 +55,12 @@ class ProfileSettings extends Component {
       .updateProfile(this.state)
       .then(() => {
         history.push("/app", {
-          flash: "Profile saved!",
+          flash: "Profile saved! You can ask for help or help others.",
         });
       })
-      .catch(() => {
+      .catch(error => {
+        console.error(error);
+
         const { username, languages = [] } = this.state;
         let flash = "We are sorry, an error has occurred";
 
@@ -70,8 +72,7 @@ class ProfileSettings extends Component {
           flash = "Please provide at least one language name";
         }
 
-        const urlState = { ...history.location.state, flash };
-        history.push({ ...history.location, state: urlState });
+        history.push({ ...history.location, state: { flash } });
       });
   };
 

@@ -45,8 +45,7 @@ class Start extends Component {
         console.error(error);
 
         const flash = `Oops… ${error.message}`;
-        const state = { ...history.location.state, flash };
-        history.push({ ...history.location, state });
+        history.push({ ...history.location, state: { flash } });
       });
   };
 
