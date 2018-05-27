@@ -1,6 +1,7 @@
 dependencies:
   avataaars: 1.1.0
   emoji-mart: 2.6.1
+  favico.js: 0.3.10
   firebase: 5.0.2
   firebase-bolt: 0.8.3
   focus-visible: 4.1.4
@@ -3359,6 +3360,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-0eJkOzipTXWDtHkGDmxK/8lAcfg=
+  /favico.js/0.3.10:
+    dev: false
+    resolution:
+      integrity: sha1-gFhuJ6EX8kqNUcGKmb3HFNQzkwE=
   /faye-websocket/0.10.0:
     dependencies:
       websocket-driver: 0.7.0
@@ -9109,6 +9114,7 @@ shrinkwrapVersion: 3
 specifiers:
   avataaars: ^1.1.0
   emoji-mart: ^2.6.1
+  favico.js: ^0.3.10
   firebase: ^5.0.2
   firebase-bolt: ^0.8.3
   focus-visible: ^4.1.4

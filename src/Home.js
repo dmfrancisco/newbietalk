@@ -4,8 +4,60 @@ import SessionContainer from "./containers/SessionContainer";
 import AsksContainer from "./containers/AsksContainer";
 import Header from "./Header";
 import Card from "./Card";
+import Favico from "favico.js";
+
+const sound1 = new Audio("sound-1.mp3");
+const sound2 = new Audio("sound-2.mp3");
+
+const favicon = new Favico({
+  animation: "none",
+  bgColor: "#4285f4",
+});
+
+window.addEventListener("focus", event => {
+  favicon.reset();
+});
 
 class Home extends Component {
+  state = {};
+
+  static getDerivedStateFromProps(nextProps) {
+    const { session, asks } = nextProps;
+    const userUID = session.state.uid;
+    const userAsk = asks.state.current[userUID] || {};
+
+    const helpers = Object.values(userAsk.helpers || {});
+    const askers = Object.values(asks.state.current || {});
+    const accepted = askers.filter(
+      ask => ask.helpers && (ask.helpers[userUID] || {}).chatKey
+    );
+
+    const stats = {
+      helpers: helpers.length,
+      askers: askers.length,
+      accepted: accepted.length,
+    };
+
+    return { stats };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevStats = prevState.stats;
+    const { stats } = this.state;
+
+    if (prevStats.askers < stats.askers) {
+      sound1.play();
+    }
+
+    if (
+      prevStats.helpers < stats.helpers ||
+      prevStats.accepted < stats.accepted
+    ) {
+      sound2.play();
+      favicon.badge(prevStats.helpers || prevStats.accepted);
+    }
+  }
+
   getColor(index) {
     const colors = ["purple", "teal", "blue"];
     return colors[index % colors.length];
