@@ -2,12 +2,13 @@
   "name": "newbietalk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://newbie-talk-demo.firebaseapp.com",
+  "homepage": "https://newbietalk.org",
   "engines": {
     "node": "10.x"
   },
   "dependencies": {
     "avataaars": "^1.1.0",
+    "core-js": "^2.5.7",
     "emoji-mart": "^2.6.1",
     "favico.js": "^0.3.10",
     "firebase": "^5.0.2",
