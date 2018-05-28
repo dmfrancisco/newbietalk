@@ -33,7 +33,7 @@ const Landing = () => (
     <header className="max-w-md mx-auto text-center">
       <Logo
         animated
-        width={340}
+        width={374}
         height={45}
         className="max-w-full mb-8 sm:mb-18"
       />
@@ -72,7 +72,7 @@ const Landing = () => (
       </p>
 
       <p className="text-lg sm:text-xl text-brown font-bold mb-8 leading-normal">
-        Small Talk is a{" "}
+        Newbie Talk is a{" "}
         <Link to="/help/flag" className="text-inherit">
           safe place
         </Link>* where you can privately chat with another person to get code or
@@ -103,7 +103,7 @@ const Landing = () => (
           </p>
 
           <p className="text-brown leading-normal m-8">
-            Small Talk is a safe place where you can remain anonymous and share
+            Newbie Talk is a safe place where you can remain anonymous and share
             your questions privately with someone you choose to connect with.
           </p>
         </div>
@@ -132,7 +132,7 @@ const Landing = () => (
       </div>
     </div>
 
-    <div className="w-full mx-auto mb-8 py-8" style={{ maxWidth: "40rem" }}>
+    <div className="w-full mx-auto mb-8 py-8" style={{ maxWidth: "42rem" }}>
       <h3 className="text-xl text-center mb-8">How it works</h3>
 
       <p className="sm:hidden text-center text-brown">

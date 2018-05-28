@@ -277,10 +277,10 @@ export default class extends Component {
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://appear.in/smalltalk-4815162342"
+                      href="https://appear.in/newbietalk-4815162342"
                       className="text-inherit"
                     >
-                      https://appear.in/smalltalk-4815162342
+                      https://appear.in/newbietalk-4815162342
                     </a>
                   </div>
                 </div>

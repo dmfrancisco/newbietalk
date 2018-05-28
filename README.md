@@ -1,6 +1,6 @@
-![Small Talk logo](https://cdn.glitch.com/fe7cff61-183f-4cbc-bbca-80e4e664896f%2Fsmalltalk.svg?1525948269989)
+![Newbie Talk logo](https://newbietalk.org/logo.svg)
 
-Small Talk lets you privately chat with another person to get code or design help. This is a work-in-progress.
+Newbie Talk lets you privately chat with another person to get code or design help. This is a work-in-progress.
 
 ### Remixing in Glitch
 

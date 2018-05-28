@@ -5,7 +5,7 @@ import { Down } from "../Icons";
 
 export default props => (
   <header className="flex items-center mb-6">
-    <Logo width={180} height={24} className="flex-none" />
+    <Logo width={200} height={24} className="flex-none" />
 
     <div className="flex-1" />
 

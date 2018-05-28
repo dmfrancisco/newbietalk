@@ -8,7 +8,6 @@ class SessionContainer extends Container {
   state = {
     ready: false,
     uid: null,
-    email: null,
     username: "",
     pronoun: "They / Them",
     languages: [],
@@ -56,7 +55,6 @@ auth.onAuthStateChanged(user => {
     database.ref("users/" + user.uid).on("value", profile => {
       session.setState({
         uid: user.uid,
-        email: user.email,
         ...profile.val(),
         ready: true,
       });

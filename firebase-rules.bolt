@@ -28,7 +28,6 @@ type User {
   username: Username,
   languages: Languages,
   avatarStyles: Object | Null,
-  email: String | Null,
   pronoun: String | Null,
   helpDescription: String | Null,
   readCodeOfConduct: Boolean | Null,

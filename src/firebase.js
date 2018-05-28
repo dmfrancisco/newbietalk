@@ -3,12 +3,10 @@ import "firebase/auth";
 import "firebase/database";
 
 const config = {
-  apiKey: "AIzaSyDz0vZTYue3j-2oJnhaseiqQrqAZOd-z2E",
-  authDomain: "smalltalk-dd649.firebaseapp.com",
-  databaseURL: "https://smalltalk-dd649.firebaseio.com",
-  projectId: "smalltalk-dd649",
-  storageBucket: "smalltalk-dd649.appspot.com",
-  messagingSenderId: "402231690407",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
 };
 
 firebase.initializeApp(config);

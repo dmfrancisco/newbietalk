@@ -184,7 +184,7 @@ class Chat extends Component {
 
   renderVideoLink() {
     const { uid } = this.props.match.params;
-    const videoLink = `https://appear.in/smalltalk-${uid}`;
+    const videoLink = `https://appear.in/newbietalk-${uid}`;
 
     return (
       <div className="Message">

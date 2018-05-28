@@ -19,7 +19,7 @@ const FlagHelpModal = ({ history }) => (
         </button>
 
         <h3 className="text-lg italic m-8">
-          Keeping Small Talk friendly and safe
+          Keeping Newbie Talk friendly and safe
         </h3>
 
         <p className="text-brown leading-normal m-8 mb-4">

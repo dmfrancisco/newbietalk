@@ -1,8 +1,8 @@
 {
-  "name": "smalltalk",
+  "name": "newbietalk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://smalltalk.glitch.me",
+  "homepage": "https://newbie-talk-demo.firebaseapp.com",
   "engines": {
     "node": "10.x"
   },
@@ -12,6 +12,7 @@
     "favico.js": "^0.3.10",
     "firebase": "^5.0.2",
     "firebase-bolt": "^0.8.3",
+    "firebase-tools": "^3.18.5",
     "focus-visible": "^4.1.4",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",
@@ -33,11 +34,13 @@
   },
   "scripts": {
     "start": "npm run start:css & react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build": "npm run build:css && npm run build:rules && react-scripts build",
     "start:css": "postcss src/index.tw.css -o src/index.css -w",
     "build:css": "postcss src/index.tw.css -o src/index.css",
+    "build:rules": "firebase-bolt firebase-rules.bolt",
     "prettier": "prettier --write **/*.{js,jsx,json,css}",
-    "build:rules": "firebase-bolt firebase-rules.bolt"
+    "deploy": "npm run build && firebase deploy",
+    "firebase": "firebase"
   },
   "prettier": {
     "trailingComma": "es5"
