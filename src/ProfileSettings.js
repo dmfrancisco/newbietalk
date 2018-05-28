@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
+import { Helmet } from "react-helmet";
 import Header from "./Header";
 import SessionContainer from "./containers/SessionContainer";
 import AvatarBuilder from "./AvatarBuilder";
@@ -81,6 +82,10 @@ class ProfileSettings extends Component {
 
     return (
       <Fragment>
+        <Helmet>
+          <title>Edit profile</title>
+        </Helmet>
+
         <Header />
 
         <form className="container max-w-xl" onSubmit={this.handleSubmit}>

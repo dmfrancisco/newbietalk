@@ -12,6 +12,7 @@ import quotes from "./quotes.json";
 const Landing = () => (
   <div className="relative max-w-xl mx-auto p-6 sm:px-10 sm:py-8 md:px-15">
     <Helmet>
+      <title>Welcome</title>
       <html className="Landing bg-brown-lightest" />
     </Helmet>
 

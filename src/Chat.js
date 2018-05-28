@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Subscribe } from "unstated";
+import { Helmet } from "react-helmet";
 import Textarea from "react-autosize-textarea";
 import SessionContainer from "./containers/SessionContainer";
 import Header from "./Header";
@@ -86,7 +87,7 @@ class Chat extends Component {
   chatPeer() {
     const { asker, helper } = this.state;
     const currentUser = this.props.session.state;
-    return currentUser.uid === asker.uid ? asker : helper;
+    return currentUser.uid === asker.uid ? helper : asker;
   }
 
   sendMessage = (author, value, options = {}) => {
@@ -507,6 +508,10 @@ class Chat extends Component {
 
     return (
       <div className="flex flex-col">
+        <Helmet>
+          <title>{`Chat with @${this.chatPeer().username}`}</title>
+        </Helmet>
+
         <Header />
 
         <div className="flex-1" />
