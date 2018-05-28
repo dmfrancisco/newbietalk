@@ -9,6 +9,10 @@ isCurrentUser(userId) {
   auth != null && auth.uid == userId;
 }
 
+isAdmin() {
+  auth != null && auth.uid == 'admin';
+}
+
 /* Users */
 
 path /users {
@@ -58,6 +62,11 @@ path /asks/{askerId}/helpers/{helperId} {
 }
 
 /* Chats */
+
+path /chats {
+  read() { isAdmin() }
+  write() { isAdmin() }
+}
 
 path /chats/{chatId} {
   read() { isCurrentUser(this.asker.uid) || isCurrentUser(this.helper.uid) }

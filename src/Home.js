@@ -159,7 +159,7 @@ class Home extends Component {
 
     return (
       <Fragment>
-        <h4 className="text-lg italic mb-6">Asking for help</h4>
+        <h4 className="text-lg italic mb-6">Help others</h4>
 
         <div className="flex flex-wrap">
           {currentAsks.map(({ asker, helpers = {} }, index) => {

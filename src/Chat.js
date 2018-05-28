@@ -207,7 +207,7 @@ class Chat extends Component {
     return (
       <div className="Message">
         <div className="Message-bubble Message-bubble--system">
-          Thank you for your feedback! This conversation will be deleted in 48
+          Thank you for your feedback! This conversation will be deleted in 6
           hours.
         </div>
       </div>

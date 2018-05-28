@@ -378,7 +378,7 @@ export default class extends Component {
               {stepIndex >= 17 && (
                 <div className="Message">
                   <div className="Message-bubble Message-bubble--system mt-1">
-                    This conversation will be deleted in 48 hours.
+                    This conversation will be deleted in 6 hours.
                   </div>
                 </div>
               )}
