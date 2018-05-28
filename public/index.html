@@ -20,6 +20,12 @@
   <meta name="twitter:title" content="%REACT_APP_SITE_NAME%" />
   <meta name="twitter:description" content="%REACT_APP_DESCRIPTION%" />
   <meta name="twitter:image" content="%REACT_APP_URL%/favicon.png" />
+
+  <script src="https://cdn.ravenjs.com/3.24.0/raven.min.js" crossorigin="anonymous"></script>
+  <script>
+    var sentryUrl = "%REACT_APP_SENTRY_URL%";
+    if (sentryUrl) { Raven.config(sentryUrl).install(); }
+  </script>
 </head>
 
 <body>
