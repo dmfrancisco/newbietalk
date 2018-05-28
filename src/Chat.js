@@ -50,6 +50,13 @@ class Chat extends Component {
     });
   }
 
+  onChildAdd = data => {
+    const { messages = [] } = this.state;
+    const message = data.val();
+
+    this.setState({ messages: [...messages, message] });
+  };
+
   // Subscribe to new chat messages and save them to state
   subscribe() {
     const { uid } = this.props.match.params;
@@ -58,17 +65,22 @@ class Chat extends Component {
       .ref(`chats/${uid}/messages`)
       .orderByChild("timestamp") // Only trigger for new data. See gist.github.com/6383103
       .startAt(Date.now())
-      .on("child_added", data => {
-        const { messages = [] } = this.state;
-        const message = data.val();
+      .on("child_added", this.onChildAdd);
+  }
 
-        this.setState({ messages: [...messages, message] });
-      });
+  unsubscribe() {
+    const { uid } = this.props.match.params;
+
+    database.ref(`chats/${uid}/messages`).off("child_added", this.onChildAdd);
   }
 
   componentDidMount() {
     this.fetchState();
     this.subscribe();
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   chatPeer() {
