@@ -40,7 +40,7 @@ type User {
 }
 
 type Username extends String {
-  validate() { this.length > 0 && this.matches(/^(\w){1,15}$/i) }
+  validate() { this.length > 0 && this.matches(/^[a-z\d_]{0,38}$/i) }
 }
 
 type Languages extends Object {

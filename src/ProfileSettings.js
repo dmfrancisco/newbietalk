@@ -7,7 +7,7 @@ import AvatarBuilder from "./AvatarBuilder";
 import PronounBuilder from "./PronounBuilder";
 import LanguagesBuilder from "./LanguagesBuilder";
 
-const usernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+const usernameRegex = /^[a-z\d_]{0,38}$/i;
 
 class ProfileSettings extends Component {
   constructor(props) {
