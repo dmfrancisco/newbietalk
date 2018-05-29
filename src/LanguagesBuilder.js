@@ -63,11 +63,11 @@ class LanguagesBuilder extends Component {
                 type="text"
                 onChange={e => onNameChange(index, e.target.value)}
                 value={language.name}
-                className="flex-1 border-2 px-3 py-2 h-10 rounded m-1"
+                className="flex-1 w-full border-2 px-3 py-2 h-10 rounded m-1"
                 placeholder={placeholder}
               />
 
-              <div className="relative">
+              <div className="relative flex-none">
                 <button
                   className="flex items-center justify-center border-2 border-black h-10 rounded text-2xl m-1 ml-2 leading-none"
                   style={{ width: "4rem" }}

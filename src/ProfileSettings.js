@@ -102,6 +102,10 @@ class ProfileSettings extends Component {
               className="block mx-auto border-2 px-3 py-2 h-10 rounded m-1"
               value={this.state.username}
               onChange={this.setUsername}
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck="false"
             />
           </div>
 
