@@ -1,4 +1,4 @@
-![Newbie Talk logo](https://newbietalk.org/logo.svg)
+![Newbie Talk logo](./public/logo.svg#gh-light-mode-only)![Newbie Talk logo](./public/logo.svg#gh-dark-mode-only)
 
 Newbie Talk lets you privately chat with another person to get code or design help. This is a work-in-progress.
 
